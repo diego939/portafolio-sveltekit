@@ -94,7 +94,7 @@
 		<div class="flex flex-wrap gap-1 sm:gap-2 bg-white p-2 rounded-xl shadow-lg">
 			{#each categorias as categoria}
 				<button 
-					class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm md:text-base {filtroCategoria === categoria ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}"
+					class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-colors text-xs sm:text-sm md:text-base {filtroCategoria === categoria ? 'bg-purple-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}"
 					on:click={() => filtroCategoria = categoria}
 				>
 					{categoria}
@@ -133,7 +133,7 @@
 									href={proyecto.url} 
 									target="_blank" 
 									rel="noopener noreferrer"
-									class="bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-center text-xs sm:text-sm"
+									class="bg-purple-900 text-white px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors text-center text-xs sm:text-sm"
 								>
 									Código
 								</a>
@@ -141,7 +141,7 @@
 									href={proyecto.demo} 
 									target="_blank" 
 									rel="noopener noreferrer"
-									class="border border-blue-600 text-blue-600 px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors text-center text-xs sm:text-sm"
+									class="border border-purple-900 text-purple-900 px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-purple-50 transition-colors text-center text-xs sm:text-sm"
 								>
 									Demo
 								</a>
@@ -213,7 +213,7 @@
 		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">Estadísticas de Proyectos</h2>
 		<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
 			<div class="bg-white p-4 sm:p-6 rounded-xl text-center shadow-md">
-				<div class="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">{proyectos.length}</div>
+				<div class="text-2xl sm:text-3xl font-bold text-purple-900 mb-2">{proyectos.length}</div>
 				<p class="text-xs sm:text-sm text-gray-600">Proyectos Completados</p>
 			</div>
 			<div class="bg-white p-4 sm:p-6 rounded-xl text-center shadow-md">
@@ -238,7 +238,7 @@
 			Me encanta colaborar en proyectos interesantes. Si tienes una idea o necesitas ayuda con un proyecto, ¡me encantaría escucharte!
 		</p>
 		<div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-			<a href="mailto:tu@email.com" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+			<a href="mailto:tu@email.com" class="bg-purple-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors">
 				Contactar
 			</a>
 			<a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">

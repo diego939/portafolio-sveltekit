@@ -356,7 +356,7 @@
 				{#each Array(totalPaginas) as _, index}
 					<button 
 						on:click={() => irAPagina(index)}
-						class="w-3 h-3 rounded-full transition-all duration-200 {paginaActual === index ? 'bg-blue-600' : 'bg-gray-300 hover:bg-gray-400'}"
+						class="w-3 h-3 rounded-full transition-all duration-200 {paginaActual === index ? 'bg-purple-900' : 'bg-gray-300 hover:bg-gray-400'}"
 						aria-label="Ir a página {index + 1}"
 					></button>
 				{/each}
@@ -383,7 +383,7 @@
 					<div class="flex-1"></div>
 					<button 
 						on:click={() => abrirInstituto(inst.url)}
-						class="w-full bg-blue-600 text-white py-2 rounded-b-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors mt-auto"
+						class="w-full bg-purple-900 text-white py-2 rounded-b-xl flex items-center justify-center gap-2 hover:bg-purple-700 transition-colors mt-auto"
 					>
 					<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
 						<path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
@@ -401,7 +401,7 @@
 		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Logros Alcanzados</h2>
 		<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
 			<div class="text-center">
-				<div class="text-3xl font-bold text-blue-600 mb-2">{totalHorasEsfuerzo}</div>
+				<div class="text-3xl font-bold text-purple-900 mb-2">{totalHorasEsfuerzo}</div>
 				<p class="text-gray-600">Horas de esfuerzo</p>
 			</div>
 			<div class="text-center">

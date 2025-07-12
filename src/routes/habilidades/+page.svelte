@@ -182,9 +182,9 @@
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
 		<!-- Frameworks -->
 		<div class="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center">
-			<h3 class="bg-blue-600 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">FRAMEWORKS</h3>
+			<h3 class="bg-purple-900 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">FRAMEWORKS</h3>
 			<div class="flex items-center w-full">
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => prev(fwIndex, frameworks)}>&lt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => prev(fwIndex, frameworks)}>&lt;</button>
 				<div class="flex-1 flex justify-center gap-2">
 					{#each frameworks.slice($fwIndex, $fwIndex + pageSize) as fw}
 						<div class="flex flex-col items-center">
@@ -193,14 +193,14 @@
 						</div>
 					{/each}
 				</div>
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => next(fwIndex, frameworks)}>&gt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => next(fwIndex, frameworks)}>&gt;</button>
 			</div>
 		</div>
 		<!-- Librerías -->
 		<div class="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center">
-			<h3 class="bg-blue-600 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">LIBRERÍAS</h3>
+			<h3 class="bg-purple-900 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">LIBRERÍAS</h3>
 			<div class="flex items-center w-full">
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => prev(lbIndex, librerias)}>&lt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => prev(lbIndex, librerias)}>&lt;</button>
 				<div class="flex-1 flex justify-center gap-2">
 					{#each librerias.slice($lbIndex, $lbIndex + pageSize) as lb}
 						<div class="flex flex-col items-center">
@@ -209,14 +209,14 @@
 						</div>
 					{/each}
 				</div>
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => next(lbIndex, librerias)}>&gt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => next(lbIndex, librerias)}>&gt;</button>
 			</div>
 		</div>
 		<!-- Lenguajes -->
 		<div class="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center">
-			<h3 class="bg-blue-600 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">LENGUAJES</h3>
+			<h3 class="bg-purple-900 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">LENGUAJES</h3>
 			<div class="flex items-center w-full">
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => prev(lgIndex, lenguajes)}>&lt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => prev(lgIndex, lenguajes)}>&lt;</button>
 				<div class="flex-1 flex justify-center gap-2">
 					{#each lenguajes.slice($lgIndex, $lgIndex + pageSize) as lg}
 						<div class="flex flex-col items-center">
@@ -225,14 +225,14 @@
 						</div>
 					{/each}
 				</div>
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => next(lgIndex, lenguajes)}>&gt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => next(lgIndex, lenguajes)}>&gt;</button>
 			</div>
 		</div>
 		<!-- Herramientas -->
 		<div class="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center">
-			<h3 class="bg-blue-600 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">HERRAMIENTAS</h3>
+			<h3 class="bg-purple-900 text-white text-center rounded-t-xl py-2 px-4 w-full font-bold tracking-wider mb-2">HERRAMIENTAS</h3>
 			<div class="flex items-center w-full">
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => prev(hrIndex, herramientasCarrusel)}>&lt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => prev(hrIndex, herramientasCarrusel)}>&lt;</button>
 				<div class="flex-1 flex justify-center gap-2">
 					{#each herramientasCarrusel.slice($hrIndex, $hrIndex + pageSize) as hr}
 						<div class="flex flex-col items-center">
@@ -241,7 +241,7 @@
 						</div>
 					{/each}
 				</div>
-				<button class="text-3xl text-blue-400 hover:text-blue-600 focus:outline-none" on:click={() => next(hrIndex, herramientasCarrusel)}>&gt;</button>
+				<button class="text-3xl text-purple-400 hover:text-purple-900 focus:outline-none" on:click={() => next(hrIndex, herramientasCarrusel)}>&gt;</button>
 			</div>
 		</div>
 	</div>
@@ -256,7 +256,7 @@
 					<div class="flex-1 flex items-center justify-center w-full bg-cyan-400 p-6">
 						<img src={habilidad.imagen} alt={habilidad.nombre} class="h-40 object-contain transition-transform duration-300 ease-in-out hover:scale-110" />
 					</div>
-					<div class="bg-blue-600 text-white w-full text-center py-2 rounded-b-xl font-semibold text-sm flex flex-col items-center">
+					<div class="bg-purple-900 text-white w-full text-center py-2 rounded-b-xl font-semibold text-sm flex flex-col items-center">
 						<span>
 							{habilidad.valoracion}:
 							{#each Array(habilidad.estrellas) as _, i}
@@ -277,7 +277,7 @@
 		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">Estadísticas de Habilidades</h2>
 		<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
 			<div class="bg-white p-4 sm:p-6 rounded-xl text-center shadow-md">
-				<div class="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">20+</div>
+				<div class="text-2xl sm:text-3xl font-bold text-purple-900 mb-2">20+</div>
 				<p class="text-xs sm:text-sm text-gray-600">Tecnologías Dominadas</p>
 			</div>
 			<div class="bg-white p-4 sm:p-6 rounded-xl text-center shadow-md">

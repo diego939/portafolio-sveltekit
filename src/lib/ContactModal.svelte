@@ -62,8 +62,8 @@
   <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 animate-fadeIn">
       <div class="flex justify-between items-center border-b px-6 py-4">
-        <h2 class="text-xl font-bold text-blue-900 flex items-center gap-2">
-          <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4.5"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 10h18"/></svg>
+        <h2 class="text-xl font-bold text-purple-900 flex items-center gap-2">
+          <svg class="w-6 h-6 text-purple-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4.5"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M3 10h18"/></svg>
           Formulario de Contacto
         </h2>
         <button class="text-gray-400 hover:text-red-500 text-2xl font-bold" on:click={closeModal}>&times;</button>
@@ -89,7 +89,7 @@
           <textarea rows="4" class="w-full border border-blue-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" bind:value={mensaje}></textarea>
         </div>
         <div class="flex justify-center gap-3 pt-2">
-          <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded font-semibold hover:bg-blue-700 transition-colors disabled:opacity-60" disabled={loading}>
+          		<button type="submit" class="bg-purple-900 text-white px-6 py-2 rounded font-semibold hover:bg-purple-700 transition-colors disabled:opacity-60" disabled={loading}>
             {loading ? 'Enviando...' : 'Enviar'}
           </button>
           <button type="button" class="bg-red-500 text-white px-4 py-2 rounded font-semibold hover:bg-red-600 transition-colors" on:click={closeModal}>Cerrar</button>

@@ -69,13 +69,13 @@
 	<!-- Timeline de Experiencia -->
 	<div class="relative">
 		<!-- Línea de tiempo -->
-		<div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 md:w-1 bg-blue-600"></div>
+		<div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 md:w-1 bg-purple-900"></div>
 		
 		<div class="space-y-6 md:space-y-8">
 			{#each experiencia as item, index}
 				<div class="relative flex items-start space-x-4 md:space-x-6">
 					<!-- Punto en la línea de tiempo -->
-					<div class="absolute left-2 md:left-6 w-3 h-3 md:w-4 md:h-4 bg-blue-600 rounded-full border-2 md:border-4 border-white shadow-lg z-10"></div>
+					<div class="absolute left-2 md:left-6 w-3 h-3 md:w-4 md:h-4 bg-purple-900 rounded-full border-2 md:border-4 border-white shadow-lg z-10"></div>
 					
 					<!-- Contenido -->
 					<div class="ml-8 md:ml-16 bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow flex-1">
@@ -84,7 +84,7 @@
 								<span class="text-xl md:text-2xl">{item.icono}</span>
 								<div>
 									<h3 class="text-lg md:text-xl font-semibold text-gray-900">{item.cargo}</h3>
-									<p class="text-blue-600 font-medium text-sm md:text-base">{item.empresa}</p>
+									<p class="text-purple-900 font-medium text-sm md:text-base">{item.empresa}</p>
 								</div>
 							</div>
 							<span class="text-xs md:text-sm text-gray-500 bg-gray-100 px-2 md:px-3 py-1 rounded-full self-start">
@@ -117,7 +117,7 @@
 				<p class="text-gray-600">Años De Experiencia General</p>
 			</div>
 			<div class="text-center">
-				<div class="text-3xl font-bold text-blue-600 mb-2">1+</div>
+				<div class="text-3xl font-bold text-purple-900 mb-2">1+</div>
 				<p class="text-gray-600">Experiencia En Empresas</p>
 			</div>
 			<div class="text-center">
