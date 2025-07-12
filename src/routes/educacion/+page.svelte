@@ -173,13 +173,6 @@
 			credencial: "https://www.educacionit.com/perfil/diego-david-almiron-605939/certificado/57042",
 			pdf: "/documents/pdf/certificados/Diego-David Almirón-Seguridad Informática.pdf"
 		},
-		// {
-		// 	nombre: "Corrien Tech",
-		// 	duracion: "2 hs",
-		// 	imagen: "/images/certificados/CorrienTech/CorrienTech.png",
-		// 	credencial: "https://drive.google.com/file/d/1DMLsaFxYRU8LfRyRYfaEkhj5T0ey-o6N/view?usp=sharing",
-		// 	pdf: "/documents/pdf/certificados/CorrienTech.pdf"
-		// }
 	];
 
 	// Función para abrir PDF
@@ -264,34 +257,6 @@
 		</p>
 	</div>
 
-	<!-- Grid de Institutos -->
-	<section class="px-4 sm:px-6">
-		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Institutos</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-			{#each institutos as inst}
-				<div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow flex flex-col h-full min-h-[320px] sm:min-h-[370px] p-4 sm:p-6">
-					<button 
-						on:click={() => abrirInstituto(inst.url)}
-						class="w-full text-left focus:outline-none focus:ring-0 rounded-lg p-2 -m-2"
-					>
-						<img src={inst.logo} alt={inst.nombre} class="h-20 object-contain mb-4 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer" />
-					</button>
-					<p class="font-semibold text-gray-800 text-center mb-1">{inst.nombre}</p>
-					<p class="text-gray-600 text-center mb-1"><span class="font-bold">Título:</span> <span class="text-blue-700 font-medium">{inst.titulo}</span></p>
-					<p class="text-gray-500 text-center mb-4">Finalización: {inst.finalizacion}</p>
-					<div class="flex-1"></div>
-					<button 
-						on:click={() => abrirInstituto(inst.url)}
-						class="w-full bg-blue-600 text-white py-2 rounded-b-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors mt-auto"
-					>
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0A9 9 0 11 3 12a9 9 0 0118 0z" /></svg>
-						Ver
-					</button>
-				</div>
-			{/each}
-		</div>
-	</section>
-
 	<!-- Sección de Certificaciones -->
 	<section class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 mx-4 sm:mx-6">
 		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Certificaciones</h2>
@@ -358,7 +323,7 @@
 									{#if cert.pdf}
 										<button 
 											on:click={() => abrirPDF(cert.pdf)}
-											class="flex-1 bg-blue-600 text-white text-xs py-2 px-3 rounded hover:bg-blue-700 transition-colors flex items-center justify-center gap-1"
+											class="flex-1 bg-red-600 text-white text-xs py-2 px-3 rounded hover:bg-blue-700 transition-colors flex items-center justify-center gap-1"
 										>
 											<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -371,9 +336,9 @@
 											on:click={() => verificarCredencial(cert.credencial)}
 											class="flex-1 bg-green-600 text-white text-xs py-2 px-3 rounded hover:bg-green-700 transition-colors flex items-center justify-center gap-1"
 										>
-											<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-											</svg>
+										<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+											<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+										  </svg>										  
 											Verificar
 										</button>
 									{/if}
@@ -397,6 +362,38 @@
 				{/each}
 			</div>
 		{/if}
+	</section>
+
+	
+	<!-- Grid de Institutos -->
+	<section class="px-4 sm:px-6">
+		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Institutos</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+			{#each institutos as inst}
+				<div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow flex flex-col h-full min-h-[320px] sm:min-h-[370px] p-4 sm:p-6">
+					<button 
+						on:click={() => abrirInstituto(inst.url)}
+						class="w-full text-left focus:outline-none focus:ring-0 rounded-lg p-2 -m-2"
+					>
+						<img src={inst.logo} alt={inst.nombre} class="h-20 object-contain mb-4 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer" />
+					</button>
+					<p class="font-semibold text-gray-800 text-center mb-1">{inst.nombre}</p>
+					<p class="text-gray-600 text-center mb-1"><span class="font-bold">Título:</span> <span class="text-blue-700 font-medium">{inst.titulo}</span></p>
+					<p class="text-gray-500 text-center mb-4">Finalización: {inst.finalizacion}</p>
+					<div class="flex-1"></div>
+					<button 
+						on:click={() => abrirInstituto(inst.url)}
+						class="w-full bg-blue-600 text-white py-2 rounded-b-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors mt-auto"
+					>
+					<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+						<path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+						<path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+					  </svg>					  
+						Ver
+					</button>
+				</div>
+			{/each}
+		</div>
 	</section>
 
 	<!-- Sección de Logros Académicos -->
