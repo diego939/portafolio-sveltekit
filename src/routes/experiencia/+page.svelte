@@ -6,7 +6,7 @@
 		{
 			cargo: "Desarrollador Fullstack",
 			empresa: "Tob Group",
-			fecha: "2025 - 2025",
+			fecha: "2025 - Actual",
 			descripcion: "Desarrollador fullstack participando activamente en proyectos reales de alto impacto. Colaboro en el desarrollo de aplicaciones web escalables utilizando tecnologías modernas como NestJS, SvelteKit y Prisma. Participo en proyectos como 'Pirra', 'Tc2000', 'Brios' y 'Mec', aplicando metodologías ágiles y mejores prácticas de desarrollo. Utilizo herramientas de desarrollo como Postman para testing de APIs, Azure DevOps para gestión de proyectos y Git Flow para control de versiones. Trabajo en equipo implementando arquitecturas robustas con MySQL como base de datos principal.",
 			tecnologias: ["NestJS", "SvelteKit", "Prisma", "MySQL", "Postman", "Node.js", "Azure DevOps", "Git Flow"],
 			icono: "🚀"
