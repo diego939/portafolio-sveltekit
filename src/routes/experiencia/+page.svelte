@@ -6,7 +6,7 @@
 		{
 			cargo: "Desarrollador Fullstack",
 			empresa: "Tob Group",
-			fecha: "2025 - Actual",
+			fecha: "2025 - Actualidad",
 			descripcion: "Desarrollador fullstack participando activamente en proyectos reales de alto impacto. Colaboro en el desarrollo de aplicaciones web escalables utilizando tecnologías modernas como NestJS, SvelteKit y Prisma. Participo en proyectos como 'Pirra', 'Tc2000', 'Brios' y 'Mec', aplicando metodologías ágiles y mejores prácticas de desarrollo. Utilizo herramientas de desarrollo como Postman para testing de APIs, Azure DevOps para gestión de proyectos y Git Flow para control de versiones. Trabajo en equipo implementando arquitecturas robustas con MySQL como base de datos principal.",
 			tecnologias: ["NestJS", "SvelteKit", "Prisma", "MySQL", "Postman", "Node.js", "Azure DevOps", "Git Flow"],
 			icono: "🚀"
@@ -22,7 +22,7 @@
 		{
 			cargo: "Desarrollador Web",
 			empresa: "Freelance Web",
-			fecha: "2020 - Actualidad",
+			fecha: "2020 - 2024",
 			descripcion: "Desde el año 2020, he tenido el privilegio de trabajar como desarrollador web freelance, adquiriendo conocimientos especializados en tecnologías clave como Angular, Node.js, HTML5, CSS3, Bootstrap, Java, Spring Boot, JavaScript, TypeScript, jQuery, JSON. Estos lenguajes y frameworks han sido fundamentales en mi trayectoria, permitiéndome crear aplicaciones web dinámicas y atractivas. Además, he tenido la oportunidad de utilizar una variedad de herramientas que han optimizado mi flujo de trabajo. Entre ellas se encuentran Visual Studio Code, Visual Basic, Apache Netbeans, Eclipse, Sublime Text, SQL Server, MySQL Workbench, phpMyAdmin, Git y GitHub.",
 			tecnologias: ["Angular", "Node.js", "HTML5", "CSS3", "Bootstrap", "Java", "Spring Boot", "JavaScript", "TypeScript", "jQuery", "JSON", "Git", "GitHub"],
 			icono: "💻"
@@ -30,7 +30,7 @@
 		{
 			cargo: "Soporte Técnico y Mantenimiento de PC",
 			empresa: "Freelance",
-			fecha: "2017 - Actualidad",
+			fecha: "2017 - 2024",
 			descripcion: "Instalación de sistemas operativos, backup y mantenimiento de PC. Instalación de programas de edición de videos, de edición de fotos, paquetes de Microsoft 365, Microsoft Office (2010, en adelante). Se realizan instalación de sistemas operativos de todas las versiones disponibles de Windows (Windows 8, Windows 8.1, Windows 10, Windows 10 MiniOS, Windows 11).",
 			tecnologias: ["Windows 8", "Windows 8.1", "Windows 10", "Windows 11", "Microsoft Office", "Microsoft 365"],
 			icono: "🛠️"
