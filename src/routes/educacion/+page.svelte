@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	
 	// Institutos reales
 	const institutos = [
 		{
@@ -246,6 +248,11 @@
 	$: totalHorasEsfuerzo = certificados.reduce((total, cert) => {
 		return total + convertirDuracionAHoras(cert.duracion);
 	}, 0);
+	
+	// Establecer el título de la página
+	onMount(() => {
+		document.title = 'Educación - Diego David Almirón';
+	});
 </script>
 
 <div class="space-y-12">

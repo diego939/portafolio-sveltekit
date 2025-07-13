@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	
 	// Datos de ejemplo - personaliza con tu información
 	const experiencia = [
 		{
@@ -55,6 +57,11 @@
 			tecnologias: ["React Native", "Firebase", "Google Maps API"]
 		}
 	];
+	
+	// Establecer el título de la página
+	onMount(() => {
+		document.title = 'Experiencia - Diego David Almirón';
+	});
 </script>
 
 <div class="space-y-12">

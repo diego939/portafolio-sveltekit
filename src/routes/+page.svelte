@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	
 	// Datos de ejemplo - puedes personalizar estos datos
 	const nombre = "Diego David Almirón";
 	const titulo = "Analista Programador Universitario";
@@ -39,7 +41,7 @@
 	let destacadoActual = 0;
 
 	// Carrusel automático y de a tres en desktop
-	import { onMount, onDestroy } from 'svelte';
+	import { onDestroy } from 'svelte';
 	let intervalId: any;
 
 	onMount(() => {
@@ -71,6 +73,14 @@
 	}
 
 	import { contactModalOpen } from '$lib/stores/contactModal';
+	import ImageModal from '$lib/ImageModal.svelte';
+	
+	let imageModalOpen = false;
+	
+	// Establecer el título de la página
+	onMount(() => {
+		document.title = 'Inicio - Diego David Almirón';
+	});
 </script>
 
 <div class="space-y-8 sm:space-y-16">
@@ -78,7 +88,7 @@
 	<section class="text-center py-6 sm:py-8 md:py-12 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl sm:rounded-2xl md:rounded-3xl mx-4 sm:mx-6">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6">
 			<div class="mb-4 sm:mb-6 md:mb-8">
-				<div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-3 sm:mb-4 md:mb-6">
+				<div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-3 sm:mb-4 md:mb-6 cursor-pointer hover:scale-105 transition-transform" on:click={() => imageModalOpen = true}>
 					<img 
 						src="/images/profile.jpg" 
 						alt="Diego David Almirón" 
@@ -153,3 +163,11 @@
 		</div>
 	</section>
 </div>
+
+<!-- Modal de imagen -->
+<ImageModal 
+	isOpen={imageModalOpen}
+	imageSrc="/images/profile.jpg"
+	imageAlt="Diego David Almirón"
+	on:close={() => imageModalOpen = false}
+/>

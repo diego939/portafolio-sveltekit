@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	
 	// Datos de ejemplo - personaliza con tu información
 	const categoriasHabilidades = [
 		{
@@ -167,6 +169,11 @@
 	function prev(index: ReturnType<typeof writable<number>>, arr: any[]) {
 		index.update((i: number) => (i - pageSize >= 0 ? i - pageSize : Math.max(0, arr.length - (arr.length % pageSize || pageSize))));
 	}
+	
+	// Establecer el título de la página
+	onMount(() => {
+		document.title = 'Habilidades - Diego David Almirón';
+	});
 </script>
 
 <div class="space-y-8 sm:space-y-12">

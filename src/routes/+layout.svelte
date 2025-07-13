@@ -3,11 +3,84 @@
 	import ContactModal from '$lib/ContactModal.svelte';
 	import { contactModalOpen } from '$lib/stores/contactModal';
 	import {Tooltip} from 'flowbite-svelte'
+	import { page } from '$app/stores';
 	
 	let menuAbierto = false;
 	
 	function toggleMenu() {
 		menuAbierto = !menuAbierto;
+	}
+	
+	// Función para obtener el título y descripción según la ruta
+	function getPageInfo() {
+		const path = $page.url.pathname;
+		
+		switch (path) {
+			case '/':
+				return {
+					title: 'Diego David Almirón - Desarrollador Full Stack',
+					description: 'Analista Programador Universitario y Desarrollador Full Stack. Especializado en Java, Spring Boot, Angular, Node.js y tecnologías web modernas.'
+				};
+			case '/educacion':
+				return {
+					title: 'Educación - Diego David Almirón',
+					description: 'Formación académica, certificaciones y trayectoria educativa de Diego David Almirón. Analista Programador Universitario con múltiples certificaciones en desarrollo web.'
+				};
+			case '/experiencia':
+				return {
+					title: 'Experiencia - Diego David Almirón',
+					description: 'Experiencia profesional y trayectoria laboral de Diego David Almirón. Proyectos destacados y roles en diferentes empresas como desarrollador Full Stack.'
+				};
+			case '/habilidades':
+				return {
+					title: 'Habilidades - Diego David Almirón',
+					description: 'Habilidades técnicas, tecnologías y competencias de Diego David Almirón. Especializado en Java, Spring Boot, Angular, Node.js y desarrollo web moderno.'
+				};
+			case '/proyectos':
+				return {
+					title: 'Proyectos - Diego David Almirón',
+					description: 'Portafolio de proyectos desarrollados por Diego David Almirón. Aplicaciones web, sistemas empresariales y soluciones tecnológicas innovadoras.'
+				};
+			default:
+				return {
+					title: 'Diego David Almirón - Desarrollador Full Stack',
+					description: 'Analista Programador Universitario y Desarrollador Full Stack. Especializado en Java, Spring Boot, Angular, Node.js y tecnologías web modernas.'
+				};
+		}
+	}
+	
+	// Actualizar el título y meta tags de la página
+	$: if (typeof document !== 'undefined') {
+		const pageInfo = getPageInfo();
+		document.title = pageInfo.title;
+		
+		// Actualizar meta description
+		let metaDescription = document.querySelector('meta[name="description"]');
+		if (metaDescription) {
+			metaDescription.setAttribute('content', pageInfo.description);
+		}
+		
+		// Actualizar Open Graph tags
+		let ogTitle = document.querySelector('meta[property="og:title"]');
+		if (ogTitle) {
+			ogTitle.setAttribute('content', pageInfo.title);
+		}
+		
+		let ogDescription = document.querySelector('meta[property="og:description"]');
+		if (ogDescription) {
+			ogDescription.setAttribute('content', pageInfo.description);
+		}
+		
+		// Actualizar Twitter tags
+		let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+		if (twitterTitle) {
+			twitterTitle.setAttribute('content', pageInfo.title);
+		}
+		
+		let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+		if (twitterDescription) {
+			twitterDescription.setAttribute('content', pageInfo.description);
+		}
 	}
 </script>
 
