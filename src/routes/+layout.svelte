@@ -2,7 +2,6 @@
 	import '../app.css';
 	import ContactModal from '$lib/ContactModal.svelte';
 	import { contactModalOpen } from '$lib/stores/contactModal';
-	import {Tooltip} from 'flowbite-svelte'
 	import { page } from '$app/stores';
 	
 	let menuAbierto = false;

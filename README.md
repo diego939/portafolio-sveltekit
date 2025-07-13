@@ -1,38 +1,91 @@
-# sv
+# Portafolio Personal - Diego David Almirón
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Portafolio web desarrollado con SvelteKit y Tailwind CSS.
 
-## Creating a project
+## 🚀 Tecnologías
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **SvelteKit** - Framework web
+- **Tailwind CSS** - Framework CSS
+- **TypeScript** - Tipado estático
+- **Flowbite Svelte** - Componentes UI
+- **Vercel** - Deployment
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 📦 Instalación
 
 ```bash
+# Clonar el repositorio
+git clone https://github.com/diego939/portafolio-sveltekit.git
+cd portafolio-sveltekit
+
+# Instalar dependencias
+npm install --legacy-peer-deps
+
+# Ejecutar en desarrollo
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
+# Build para producción
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## 🌐 Deployment en Vercel
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### Configuración Automática
+
+El proyecto está configurado para deployment automático en Vercel con:
+
+- **Framework**: SvelteKit
+- **Build Command**: `npm run build`
+- **Install Command**: `npm install --legacy-peer-deps`
+- **Output Directory**: `.svelte-kit/output/client`
+
+### Archivos de Configuración
+
+- `vercel.json` - Configuración específica para Vercel
+- `.npmrc` - Configuración de npm con legacy peer deps
+- `tailwind.config.js` - Configuración de Tailwind CSS
+
+### Solución de Problemas
+
+Si encuentras errores de dependencias:
+
+1. **Error de Tailwind CSS v4**: El proyecto usa Tailwind CSS v3 con flowbite-svelte v1.8.0
+2. **Peer Dependencies**: Usa `--legacy-peer-deps` para evitar conflictos
+3. **Build Errors**: Verifica que todas las dependencias estén instaladas correctamente
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── lib/
+│   ├── ContactModal.svelte
+│   ├── ImageModal.svelte
+│   └── stores/
+│       └── contactModal.ts
+├── routes/
+│   ├── +layout.svelte
+│   ├── +page.svelte
+│   ├── educacion/
+│   ├── experiencia/
+│   ├── habilidades/
+│   └── proyectos/
+└── app.css
+```
+
+## 🎨 Características
+
+- **Responsive Design** - Adaptable a todos los dispositivos
+- **SEO Optimizado** - Meta tags y títulos dinámicos
+- **Accesibilidad** - Cumple estándares WCAG
+- **Performance** - Optimizado para velocidad
+- **Modal de Imagen** - Vista ampliada de fotos
+- **Formulario de Contacto** - Integrado con SweetAlert2
+
+## 📞 Contacto
+
+- **LinkedIn**: [Diego David Almirón](https://www.linkedin.com/in/diegodavidalmiron)
+- **Email**: diegodavidalmiron17@gmail.com
+- **WhatsApp**: +54 379 531-5483
+
+## 📄 Licencia
+
+Este proyecto es de uso personal y educativo.
