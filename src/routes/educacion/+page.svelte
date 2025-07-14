@@ -172,8 +172,8 @@
 			nombre: "Oracle",
 			duracion: "2 hs",
 			imagen: "/images/certificados/Diego David Almirón-Oracle/Diego David Almirón-Oracle-1.png",
-			credencial: "https://www.educacionit.com/perfil/diego-david-almiron-605939/certificado/57042",
-			pdf: "/documents/pdf/certificados/Diego-David Almirón-Seguridad Informática.pdf"
+			credencial: "https://www.educacionit.com/perfil/diego-david-almiron-605939/certificado/56086",
+			pdf: "/documents/pdf/certificados/Diego David Almirón-Oracle.pdf"
 		},
 	];
 
