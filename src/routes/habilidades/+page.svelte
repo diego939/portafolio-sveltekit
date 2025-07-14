@@ -115,13 +115,13 @@
 		{ nombre: "NestJs", imagen: "/images/skills/frameworks/nestjs.png" },
 		{ nombre: "Sveltekit", imagen: "/images/skills/frameworks/svetle.png" },
 		{ nombre: "Angular", imagen: "/images/skills/frameworks/angular.png" },
+		{ nombre: "ReactJs", imagen: "/images/skills/librerias/react.png" },
+		{ nombre: "VueJs", imagen: "/images/skills/librerias/vuejs.png" },
 		{ nombre: "NodeJs", imagen: "/images/skills/frameworks/nodejs.png" },
 		{ nombre: "Spring Boot", imagen: "/images/skills/frameworks/spring-boot.png" },
 		{ nombre: "Codeigniter", imagen: "/images/skills/frameworks/codeigniter.png" },
 	];
 	const librerias = [
-		{ nombre: "ReactJs", imagen: "/images/skills/librerias/react.png" },
-		{ nombre: "VueJs", imagen: "/images/skills/librerias/vuejs.png" },
 		{ nombre: "Jquery", imagen: "/images/skills/librerias/jquery.png" },
 		{ nombre: "Tailwind", imagen: "/images/skills/librerias/tailwind.png" },
 		{ nombre: "Bootstrap", imagen: "/images/skills/librerias/bootstrap.png" },
