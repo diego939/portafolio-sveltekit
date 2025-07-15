@@ -74,19 +74,19 @@
         {/if}
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
-          <input type="text" class="w-full border border-blue-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" bind:value={nombre} />
+          <input type="text" class="w-full border border-blue-300 rounded px-3 py-2 focus:border-none focus:outline-none focus:ring-2 focus:ring-purple-900" bind:value={nombre} />
         </div>
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-1">Correo</label>
-          <input type="email" class="w-full border border-blue-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" bind:value={correo} />
+          <input type="email" class="w-full border border-blue-300 rounded px-3 py-2 focus:border-none focus:outline-none focus:ring-2 focus:ring-purple-900" bind:value={correo} />
         </div>
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-1">Asunto</label>
-          <input type="text" class="w-full border border-blue-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" bind:value={asunto} />
+          <input type="text" class="w-full border border-blue-300 rounded px-3 py-2 focus:border-none focus:outline-none focus:ring-2 focus:ring-purple-900" bind:value={asunto} />
         </div>
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-1">Mensaje</label>
-          <textarea rows="4" class="w-full border border-blue-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" bind:value={mensaje}></textarea>
+          <textarea rows="4" class="w-full border border-blue-300 rounded px-3 py-2 focus:border-none focus:outline-none focus:ring-2 focus:ring-purple-900" bind:value={mensaje}></textarea>
         </div>
         <div class="flex justify-center gap-3 pt-2">
           		<button type="submit" class="bg-purple-900 text-white px-6 py-2 rounded font-semibold hover:bg-purple-700 transition-colors disabled:opacity-60" disabled={loading}>
