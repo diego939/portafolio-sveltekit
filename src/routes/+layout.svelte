@@ -47,6 +47,46 @@
 				};
 		}
 	}
+
+	// Variable reactiva para el texto del logo
+	$: logoText = (() => {
+		const path = $page.url.pathname;
+		
+		switch (path) {
+			case '/':
+				return 'Mi Portafolio';
+			case '/educacion':
+				return 'Educación';
+			case '/experiencia':
+				return 'Experiencia';
+			case '/habilidades':
+				return 'Habilidades';
+			case '/proyectos':
+				return 'Proyectos';
+			default:
+				return 'Mi Portafolio';
+		}
+	})();
+
+	// Variable reactiva para el enlace del logo
+	$: logoHref = (() => {
+		const path = $page.url.pathname;
+		
+		switch (path) {
+			case '/':
+				return '/';
+			case '/educacion':
+				return '/educacion';
+			case '/experiencia':
+				return '/experiencia';
+			case '/habilidades':
+				return '/habilidades';
+			case '/proyectos':
+				return '/proyectos';
+			default:
+				return '/';
+		}
+	})();
 	
 	// Actualizar el título y meta tags de la página
 	$: if (typeof document !== 'undefined') {
@@ -90,8 +130,8 @@
 			<div class="flex justify-between h-16">
 				<!-- Logo -->
 				<div class="flex items-center">
-					<a href="/" class="text-xl font-bold text-gray-800 hover:text-purple-900 transition-colors">
-						Mi Portafolio
+					<a href={logoHref} class="text-xl font-bold text-gray-800 hover:text-purple-900 transition-colors">
+						{logoText}
 					</a>
 				</div>
 				
@@ -136,19 +176,19 @@
 			{#if menuAbierto}
 				<div class="md:hidden bg-white border-t border-gray-200 py-4">
 					<div class="flex flex-col space-y-3 px-4">
-						<a href="/" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2">
+						<a href="/" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
 							Inicio
 						</a>
-						<a href="/educacion" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2">
+						<a href="/educacion" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
 							Educación
 						</a>
-						<a href="/experiencia" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2">
+						<a href="/experiencia" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
 							Experiencia
 						</a>
-						<a href="/habilidades" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2">
+						<a href="/habilidades" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
 							Habilidades
 						</a>
-						<a href="/proyectos" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2">
+						<a href="/proyectos" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
 							Proyectos
 						</a>
 					</div>
