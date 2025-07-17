@@ -59,7 +59,7 @@
 </script>
 
 {#if open}
-  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+  <div class="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-40">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 animate-fadeIn">
       <div class="flex justify-between items-center border-b px-6 py-4">
         <h2 class="text-xl font-bold text-purple-900 flex items-center gap-2">

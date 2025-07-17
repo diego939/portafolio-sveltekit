@@ -205,7 +205,7 @@
 	<ContactModal bind:open={$contactModalOpen} />
 
 	<!-- Botones flotantes -->
-	<div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+	<div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
 		<!-- Botón de WhatsApp -->
 		<a
 			href="https://wa.me/+543795315483?text=Hola! Vi tu portafolio y me gustaría contactarte"
