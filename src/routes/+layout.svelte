@@ -208,7 +208,7 @@
 	<div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
 		<!-- Botón de WhatsApp -->
 		<a
-			href="https://wa.me/+543795315483?text=Hola! Vi tu portafolio y me gustaría contactarte"
+			href="https://wa.me/+543795315483?text=Hola Diego, vi tu portafolio y me gustaría conversar sobre una posible vacante."
 			target="_blank"
 			rel="noopener noreferrer"
 			class="bg-green-500 border-4 border-green-600 rounded-full shadow-lg w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center hover:bg-green-400 transition-colors group"
