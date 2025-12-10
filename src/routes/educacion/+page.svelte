@@ -36,6 +36,13 @@
 	// Certificados reales
 	const certificados = [
 		{
+			nombre: "Power BI desde cero",
+			duracion: "2 hs",
+			imagen: "/images/certificados/Power BI/Power BI.jpg",
+			credencial: "https://cursos.desafiolatam.com/certificates/7qbcczzhxx",
+			pdf: "/documents/pdf/certificados/Power BI - 2025-12-10.pdf"
+		},
+		{
 			nombre: "Analista Programador",
 			duracion: "3 años",
 			imagen: "/images/certificados/Analista Programador Universitario/Analista Programador Universitario - Diploma-1.png",
