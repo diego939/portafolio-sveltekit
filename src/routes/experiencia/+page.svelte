@@ -4,9 +4,17 @@
 	// Datos de ejemplo - personaliza con tu información
 	const experiencia = [
 		{
+			cargo: "Desarrollador Frontend",
+			empresa: "Tob Group",
+			fecha: "2025 - 2025",
+			descripcion: "Desarrollador frontend enfocado en la construcción de interfaces modernas, responsivas y optimizadas. Participé en proyectos como 'Club Deportivo Colón', 'SPS Salud' 'Caja Municipal de Préstamos', trabajando con SvelteKit y Tailwind CSS para entregar experiencias de usuario fluidas. Colaboré en la integración con APIs, validación de formularios, consumo de servicios y maquetación avanzada. Utilicé Azure DevOps para la organización del trabajo y Git Flow para manejo de versiones.",
+			tecnologias: ["SvelteKit", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "Azure DevOps", "Git Flow"],
+			icono: "🎨"
+		},
+		{
 			cargo: "Desarrollador Fullstack",
 			empresa: "Tob Group",
-			fecha: "2025 - Actualidad",
+			fecha: "2025 - 2025",
 			descripcion: "Desarrollador fullstack participando activamente en proyectos reales de alto impacto. Colaboro en el desarrollo de aplicaciones web escalables utilizando tecnologías modernas como NestJS, SvelteKit y Prisma. Participo en proyectos como 'Pirra', 'Tc2000', 'Brios' y 'Mec', aplicando metodologías ágiles y mejores prácticas de desarrollo. Utilizo herramientas de desarrollo como Postman para testing de APIs, Azure DevOps para gestión de proyectos y Git Flow para control de versiones. Trabajo en equipo implementando arquitecturas robustas con MySQL como base de datos principal.",
 			tecnologias: ["NestJS", "SvelteKit", "Prisma", "MySQL", "Postman", "Node.js", "Azure DevOps", "Git Flow"],
 			icono: "🚀"
