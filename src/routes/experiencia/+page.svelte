@@ -12,7 +12,7 @@
 				href="https://deportivo-colon.tobgroup.io"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-purple-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-purple-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				Club Deportivo Colón
 				</a>, 
@@ -20,14 +20,14 @@
 				href="https://sps-salud.vercel.app"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-gray-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-gray-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				SPS Salud
 				</a>,
 			<a
 				disabled
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-green-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-green-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				Caja Municipal de Préstamos
 				</a>, 
@@ -44,7 +44,7 @@
 				href="https://pirra.bar"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-gray-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-gray-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				Pirra
 				</a>, 
@@ -52,7 +52,7 @@
 				href="https://tc2000-backoffice.tobgroup.io"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-red-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-red-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				Tc2000
 				</a>, 
@@ -60,7 +60,7 @@
 				href="https://brios.tobgroup.io"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-blue-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-blue-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				Brios
 				</a>, 
@@ -68,7 +68,7 @@
 				href="https://mec.tobgroup.io"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="px-2 md:px-3 py-1 bg-green-500 text-white rounded-full text-xs md:text-sm font-medium"
+				class="px-2 md:px-3 py-0.5 bg-green-500 text-white rounded-full text-xs md:text-sm font-medium"
 				>
 				Mec
 				</a>,
