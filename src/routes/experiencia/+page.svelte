@@ -7,7 +7,31 @@
 			cargo: "Desarrollador Frontend",
 			empresa: "Tob Group",
 			fecha: "2025 - 2025",
-			descripcion: "Desarrollador frontend enfocado en la construcción de interfaces modernas, responsivas y optimizadas. Participé en proyectos como 'Club Deportivo Colón', 'SPS Salud' 'Caja Municipal de Préstamos', trabajando con SvelteKit y Tailwind CSS para entregar experiencias de usuario fluidas. Colaboré en la integración con APIs, validación de formularios, consumo de servicios y maquetación avanzada. Utilicé Azure DevOps para la organización del trabajo y Git Flow para manejo de versiones.",
+			descripcion: `Desarrollador frontend enfocado en la construcción de interfaces modernas, responsivas y optimizadas. Participé activamente aportando en proyectos reales de alto impacto como 
+			<a
+				href="https://deportivo-colon.tobgroup.io"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-purple-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Club Deportivo Colón
+				</a>, 
+			<a
+				href="https://sps-salud.vercel.app"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-gray-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				SPS Salud
+				</a>,
+			<a
+				disabled
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-green-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Caja Municipal de Préstamos
+				</a>, 
+			trabajando con SvelteKit y Tailwind CSS para entregar experiencias de usuario fluidas. Colaboré en la integración con APIs, validación de formularios, consumo de servicios y maquetación avanzada. Utilicé Azure DevOps para la organización del trabajo y Git Flow para manejo de versiones.`,
 			tecnologias: ["SvelteKit", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "Azure DevOps", "Git Flow"],
 			icono: "🎨"
 		},
@@ -15,7 +39,40 @@
 			cargo: "Desarrollador Fullstack",
 			empresa: "Tob Group",
 			fecha: "2025 - 2025",
-			descripcion: "Desarrollador fullstack participando activamente en proyectos reales de alto impacto. Colaboro en el desarrollo de aplicaciones web escalables utilizando tecnologías modernas como NestJS, SvelteKit y Prisma. Participo en proyectos como 'Pirra', 'Tc2000', 'Brios' y 'Mec', aplicando metodologías ágiles y mejores prácticas de desarrollo. Utilizo herramientas de desarrollo como Postman para testing de APIs, Azure DevOps para gestión de proyectos y Git Flow para control de versiones. Trabajo en equipo implementando arquitecturas robustas con MySQL como base de datos principal.",
+			descripcion: `Desarrollador fullstack participando activamente en proyectos reales de alto impacto. Colaboro en el desarrollo de aplicaciones web escalables utilizando tecnologías modernas como NestJS, SvelteKit y Prisma. Participo en proyectos como 
+			<a
+				href="https://pirra.bar"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-gray-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Pirra
+				</a>, 
+			<a
+				href="https://tc2000-backoffice.tobgroup.io"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-red-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Tc2000
+				</a>, 
+			<a
+				href="https://brios.tobgroup.io"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-blue-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Brios
+				</a>, 
+			<a
+				href="https://mec.tobgroup.io"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-1 bg-green-500 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Mec
+				</a>,
+			 aplicando metodologías ágiles y mejores prácticas de desarrollo. Utilizo herramientas de desarrollo como Postman para testing de APIs, Azure DevOps para gestión de proyectos y Git Flow para control de versiones. Trabajo en equipo implementando arquitecturas robustas con MySQL como base de datos principal.`,
 			tecnologias: ["NestJS", "SvelteKit", "Prisma", "MySQL", "Postman", "Node.js", "Azure DevOps", "Git Flow"],
 			icono: "🚀"
 		},
@@ -31,8 +88,8 @@
 			cargo: "Desarrollador Web",
 			empresa: "Freelance Web",
 			fecha: "2020 - 2024",
-			descripcion: "Desde el año 2020, he tenido el privilegio de trabajar como desarrollador web freelance, adquiriendo conocimientos especializados en tecnologías clave como Angular, Node.js, HTML5, CSS3, Bootstrap, Java, Spring Boot, JavaScript, TypeScript, jQuery, JSON. Estos lenguajes y frameworks han sido fundamentales en mi trayectoria, permitiéndome crear aplicaciones web dinámicas y atractivas. Además, he tenido la oportunidad de utilizar una variedad de herramientas que han optimizado mi flujo de trabajo. Entre ellas se encuentran Visual Studio Code, Visual Basic, Apache Netbeans, Eclipse, Sublime Text, SQL Server, MySQL Workbench, phpMyAdmin, Git y GitHub.",
-			tecnologias: ["Angular", "Node.js", "HTML5", "CSS3", "Bootstrap", "Java", "Spring Boot", "JavaScript", "TypeScript", "jQuery", "JSON", "Git", "GitHub"],
+			descripcion: "Desde el año 2020, he tenido el privilegio de trabajar como desarrollador web freelance, adquiriendo conocimientos especializados en tecnologías clave como Angular, Svelte, Vue.js, React, Node.js, HTML5, CSS3, Bootstrap, Tailwind CSS, Java, Spring Boot, JavaScript, TypeScript, jQuery, NestJS, .NET, PHP, MySQL, JSON. Estos lenguajes y frameworks han sido fundamentales en mi trayectoria, permitiéndome crear aplicaciones web dinámicas y atractivas. Además, he tenido la oportunidad de utilizar una variedad de herramientas que han optimizado mi flujo de trabajo. Entre ellas se encuentran Visual Studio Code, Visual Basic, Apache Netbeans, Eclipse, Sublime Text, SQL Server, MySQL Workbench, phpMyAdmin, Git y GitHub.",
+			tecnologias: ["Angular", "Svelte", "Vue.js", "React", "Node.js", "HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "Java", "Spring Boot", "JavaScript", "TypeScript", "jQuery", "NestJS", ".NET", "PHP", "MySQL", "JSON", "Git", "GitHub"],
 			icono: "💻"
 		},
 		{
@@ -107,7 +164,7 @@
 							</span>
 						</div>
 						<p class="text-gray-600 leading-relaxed mb-3 md:mb-4 text-sm md:text-base">
-							{item.descripcion}
+							{@html item.descripcion}
 						</p>
 						<div class="flex flex-wrap gap-1 md:gap-2">
 							{#each item.tecnologias as tecnologia}
