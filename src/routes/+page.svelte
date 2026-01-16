@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	
 	// Datos de ejemplo - puedes personalizar estos datos
 	const nombre = "Diego David Almirón";
@@ -107,7 +108,7 @@
 					</span>
 				{/each}
 			</div>
-			<p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto px-2 sm:px-4 leading-relaxed text-justify">
+			<p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto px-2 sm:px-4 leading-relaxed sm:text-justify text-center">
 				{descripcion}
 			</p>
 		</div>
@@ -116,7 +117,7 @@
 	<!-- Sección de Destacados -->
 	<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6">
 		{#each destacados as destacado}
-			<div class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center h-full">
+			<button on:click={() => goto(destacado.link)}  class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center h-full">
 				<span class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4" class:bg-blue-100={destacado.color==='blue'} class:bg-green-100={destacado.color==='green'} class:bg-purple-100={destacado.color==='purple'} class:bg-indigo-100={destacado.color==='indigo'}>{@html destacado.icono}</span>
 				<h3 class="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2">{destacado.titulo}</h3>
 				<p class="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 flex-grow">{destacado.descripcion}</p>
@@ -128,7 +129,7 @@
 			   {destacado.color==='indigo' ? 'text-indigo-600 hover:text-indigo-700' : ''}">
 				Ver más →
 			</a>
-			</div>
+			</button>
 		{/each}
 	</section>
 
