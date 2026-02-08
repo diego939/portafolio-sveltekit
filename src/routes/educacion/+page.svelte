@@ -36,6 +36,13 @@
 	// Certificados reales
 	const certificados = [
 		{
+			nombre: ".NET",
+			duracion: "40 hs",
+			imagen: "/images/certificados/.NET/Certificado-.NET-Diego-David-Almirón.jpg",
+			credencial: "https://certificados.itschool.com.ar/validar/a2cc1d0bf701ff9f4e2a095a6166efff59c9a657372ff69dd047e1423ae5fd9a",
+			pdf: "/documents/pdf/certificados/Certificado-.NET-Diego-David-Almirón.pdf"
+		},
+		{
 			nombre: "Power BI desde cero",
 			duracion: "2 hs",
 			imagen: "/images/certificados/Power BI/Power BI.jpg",
