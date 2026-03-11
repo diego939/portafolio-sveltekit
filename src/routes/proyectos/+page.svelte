@@ -29,22 +29,22 @@
 		},
 		{
 			id: 3,
-			titulo: "Actividades de Verano",
-			descripcion: "Sistema de gestión integral para colonias de vacaciones y actividades deportivas. Desarrollé una plataforma que automatiza las inscripciones, gestiona 14 actividades diferentes y valida dinámicamente la disponibilidad de espacios según el deporte seleccionado. La aplicación optimiza la experiencia tanto para participantes como para organizadores.",
-			imagen: "🌞",
-			categoria: "Frontend",
-			tecnologias: ["Vue", "Bootstrap", "JavaScript", "HTML", "CSS"],
-			url: "https://github.com/diego939/actividades-de-verano",
-			demo: "https://actividades-de-verano.vercel.app/",
-			destacado: false
+			titulo: "E-commerce ASP.NET Core",
+			descripcion: "Aplicación web de comercio electrónico desarrollada con ASP.NET Core MVC utilizando Razor Views y una arquitectura en capas. El sistema incluye catálogo de productos, carrito de compras, panel administrativo y procesamiento de pagos mediante integración con PayPal Developer. También se utilizan AJAX y jQuery para mejorar la experiencia de usuario mediante interacciones dinámicas sin recarga de página.",
+			imagen: "🛒",
+			categoria: "Full Stack",
+			tecnologias: [".NET", "ASP.NET Core", "Razor", "SQL Server", "jQuery", "AJAX", "Bootstrap"],
+			url: "https://github.com/diego939/tienda_asp.net",
+			demo: "",
+			destacado: true
 		},
 		{
 			id: 4,
 			titulo: "Polirubro D & P",
-			descripcion: "Sistema empresarial completo desarrollado con tecnologías Microsoft para la gestión integral de un polirubro. Implementé un sistema de roles jerárquico (Cajero, Encargado, Gerente, Gerente General) con funcionalidades específicas para cada nivel, optimizando los procesos comerciales y mejorando la eficiencia operativa.",
+			descripcion: "Sistema de gestión empresarial desarrollado con tecnologías Microsoft para administrar las operaciones de un polirubro. La aplicación incluye control de ventas, gestión de productos, manejo de stock y generación de reportes administrativos. Implementa un sistema de roles jerárquico (Cajero, Encargado, Gerente y Gerente General) que habilita funcionalidades según el nivel de acceso del usuario.",
 			imagen: "🏪",
 			categoria: "Full Stack",
-			tecnologias: [".NET", "SQL Server", "HTML", "CSS"],
+			tecnologias: [".NET", "SQL Server", "HTML", "CSS", "Entity Framework", "Report Viewer"],
 			url: "https://github.com/Pablin89/Proyecto2023",
 			demo: "",
 			destacado: true
@@ -69,7 +69,7 @@
 			tecnologias: ["Codeigniter", "PHP","Bootstrap", "JavaScript", "HTML", "CSS"],
 			url: "https://github.com/diego939/taller1-integrador",
 			demo: "",
-			destacado: true
+			destacado: false
 		},
 		{
 			id: 7,
