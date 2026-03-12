@@ -31,8 +31,8 @@
 				>
 				Caja Municipal de Préstamos
 				</a>, 
-			trabajando con SvelteKit y Tailwind CSS para entregar experiencias de usuario fluidas. Colaboré en la integración con APIs, validación de formularios, consumo de servicios y maquetación avanzada. Utilicé Azure DevOps para la organización del trabajo y Git Flow para manejo de versiones.`,
-			tecnologias: ["SvelteKit", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "Azure DevOps", "Git Flow"],
+			trabajando con Angular, SvelteKit y Tailwind CSS para entregar experiencias de usuario fluidas. Colaboré en la integración con APIs, validación de formularios, consumo de servicios y maquetación avanzada. Utilicé Azure DevOps para la organización del trabajo y Git Flow para manejo de versiones.`,
+			tecnologias: ["Angular", "SvelteKit", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "Azure DevOps", "Git Flow"],
 			icono: "🎨"
 		},
 		{
