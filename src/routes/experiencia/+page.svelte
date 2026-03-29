@@ -31,8 +31,8 @@
 				>
 				Caja Municipal de Préstamos
 				</a>, 
-			trabajando con Angular, SvelteKit y Tailwind CSS para entregar experiencias de usuario fluidas. Colaboré en la integración con APIs, validación de formularios, consumo de servicios y maquetación avanzada. Utilicé Azure DevOps para la organización del trabajo y Git Flow para manejo de versiones.`,
-			tecnologias: ["Angular", "SvelteKit", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "Azure DevOps", "Git Flow"],
+			trabajando con Angular, SvelteKit y Tailwind CSS en una etapa de especialización <span class="font-bold">frontend</span>, creando experiencias de usuario fluidas y responsivas. Integración con APIs, validación de formularios y maquetación avanzada. En paralelo, mantuve participación activa en backend implementando endpoints con Node.js y NestJS, consolidando un perfil fullstack. Uso de Azure DevOps y Git Flow para la gestión y versionado del proyecto.`,
+			tecnologias: ["Angular", "SvelteKit", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "NestJS", "Azure DevOps", "Git Flow"],
 			icono: "🎨"
 		},
 		{
@@ -73,15 +73,15 @@
 				Mec
 				</a>,
 			 aplicando metodologías ágiles y mejores prácticas de desarrollo. Utilizo herramientas de desarrollo como Postman para testing de APIs, Azure DevOps para gestión de proyectos y Git Flow para control de versiones. Trabajo en equipo implementando arquitecturas robustas con MySQL como base de datos principal.`,
-			tecnologias: ["NestJS", "SvelteKit", "Prisma", "MySQL", "Postman", "Node.js", "Azure DevOps", "Git Flow"],
+			tecnologias: ["SvelteKit", "Prisma", "MySQL", "Postman", "Node.js", "NestJS", "Azure DevOps", "Git Flow"],
 			icono: "🚀"
 		},
 		{
 			cargo: "Desarrollador Web",
 			empresa: "Fundasoft",
 			fecha: "2024 - 2024",
-			descripcion: "Desarrollé y maqueté páginas web para una ONG utilizando HTML, CSS y JavaScript. Implementé módulos interactivos para representar visualmente información en las páginas web de la organización. Colaboré en el diseño de interfaces atractivas y fáciles de usar, con el objetivo de mejorar la experiencia de usuario de las páginas. Utilicé tecnologías como Bootstrap para optimizar el diseño responsive y adaptable. Aplicación de fundamentos de programación y tecnologías web para cumplir con los objetivos del proyecto. Trabajo colaborativo con el equipo de desarrollo para implementar nuevas funcionalidades. Adquisición de nuevas habilidades en herramientas y frameworks como Svelte. Implementación exitosa de módulos visuales que mejoraron la accesibilidad y la interacción en el sitio web de la ONG.",
-			tecnologias: ["HTML", "CSS", "JavaScript", "Svelte", "Bootstrap"],
+			descripcion: "Desarrollé y maqueté páginas web para una ONG utilizando HTML, CSS y JavaScript, implementando módulos interactivos para la visualización de información. Colaboré en el diseño de interfaces atractivas y optimizadas para la experiencia de usuario, utilizando Bootstrap para lograr un diseño responsive. Trabajé en equipo bajo metodologías ágiles (Scrum/Kanban), gestionando tareas con Trello. Participé en el desarrollo de funcionalidades adicionales con Svelte y Node.js, incluyendo la integración de pasarelas de pago, AWS SES y chatbots. Apliqué control de versiones con GitFlow y contribuí a la mejora de la accesibilidad e interacción del sitio.",
+			tecnologias: ["HTML", "CSS", "JavaScript", "Svelte", "Bootstrap", "Node.js", "AWS SES", "GitFlow", "Trello"],
 			icono: "🌍"
 		},
 		{
