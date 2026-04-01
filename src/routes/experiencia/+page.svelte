@@ -4,6 +4,14 @@
 	// Datos de ejemplo - personaliza con tu información
 	const experiencia = [
 		{
+			cargo: "Desarrollador Web",
+			empresa: "Freelance",
+			fecha: "2026 - Actualidad",
+			descripcion: "Actualmente me desempeño como desarrollador web freelance, creando software a medida para clientes reales. Desarrollo aplicaciones modernas y escalables utilizando Angular y Tailwind CSS en el frontend, junto con Node.js, NestJS y .NET en el backend. Me enfoco en la construcción de APIs RESTful, integración de sistemas y soluciones orientadas a mejorar procesos de negocio.",
+			tecnologias: ["Angular", "Tailwind CSS", "Node.js", "NestJS", ".NET", "SQL Server", "MySQL", "Git", "GitHub"],
+			icono: "🚀"
+		},
+		{
 			cargo: "Desarrollador Frontend",
 			empresa: "Tob Group",
 			fecha: "2025 - 2025",
