@@ -7,6 +7,28 @@
 	const proyectos = [
 		{
 			id: 1,
+			titulo: "Medicina y Salud",
+			descripcion: "Landing page moderna para servicios médicos con un fuerte enfoque en UI/UX. Diseñé una interfaz limpia, responsive y orientada a la conversión, incorporando componentes visuales atractivos como formularios con floating labels, carruseles animados y secciones dinámicas. Se priorizó la experiencia del usuario en todos los dispositivos, optimizando accesibilidad, jerarquía visual y microinteracciones. El proyecto está desplegado en Vercel para alta disponibilidad.",
+			imagen: "🩺",
+			categoria: "Frontend",
+			tecnologias: ["Angular", "TailwindCSS", "Flowbite", "SweetAlert", "AOS"],
+			url: "https://github.com/diego939/medicina-y-salud-frontend-angular",
+			demo: "https://medicina-y-salud-frontend-angular.vercel.app",
+			destacado: true
+		},
+		{
+			id: 2,
+			titulo: "Sistema de Gestión Escolar",
+			descripcion: "Sistema de gestión escolar fullstack en desarrollo, diseñado como una solución flexible y escalable para instituciones educativas. El objetivo es construir una plataforma adaptable a diferentes modelos organizativos, permitiendo personalización por institución. Implementado con backend en .NET (API REST documentada con Swagger) y base de datos SQL Server, junto a un frontend en Angular enfocado en experiencia de usuario, modularidad y mantenibilidad.",
+			imagen: "🏫",
+			categoria: "Full Stack",
+			tecnologias: ["Angular", ".NET", "SQL Server", "Swagger"],
+			url: "https://github.com/diego939/sistema-escuela-frontend-angular",
+			demo: "",
+			destacado: true
+		},
+		{
+			id: 3,
 			titulo: "App de Tareas",
 			descripcion: "Mi primera aplicación Micro FrontEnd desarrollada con Vue.js que demuestra habilidades avanzadas en desarrollo web moderno. Implementé un sistema completo de gestión de tareas con autenticación de usuarios, operaciones CRUD completas y integración con APIs REST. La aplicación utiliza arquitectura SPA con modales interactivos y está optimizada para una experiencia de usuario fluida.",
 			imagen: "📝",
@@ -17,7 +39,7 @@
 			destacado: false
 		},
 		{
-			id: 2,
+			id: 4,
 			titulo: "Copa Corrientes Diversa",
 			descripcion: "Plataforma web integral para el torneo deportivo inclusivo más importante de Corrientes. Desarrollé un sistema completo que gestiona 11 deportes diferentes, facilitando la organización de competencias mixtas e inclusivas. La aplicación optimiza el traslado de competidores, automatiza la subida de resultados y gestiona galerías fotográficas en tiempo real.",
 			imagen: "🏆",
@@ -28,7 +50,7 @@
 			destacado: false
 		},
 		{
-			id: 3,
+			id: 5,
 			titulo: "E-commerce ASP.NET Core",
 			descripcion: "Aplicación web de comercio electrónico desarrollada con ASP.NET Core MVC utilizando Razor Views y una arquitectura en capas. El sistema incluye catálogo de productos, carrito de compras, panel administrativo y procesamiento de pagos mediante integración con PayPal Developer. También se utilizan AJAX y jQuery para mejorar la experiencia de usuario mediante interacciones dinámicas sin recarga de página.",
 			imagen: "🛒",
@@ -36,10 +58,10 @@
 			tecnologias: [".NET", "ASP.NET Core", "Razor", "SQL Server", "jQuery", "AJAX", "Bootstrap"],
 			url: "https://github.com/diego939/tienda_asp.net",
 			demo: "",
-			destacado: true
+			destacado: false
 		},
 		{
-			id: 4,
+			id: 6,
 			titulo: "Polirubro D & P",
 			descripcion: "Sistema de gestión empresarial desarrollado con tecnologías Microsoft para administrar las operaciones de un polirubro. La aplicación incluye control de ventas, gestión de productos, manejo de stock y generación de reportes administrativos. Implementa un sistema de roles jerárquico (Cajero, Encargado, Gerente y Gerente General) que habilita funcionalidades según el nivel de acceso del usuario.",
 			imagen: "🏪",
@@ -47,10 +69,10 @@
 			tecnologias: [".NET", "SQL Server", "HTML", "CSS", "Entity Framework", "Report Viewer"],
 			url: "https://github.com/Pablin89/Proyecto2023",
 			demo: "",
-			destacado: true
+			destacado: false
 		},
 		{
-			id: 5,
+			id: 7,
 			titulo: "Mi Portafolio",
 			descripcion: "Aplicación web profesional desarrollada durante el programa Argentina Programa (YoProgramo). Creé una plataforma que simula una red social profesional para la comunidad IT, implementando funcionalidades avanzadas de networking y presentación de proyectos. El sistema incluye envío automatizado de información por email para facilitar la colaboración.",
 			imagen: "💼",
@@ -61,7 +83,7 @@
 			destacado: false
 		},
 		{
-			id: 6,
+			id: 8,
 			titulo: "Tienda en línea",
 			descripcion: "E-commerce completo con sistema de gestión de inventario y facturación automatizada. Desarrollé una plataforma robusta que incluye control de stock en tiempo real, sistema de ventas integrado y facturación automática. Implementé un sistema de roles escalable (Cliente, Administrador, Super Administrador) con funcionalidades específicas para cada nivel de acceso.",
 			imagen: "🛒",
@@ -72,7 +94,7 @@
 			destacado: false
 		},
 		{
-			id: 7,
+			id: 9,
 			titulo: "Amazon SES",
 			descripcion: "Integración avanzada con Amazon Simple Email Service (SES) para automatización de comunicaciones empresariales. Desarrollé una solución que aprovecha la infraestructura cloud de AWS para enviar emails transaccionales, de marketing y notificaciones de forma escalable y confiable. La implementación optimiza costos y garantiza alta disponibilidad.",
 			imagen: "✉️",
@@ -83,7 +105,7 @@
 			destacado: false
 		},
 		{
-			id: 8,
+			id: 10,
 			titulo: "Actividades Diversa",
 			descripcion: "Plataforma web integral para la gestión de actividades educativas y deportivas de la Fundación Corrientes Diversa. Desarrollé un sistema que centraliza la información de cursos, deportes y eventos, facilitando la difusión y organización de actividades inclusivas. La aplicación está desplegada en Vercel para máxima disponibilidad.",
 			imagen: "🏳️‍🌈",
@@ -94,7 +116,7 @@
 			destacado: false
 		},
 		{
-			id: 9,
+			id: 11,
 			titulo: "Caja Handball",
 			descripcion: "Sistema de administración financiera para gestión de caja en eventos de handball. Desarrollé una plataforma que registra y controla todos los movimientos de dinero (depósitos y extracciones) con sus respectivos detalles. La aplicación permite visualizar el historial completo de transacciones, generar reportes detallados y descargar archivos de encabezado y detalle en formatos Excel y PDF para auditoría y control administrativo.",
 			imagen: "💰",
@@ -102,6 +124,17 @@
 			tecnologias: ["HTML", "JavaScript", "Bootstrap", "CSS"],
 			url: "https://github.com/diego939/caja-handball",
 			demo: "https://caja-handball.vercel.app/",
+			destacado: false
+		},
+		{
+			id: 12,
+			titulo: "Actividades de Verano",
+			descripcion: "Landing page promocional desarrollada para una colonia de vacaciones, enfocada en la difusión de actividades recreativas, deportivas y educativas. La aplicación presenta información clara sobre precios, ubicaciones, contacto y redes sociales, con un diseño responsive pensado para facilitar la navegación desde dispositivos móviles. Se priorizó la organización visual del contenido y la accesibilidad para mejorar la experiencia del usuario.",
+			imagen: "☀️",
+			categoria: "Frontend",
+			tecnologias: ["JavaScript", "HTML5", "CSS3", "Bootstrap"],
+			url: "https://github.com/diego939/actividades-de-verano", // podés agregar repo si lo tenés
+			demo: "", // demo si lo tenés
 			destacado: false
 		}
 	];
@@ -114,14 +147,14 @@
 	$: proyectosFiltrados = proyectos.filter(proyecto => {
 		if (filtroCategoria === "Todos") return true;
 		
-		// Proyectos que aparecen en Full Stack (id: 4, 5, 6)
-		if (filtroCategoria === "Full Stack" && [4, 5, 6].includes(proyecto.id)) return true;
+		// Proyectos que aparecen en Full Stack
+		if (filtroCategoria === "Full Stack" && proyecto.categoria === "Full Stack") return true;
 		
-		// Proyectos que aparecen en Backend (id: 4, 5, 6)
-		if (filtroCategoria === "Backend" && [4, 5, 6].includes(proyecto.id)) return true;
+		// Proyectos que aparecen en Backend (mismos que Full Stack)
+		if (filtroCategoria === "Backend" && proyecto.categoria === "Full Stack") return true;
 		
-		// Proyectos que aparecen en Frontend (id: 1, 2, 3, 7, 8, 9)
-		if (filtroCategoria === "Frontend" && [1, 2, 3, 7, 8, 9].includes(proyecto.id)) return true;
+		// Proyectos que aparecen en Frontend
+		if (filtroCategoria === "Frontend" && proyecto.categoria === "Frontend") return true;
 		
 		return false;
 	});
