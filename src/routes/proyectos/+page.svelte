@@ -41,10 +41,10 @@
 		{
 			id: 4,
 			titulo: "Copa Corrientes Diversa",
-			descripcion: "Plataforma web integral para el torneo deportivo inclusivo más importante de Corrientes. Desarrollé un sistema completo que gestiona 11 deportes diferentes, facilitando la organización de competencias mixtas e inclusivas. La aplicación optimiza el traslado de competidores, automatiza la subida de resultados y gestiona galerías fotográficas en tiempo real.",
+			descripcion: "Desarrollé y migré una plataforma web completa a SvelteKit, enfocada en la gestión de torneos deportivos inclusivos. Implementé módulos para administración de deportes, equipos, competencias, fixtures, resultados y podios, junto con un sistema de subida y gestión de archivos (imágenes y PDFs) utilizando almacenamiento en la nube con Vercel Blob. El sistema utiliza Prisma ORM con MySQL para modelado de datos relacional y consultas eficientes, y Tailwind CSS para la construcción de una interfaz moderna, responsive y optimizada.",
 			imagen: "🏆",
-			categoria: "Frontend",
-			tecnologias: [ "Bootstrap", "JavaScript", "HTML", "CSS"],
+			categoria: "Full Stack",
+			tecnologias: [ "SvelteKit", "Prisma ORM", "Tailwind CSS", "MySQL", "Vercel Blob"],
 			url: "https://github.com/diego939/torneo-diverso-ctes",
 			demo: "https://torneo-diverso-ctes.vercel.app",
 			destacado: false
