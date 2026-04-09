@@ -128,13 +128,22 @@
 		},
 		{
 			id: 12,
-			titulo: "Actividades de Verano",
-			descripcion: "Landing page promocional desarrollada para una colonia de vacaciones, enfocada en la difusión de actividades recreativas, deportivas y educativas. La aplicación presenta información clara sobre precios, ubicaciones, contacto y redes sociales, con un diseño responsive pensado para facilitar la navegación desde dispositivos móviles. Se priorizó la organización visual del contenido y la accesibilidad para mejorar la experiencia del usuario.",
-			imagen: "☀️",
-			categoria: "Frontend",
-			tecnologias: ["JavaScript", "HTML5", "CSS3", "Bootstrap"],
-			url: "https://github.com/diego939/actividades-de-verano", // podés agregar repo si lo tenés
-			demo: "", // demo si lo tenés
+			titulo: "Job Tracker App",
+			descripcion: "Aplicación Full Stack para la gestión de postulaciones laborales, que permite registrar, organizar y hacer seguimiento de empleos aplicados. Incluye funcionalidades como creación, edición y eliminación de aplicaciones, manejo de estados (aplicado, entrevista, oferta, rechazado) y persistencia de datos en la nube. El frontend fue desarrollado con React y Tailwind CSS, mientras que el backend utiliza Node.js con Prisma ORM conectado a una base de datos PostgreSQL en Superbase.",
+			imagen: "💼",
+			categoria: "Full Stack",
+			tecnologias: [
+				"React",
+				"Node.js",
+				"Prisma",
+				"PostgreSQL",
+				"Tailwind CSS",
+				"Supabase",
+				"Railway",
+				"Vercel"
+			],
+			url: "https://github.com/diego939/job-tracker-frontend",
+			demo: "https://job-tracker-frontend-vert.vercel.app/",
 			destacado: false
 		}
 	];
