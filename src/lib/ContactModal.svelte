@@ -28,11 +28,19 @@
   async function enviar() {
     loading = true;
     try {
-      await fetch('https://66de46b8de4426916ee0c347.mockapi.io/mails', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ nombre, correo, asunto, mensaje })
       });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const msg =
+          typeof data === 'object' && data && 'message' in data && typeof (data as { message?: string }).message === 'string'
+            ? (data as { message: string }).message
+            : 'No se pudo enviar el mensaje.';
+        throw new Error(msg);
+      }
       Swal.fire({
         icon: 'success',
         title: `${nombre}: gracias por tu interés ☺️`,
@@ -42,7 +50,7 @@
       });
       closeModal();
     } catch (e) {
-      error = 'Ocurrió un error al enviar el mensaje.';
+      error = e instanceof Error ? e.message : 'Ocurrió un error al enviar el mensaje.';
     } finally {
       loading = false;
     }
