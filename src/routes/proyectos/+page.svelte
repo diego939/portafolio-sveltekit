@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Modal } from 'flowbite-svelte';
+	import Swal from 'sweetalert2';
 	let showNoDemoModal = false;
+
+
 	
 	// Datos de ejemplo - personaliza con tu información
 	const proyectos = [
@@ -168,6 +171,16 @@
 		return false;
 	});
 
+	const noDisponible = () => {
+		Swal.fire({
+			icon: 'info',
+			title: 'Demo no disponible',
+			text: 'Lo siento, este proyecto no tiene una demo pública disponible en este momento.',
+			showConfirmButton: true,
+			confirmButtonText: 'Cerrar'
+		});
+	};
+
 	const proyectosDestacados = proyectos.filter(proyecto => proyecto.destacado);
 	
 	// Establecer el título de la página
@@ -233,7 +246,7 @@
 								>
 									Código
 								</a>
-															{#if proyecto.demo}
+							{#if proyecto.demo}
 								<a 
 									href={proyecto.demo} 
 									target="_blank" 
@@ -246,7 +259,7 @@
 								<button 
 									type="button"
 									class="border border-gray-300 text-gray-700 px-3 sm:px-4 py-2 rounded-lg font-medium text-center text-xs sm:text-sm hover:bg-gray-200 transition-colors"
-									on:click={() => showNoDemoModal = true}
+									on:click={() => noDisponible()}
 								>
 									Demo
 								</button>
@@ -312,7 +325,7 @@
 								<button 
 									type="button"
 									class="border border-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm hover:bg-gray-200 transition-colors text-center"
-									on:click={() => showNoDemoModal = true}
+									on:click={() => noDisponible()}
 								>
 									Demo
 								</button>
@@ -363,8 +376,8 @@
 		</div>
 	</section>
 </div> 
-
-<Modal bind:open={showNoDemoModal} size="md" autoclose>
+<!-- Modal
+<Modal bind:open={showNoDemoModal} size="sm" autoclose>
     <div class="p-6 text-center">
         <h3 class="mb-5 text-lg font-normal text-gray-700 dark:text-gray-200">Este proyecto no tiene vista previa disponible</h3>
         <button type="button" class="mt-4 px-4 py-2 bg-purple-900 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors" on:click={() => showNoDemoModal = false}>
@@ -372,3 +385,4 @@
         </button>
     </div>
 </Modal> 
+-->
