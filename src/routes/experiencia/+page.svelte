@@ -17,6 +17,14 @@
 			fecha: "2025 - 2025",
 			descripcion: `Desarrollador frontend enfocado en la construcción de interfaces modernas, responsivas y optimizadas. Participé activamente aportando en proyectos reales de alto impacto como 
 			<a
+				href="https://tobgroup.io"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="px-2 md:px-3 py-0.5 bg-gray-900 text-white rounded-full text-xs md:text-sm font-medium"
+				>
+				Tob Group
+				</a>, 
+			<a
 				href="https://deportivo-colon.tobgroup.io"
 				target="_blank"
 				rel="noopener noreferrer"
