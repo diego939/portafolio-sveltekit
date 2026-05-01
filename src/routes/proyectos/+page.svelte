@@ -29,6 +29,26 @@
 		},
 		{
 			id: 3,
+			titulo: "Liga San Miguel",
+			descripcion:
+			"Desarrollé una plataforma full stack para la gestión de torneos de la Liga de Fútbol de San Miguel, utilizada en un entorno real para optimizar la administración de competencias, equipos y jugadores. Implementé automatización de fichajes y control de sanciones, reduciendo la carga operativa manual y mejorando la trazabilidad de la información. La solución incluye una API REST robusta en NestJS (documentada con Swagger), un frontend dinámico en Angular con Tailwind CSS y una base de datos PostgreSQL, todo desplegado en la nube (Railway y Vercel) para garantizar accesibilidad y escalabilidad.",
+			imagen: "⚽",
+			categoria: "Full Stack",
+			tecnologias: [
+				"Angular",
+				"Tailwind CSS",
+				"NestJS",
+				"Swagger",
+				"PostgreSQL",
+				"Railway",
+				"Vercel"
+			],
+			url: "https://github.com/diego939/liga-san-miguel-frontend-angular",
+			demo: "https://liga-san-miguel-futbol.vercel.app",
+			destacado: false
+		},
+		{
+			id: 4,
 			titulo: "App de Tareas",
 			descripcion: "Mi primera aplicación Micro FrontEnd desarrollada con Vue.js que demuestra habilidades avanzadas en desarrollo web moderno. Implementé un sistema completo de gestión de tareas con autenticación de usuarios, operaciones CRUD completas y integración con APIs REST. La aplicación utiliza arquitectura SPA con modales interactivos y está optimizada para una experiencia de usuario fluida.",
 			imagen: "📝",
@@ -39,7 +59,7 @@
 			destacado: false
 		},
 		{
-			id: 4,
+			id: 5,
 			titulo: "Copa Corrientes Diversa",
 			descripcion: "Desarrollé y migré una plataforma web completa a SvelteKit, enfocada en la gestión de torneos deportivos inclusivos. Implementé módulos para administración de deportes, equipos, competencias, fixtures, resultados y podios, junto con un sistema de subida y gestión de archivos (imágenes y PDFs) utilizando almacenamiento en la nube con Vercel Blob. El sistema utiliza Prisma ORM con MySQL para modelado de datos relacional y consultas eficientes, y Tailwind CSS para la construcción de una interfaz moderna, responsive y optimizada.",
 			imagen: "🏆",
@@ -50,7 +70,7 @@
 			destacado: false
 		},
 		{
-			id: 5,
+			id: 6,
 			titulo: "E-commerce ASP.NET Core",
 			descripcion: "Aplicación web de comercio electrónico desarrollada con ASP.NET Core MVC utilizando Razor Views y una arquitectura en capas. El sistema incluye catálogo de productos, carrito de compras, panel administrativo y procesamiento de pagos mediante integración con PayPal Developer. También se utilizan AJAX y jQuery para mejorar la experiencia de usuario mediante interacciones dinámicas sin recarga de página.",
 			imagen: "🛒",
@@ -61,7 +81,7 @@
 			destacado: false
 		},
 		{
-			id: 6,
+			id: 7,
 			titulo: "Polirubro D & P",
 			descripcion: "Sistema de gestión empresarial desarrollado con tecnologías Microsoft para administrar las operaciones de un polirubro. La aplicación incluye control de ventas, gestión de productos, manejo de stock y generación de reportes administrativos. Implementa un sistema de roles jerárquico (Cajero, Encargado, Gerente y Gerente General) que habilita funcionalidades según el nivel de acceso del usuario.",
 			imagen: "🏪",
@@ -72,7 +92,7 @@
 			destacado: false
 		},
 		{
-			id: 7,
+			id: 8,
 			titulo: "Mi Portafolio",
 			descripcion: "Aplicación web profesional desarrollada durante el programa Argentina Programa (YoProgramo). Creé una plataforma que simula una red social profesional para la comunidad IT, implementando funcionalidades avanzadas de networking y presentación de proyectos. El sistema incluye envío automatizado de información por email para facilitar la colaboración.",
 			imagen: "💼",
@@ -83,7 +103,7 @@
 			destacado: false
 		},
 		{
-			id: 8,
+			id: 9,
 			titulo: "Tienda en línea",
 			descripcion: "E-commerce completo con sistema de gestión de inventario y facturación automatizada. Desarrollé una plataforma robusta que incluye control de stock en tiempo real, sistema de ventas integrado y facturación automática. Implementé un sistema de roles escalable (Cliente, Administrador, Super Administrador) con funcionalidades específicas para cada nivel de acceso.",
 			imagen: "🛒",
@@ -94,18 +114,18 @@
 			destacado: false
 		},
 		{
-			id: 9,
+			id: 10,
 			titulo: "Amazon SES",
 			descripcion: "Integración avanzada con Amazon Simple Email Service (SES) para automatización de comunicaciones empresariales. Desarrollé una solución que aprovecha la infraestructura cloud de AWS para enviar emails transaccionales, de marketing y notificaciones de forma escalable y confiable. La implementación optimiza costos y garantiza alta disponibilidad.",
 			imagen: "✉️",
-			categoria: "Frontend",
-			tecnologias: ["JavaScript", "Svelte", "Node.js", "Bootstrap"],
+			categoria: "Full Stack",
+			tecnologias: ["JavaScript", "Svelte", "Node.js", "Bootstrap", "AWS", "Express"],
 			url: "https://github.com/diego939/aws-ses-svelte",
 			demo: "",
 			destacado: false
 		},
 		{
-			id: 10,
+			id: 11,
 			titulo: "Actividades Diversa",
 			descripcion: "Plataforma web integral para la gestión de actividades educativas y deportivas de la Fundación Corrientes Diversa. Desarrollé un sistema que centraliza la información de cursos, deportes y eventos, facilitando la difusión y organización de actividades inclusivas. La aplicación está desplegada en Vercel para máxima disponibilidad.",
 			imagen: "🏳️‍🌈",
@@ -115,8 +135,8 @@
 			demo: "https://actividades-diversa.vercel.app",
 			destacado: false
 		},
-		{
-			id: 11,
+		/*{
+			id: 13,
 			titulo: "Caja Handball",
 			descripcion: "Sistema de administración financiera para gestión de caja en eventos de handball. Desarrollé una plataforma que registra y controla todos los movimientos de dinero (depósitos y extracciones) con sus respectivos detalles. La aplicación permite visualizar el historial completo de transacciones, generar reportes detallados y descargar archivos de encabezado y detalle en formatos Excel y PDF para auditoría y control administrativo.",
 			imagen: "💰",
@@ -125,7 +145,7 @@
 			url: "https://github.com/diego939/caja-handball",
 			demo: "https://caja-handball.vercel.app/",
 			destacado: false
-		},
+		},*/
 		{
 			id: 12,
 			titulo: "Job Tracker App",
