@@ -15,6 +15,7 @@
 		"@sveltejs/adapter-vercel": "^5.0.0",
 		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@types/aos": "^3.0.7",
 		"@types/nodemailer": "^8.0.0",
 		"autoprefixer": "^10.4.21",
 		"flowbite": "^3.1.2",
@@ -30,7 +31,9 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"aos": "^2.3.4",
 		"nodemailer": "^8.0.5",
-		"sweetalert2": "^11.22.2"
+		"sweetalert2": "^11.22.2",
+		"swiper": "^12.1.4"
 	}
 }

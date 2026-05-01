@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import CertificadosSwiper from '$lib/components/CertificadosSwiper.svelte';
 	
 	// Institutos reales
 	const institutos = [
@@ -191,56 +192,12 @@
 		},
 	];
 
-	// Función para abrir PDF
-	function abrirPDF(url: string) {
-		if (url) {
-			window.open(url, '_blank');
-		}
-	}
-
-	// Función para verificar credencial
-	function verificarCredencial(url: string) {
-		if (url) {
-			window.open(url, '_blank');
-		}
-	}
-
 	// Función para abrir URL del instituto
 	function abrirInstituto(url: string) {
 		if (url) {
 			window.open(url, '_blank');
 		}
 	}
-
-	// Variables para el carrusel de certificados
-	let paginaActual = 0;
-	const certificadosPorPagina = 4;
-	const totalPaginas = Math.ceil(certificados.length / certificadosPorPagina);
-
-	// Función para ir a la página anterior
-	function paginaAnterior() {
-		if (paginaActual > 0) {
-			paginaActual--;
-		}
-	}
-
-	// Función para ir a la página siguiente
-	function paginaSiguiente() {
-		if (paginaActual < totalPaginas - 1) {
-			paginaActual++;
-		}
-	}
-
-	// Función para ir a una página específica
-	function irAPagina(pagina: number) {
-		paginaActual = pagina;
-	}
-
-	// Obtener certificados de la página actual
-	$: certificadosActuales = certificados.slice(
-		paginaActual * certificadosPorPagina,
-		(paginaActual + 1) * certificadosPorPagina
-	);
 
 	// Función para convertir duración a horas
 	function convertirDuracionAHoras(duracion: string): number {
@@ -278,160 +235,214 @@
 		</p>
 	</div>
 
-	<!-- Sección de Certificaciones -->
-	<section class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 mx-4 sm:mx-6">
-		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Certificaciones</h2>
-		
-		<!-- Carrusel de certificados -->
-		<div class="relative">
-			<!-- Botones de navegación -->
-			<button 
-				on:click={paginaAnterior}
-				disabled={paginaActual === 0}
-				class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-			>
-				<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-				</svg>
-			</button>
-			
-			<button 
-				on:click={paginaSiguiente}
-				disabled={paginaActual === totalPaginas - 1}
-				class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-			>
-				<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-				</svg>
-			</button>
-
-			<!-- Contenedor de certificados -->
-			<div class="px-8">
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-					{#each certificadosActuales as cert}
-						<div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 p-4">
-							<div class="flex flex-col items-center text-center h-full">
-								<!-- Imagen del certificado -->
-								<div class="w-full h-32 mb-3 flex items-center justify-center">
-									<img 
-										src={cert.imagen} 
-										alt={cert.nombre} 
-										class="max-w-full max-h-full object-contain rounded"
-										on:error={(e) => {
-											const target = e.target as HTMLImageElement;
-											if (target) {
-												target.style.display = 'none';
-												const sibling = target.nextElementSibling as HTMLElement;
-												if (sibling) {
-													sibling.style.display = 'flex';
-												}
-											}
-										}}
-									/>
-									<div class="hidden items-center justify-center w-full h-full bg-gray-100 rounded text-gray-500">
-										<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-										</svg>
-				</div>
-			</div>
-			
-								<!-- Información del certificado -->
-								<h3 class="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">{cert.nombre}</h3>
-								<p class="text-xs text-gray-600 mb-3">Duración: {cert.duracion}</p>
-								
-								<!-- Botones de acción -->
-								<div class="flex gap-2 w-full mt-auto">
-									{#if cert.pdf}
-										<button 
-											on:click={() => abrirPDF(cert.pdf)}
-											class="flex-1 bg-red-600 text-white text-xs py-2 px-3 rounded hover:bg-red-700 transition-colors flex items-center justify-center gap-1"
-										>
-											<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-											</svg>
-											PDF
-										</button>
-									{/if}
-									{#if cert.credencial}
-										<button 
-											on:click={() => verificarCredencial(cert.credencial)}
-											class="flex-1 bg-green-600 text-white text-xs py-2 px-3 rounded hover:bg-green-700 transition-colors flex items-center justify-center gap-1"
-										>
-										<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-											<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-										  </svg>										  
-											Verificar
-										</button>
-									{/if}
-								</div>
-							</div>
-						</div>
-					{/each}
-				</div>
-			</div>
-		</div>
-
-		<!-- Indicadores de página -->
-		{#if totalPaginas > 1}
-			<div class="flex justify-center items-center space-x-2 mt-6">
-				{#each Array(totalPaginas) as _, index}
-					<button 
-						on:click={() => irAPagina(index)}
-						class="w-3 h-3 rounded-full transition-all duration-200 {paginaActual === index ? 'bg-purple-900' : 'bg-gray-300 hover:bg-gray-400'}"
-						aria-label="Ir a página {index + 1}"
-					></button>
-				{/each}
-			</div>
-		{/if}
-	</section>
+	<CertificadosSwiper {certificados} />
 
 	
 	<!-- Grid de Institutos -->
-	<section class="px-4 sm:px-6">
-		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Institutos</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-			{#each institutos as inst}
-				<div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow flex flex-col h-full min-h-[320px] sm:min-h-[370px] p-4 sm:p-6">
-					<button 
-						on:click={() => abrirInstituto(inst.url)}
-						class="w-full text-left focus:outline-none focus:ring-0 rounded-lg p-2 -m-2"
+	<section
+		class="relative mx-4 sm:mx-6 rounded-2xl overflow-hidden px-4 sm:px-6 py-10 sm:py-12 md:py-14"
+		aria-labelledby="institutos-heading"
+	>
+		<div
+			class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50/90 pointer-events-none"
+		></div>
+		<div
+			class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-purple-200/30 blur-3xl pointer-events-none"
+		></div>
+		<div
+			class="absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-indigo-200/25 blur-3xl pointer-events-none"
+		></div>
+
+		<div class="relative z-10 max-w-7xl mx-auto">
+			<div class="text-center mb-8 sm:mb-10 md:mb-12">
+				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/80 mb-2">
+					Formación académica
+				</p>
+				<h2 id="institutos-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+					Institutos
+				</h2>
+				<p class="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+					Instituciones donde cursé títulos y programas que marcaron mi perfil profesional.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7">
+				{#each institutos as inst (inst.url)}
+					<article
+						class="group relative flex flex-col h-full min-h-[300px] sm:min-h-[340px] rounded-2xl bg-white/80 backdrop-blur-sm border border-purple-900/10 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/25 transition-all duration-300 hover:-translate-y-1"
 					>
-						<img src={inst.logo} alt={inst.nombre} class="h-20 object-contain mb-4 transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer" />
-					</button>
-					<p class="font-semibold text-gray-800 text-center mb-1">{inst.nombre}</p>
-					<p class="text-gray-600 text-center mb-1"><span class="font-bold">Título:</span> <span class="text-blue-700 font-medium">{inst.titulo}</span></p>
-					<p class="text-gray-500 text-center mb-4">Finalización: {inst.finalizacion}</p>
-					<div class="flex-1"></div>
-					<button 
-						on:click={() => abrirInstituto(inst.url)}
-						class="w-full bg-purple-900 text-white py-2 rounded-b-xl flex items-center justify-center gap-2 hover:bg-purple-700 transition-colors mt-auto"
-					>
-					<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-						<path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-						<path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-					  </svg>					  
-						Ver
-					</button>
-				</div>
-			{/each}
+						<div
+							class="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-500 opacity-90"
+						></div>
+
+						<div class="flex flex-col flex-1 p-5 sm:p-6 pt-6">
+							<button
+								type="button"
+								on:click={() => abrirInstituto(inst.url)}
+								class="mx-auto mb-5 flex h-24 w-full max-w-[200px] items-center justify-center rounded-2xl bg-gradient-to-b from-white to-purple-50/80 ring-1 ring-purple-900/10 shadow-inner transition-transform duration-300 group-hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
+								aria-label="Abrir sitio de {inst.nombre}"
+							>
+								<img
+									src={inst.logo}
+									alt=""
+									class="h-16 w-auto max-w-[90%] object-contain"
+								/>
+							</button>
+
+							<h3
+								class="text-center font-bold text-gray-900 text-sm sm:text-base leading-snug mb-3 line-clamp-3 min-h-[3.5rem] sm:min-h-[4rem]"
+							>
+								{inst.nombre}
+							</h3>
+
+							<p class="text-xs font-medium text-purple-900/70 uppercase tracking-wide text-center mb-1">
+								Título obtenido
+							</p>
+							<p class="text-center text-sm sm:text-[0.9375rem] text-purple-900 font-semibold leading-snug mb-4 flex-1">
+								{inst.titulo}
+							</p>
+
+							<div
+								class="flex items-center justify-center gap-2 rounded-xl bg-gray-50/90 py-2.5 px-3 text-xs text-gray-600 border border-gray-100 mb-4"
+							>
+								<svg
+									class="w-4 h-4 shrink-0 text-purple-700"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+									/>
+								</svg>
+								<span><span class="font-semibold text-gray-700">Finalización</span> · {inst.finalizacion}</span>
+							</div>
+
+							<button
+								type="button"
+								on:click={() => abrirInstituto(inst.url)}
+								class="mt-auto w-full flex items-center justify-center gap-2 rounded-xl bg-purple-900 text-white text-sm font-semibold py-3 px-4 hover:bg-purple-800 active:bg-purple-950 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
+							>
+								<svg
+									class="w-5 h-5 text-white shrink-0"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+									/>
+								</svg>
+								Visitar institución
+							</button>
+						</div>
+					</article>
+				{/each}
+			</div>
 		</div>
 	</section>
 
 	<!-- Sección de Logros Académicos -->
-	<section class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mx-4 sm:mx-6">
-		<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Logros Alcanzados</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-			<div class="text-center">
-				<div class="text-3xl font-bold text-purple-900 mb-2">{totalHorasEsfuerzo}</div>
-				<p class="text-gray-600">Horas de esfuerzo</p>
+	<section
+		class="relative mx-4 sm:mx-6 rounded-2xl overflow-hidden px-4 sm:px-6 py-10 sm:py-12 md:py-14 border border-purple-900/10 shadow-xl shadow-purple-900/5"
+		aria-labelledby="logros-heading"
+	>
+		<div
+			class="absolute inset-0 bg-gradient-to-br from-white via-purple-50/40 to-indigo-50/60 pointer-events-none"
+		></div>
+		<div
+			class="absolute top-0 left-1/2 -translate-x-1/2 w-[min(100%,42rem)] h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent"
+		></div>
+
+		<div class="relative z-10 max-w-5xl mx-auto">
+			<div class="text-center mb-8 sm:mb-10">
+				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/80 mb-2">
+					En números
+				</p>
+				<h2 id="logros-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+					Logros alcanzados
+				</h2>
+				<p class="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
+					Resumen de mi trayectoria formativa: tiempo invertido, instituciones y credenciales.
+				</p>
 			</div>
-			<div class="text-center">
-				<div class="text-3xl font-bold text-green-600 mb-2">4</div>
-				<p class="text-gray-600">Instituciones</p>
-			</div>
-			<div class="text-center">
-				<div class="text-3xl font-bold text-purple-600 mb-2">{certificados.length}</div>
-				<p class="text-gray-600">Certificaciones</p>
+
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+				<div
+					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-purple-900/10 shadow-md hover:shadow-lg hover:border-purple-900/20 transition-all duration-300 hover:-translate-y-0.5"
+				>
+					<div
+						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-700 text-white shadow-lg shadow-purple-900/25 group-hover:scale-105 transition-transform duration-300"
+					>
+						<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+							/>
+						</svg>
+					</div>
+					<p
+						class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-900 to-indigo-800 bg-clip-text text-transparent tabular-nums mb-1"
+					>
+						{totalHorasEsfuerzo.toLocaleString('es-AR')}
+					</p>
+					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1">Horas de esfuerzo</p>
+					<p class="text-xs text-gray-500 leading-relaxed">Estimación según duración de certificaciones</p>
+				</div>
+
+				<div
+					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-emerald-900/10 shadow-md hover:shadow-lg hover:border-emerald-700/25 transition-all duration-300 hover:-translate-y-0.5"
+				>
+					<div
+						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-900/20 group-hover:scale-105 transition-transform duration-300"
+					>
+						<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+							/>
+						</svg>
+					</div>
+					<p class="text-3xl sm:text-4xl font-bold text-emerald-700 tabular-nums mb-1">
+						{institutos.length}
+					</p>
+					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1">Instituciones</p>
+					<p class="text-xs text-gray-500 leading-relaxed">Centros donde cursé títulos y programas</p>
+				</div>
+
+				<div
+					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-violet-900/10 shadow-md hover:shadow-lg hover:border-violet-600/25 transition-all duration-300 hover:-translate-y-0.5"
+				>
+					<div
+						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-lg shadow-violet-900/20 group-hover:scale-105 transition-transform duration-300"
+					>
+						<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+							/>
+						</svg>
+					</div>
+					<p class="text-3xl sm:text-4xl font-bold text-violet-700 tabular-nums mb-1">
+						{certificados.length}
+					</p>
+					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1">Certificaciones</p>
+					<p class="text-xs text-gray-500 leading-relaxed">Credenciales y cursos con certificado</p>
+				</div>
 			</div>
 		</div>
 	</section>
