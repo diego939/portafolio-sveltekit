@@ -171,7 +171,7 @@
 							type="text"
 							autocomplete="name"
 							class="{fieldBase} pl-11"
-							placeholder="Cómo te llamo"
+							placeholder="Tu nombre"
 							bind:value={nombre}
 						/>
 					</div>
@@ -229,7 +229,7 @@
 							id="contact-asunto"
 							type="text"
 							class="{fieldBase} pl-11"
-							placeholder="Ej. Consulta laboral, proyecto…"
+							placeholder="Ej. Propuesta de trabajo, proyecto…"
 							bind:value={asunto}
 						/>
 					</div>
@@ -243,13 +243,15 @@
 						id="contact-mensaje"
 						rows="3"
 						class="{fieldBase} min-h-[5.5rem] resize-y sm:min-h-[7rem]"
-						placeholder="Contame en pocas líneas en qué puedo ayudarte."
+						placeholder="Escribe tu mensaje aquí…"
 						bind:value={mensaje}
 					></textarea>
-					<p class="text-xs text-gray-500">Desde ya, muchas gracias por tu interés.</p>
+					<p class="hidden sm:block text-xs text-gray-500">
+						Desde ya, muchas gracias por tu interés.
+					</p>
 				</div>
 
-				<div class="flex flex-col-reverse gap-3 border-t border-gray-100 pt-5 sm:flex-row sm:justify-end">
+				<div class="flex flex-wrap justify-center gap-3 border-t border-gray-100 pt-5">
 					<button
 						type="button"
 						class="rounded-xl border-2 border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 transition hover:border-gray-300 hover:bg-gray-50"
@@ -273,7 +275,7 @@
 								></path>
 							</svg>
 						{:else}
-							Enviar mensaje
+							Enviar
 							<i class="fa-regular fa-paper-plane"></i>
 						{/if}
 					</button>
