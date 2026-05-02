@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { onMount, tick } from 'svelte';
 	import type SwiperType from 'swiper';
 
 	interface CertificadoItem {
@@ -29,10 +30,23 @@
 	}
 
 	let swiperContainer: HTMLElement | undefined = undefined;
+	let swiperInstance: SwiperType | undefined;
+
+	function refreshSwiper() {
+		swiperInstance?.update();
+	}
+
+	afterNavigate(() => {
+		tick().then(refreshSwiper);
+	});
 
 	onMount(() => {
-		let destroyed = false;
-		let swiper: SwiperType | undefined;
+		let cancelled = false;
+
+		function onVisibilityChange() {
+			if (document.visibilityState === 'visible') refreshSwiper();
+		}
+		document.addEventListener('visibilitychange', onVisibilityChange);
 
 		(async () => {
 			const [{ default: Swiper }, { EffectCoverflow, Navigation, Pagination }] = await Promise.all([
@@ -45,7 +59,7 @@
 				import('swiper/css/pagination')
 			]);
 
-			if (destroyed || !swiperContainer) return;
+			if (cancelled || !swiperContainer) return;
 
 			const paginationEl = swiperContainer.querySelector<HTMLElement>('.cert-swiper-pagination');
 			const shell = swiperContainer.parentElement;
@@ -56,17 +70,22 @@
 			const initial =
 				certificados.length > 0 ? Math.min(2, Math.max(0, certificados.length - 1)) : 0;
 
-			swiper = new Swiper(swiperContainer, {
+			swiperInstance = new Swiper(swiperContainer, {
 				modules: [EffectCoverflow, Pagination, Navigation],
 				effect: 'coverflow',
 				grabCursor: true,
 				centeredSlides: true,
+				centeredSlidesBounds: true,
 				rewind: true,
 				initialSlide: initial,
 				speed: 550,
-				slidesPerView: 'auto',
+				slidesPerView: 1,
 				spaceBetween: 12,
 				watchSlidesProgress: true,
+				observer: true,
+				observeParents: true,
+				observeSlideChildren: true,
+				resizeObserver: true,
 				coverflowEffect: {
 					rotate: 8,
 					stretch: 0,
@@ -86,6 +105,7 @@
 				},
 				breakpoints: {
 					640: {
+						slidesPerView: 'auto',
 						spaceBetween: 20,
 						coverflowEffect: { rotate: 14, depth: 128, scale: 0.89 }
 					},
@@ -96,17 +116,22 @@
 					}
 				}
 			});
+
+			await tick();
+			swiperInstance?.update();
 		})();
 
 		return () => {
-			destroyed = true;
-			swiper?.destroy(true, true);
+			document.removeEventListener('visibilitychange', onVisibilityChange);
+			cancelled = true;
+			swiperInstance?.destroy(true, true);
+			swiperInstance = undefined;
 		};
 	});
 </script>
 
 <section
-	class="relative py-10 sm:py-14 px-4 sm:px-6 w-full overflow-x-clip box-border rounded-xl sm:rounded-2xl mx-4 sm:mx-6"
+	class="relative py-10 sm:py-14 px-4 sm:px-6 max-w-full overflow-x-clip box-border rounded-xl sm:rounded-2xl mx-4 sm:mx-6"
 >
 	<div
 		class="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-white to-indigo-50/90 pointer-events-none rounded-xl sm:rounded-2xl"
@@ -266,7 +291,8 @@
 
 	@media (max-width: 639.98px) {
 		:global(.cert-swiper .swiper-slide) {
-			width: 98%;
+			width: 100%;
+			box-sizing: border-box;
 		}
 	}
 
