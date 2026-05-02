@@ -75,7 +75,8 @@
 				effect: 'coverflow',
 				grabCursor: true,
 				centeredSlides: true,
-				centeredSlidesBounds: true,
+				// centeredSlidesBounds is incompatible with rewind (Swiper 9+) and breaks
+				// reaching the first/last slide on multi-slide (desktop) layouts.
 				rewind: true,
 				initialSlide: initial,
 				speed: 550,
@@ -131,10 +132,10 @@
 </script>
 
 <section
-	class="relative py-10 sm:py-14 px-4 sm:px-6 max-w-full overflow-x-clip box-border rounded-xl sm:rounded-2xl mx-4 sm:mx-6"
+	class="relative py-10 sm:py-14 px-4 sm:px-6 max-w-full overflow-x-clip box-border sm:rounded-2xl sm:mx-6"
 >
 	<div
-		class="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-white to-indigo-50/90 pointer-events-none rounded-xl sm:rounded-2xl"
+		class="pointer-events-none absolute inset-0 hidden bg-gradient-to-br from-purple-900/10 via-white to-indigo-50/90 sm:block sm:rounded-2xl"
 	></div>
 
 	<div class="text-center mb-8 sm:mb-10 relative z-10">
