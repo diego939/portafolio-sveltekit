@@ -142,7 +142,7 @@
 			</button>
 
 			<div class="swiper cert-swiper w-full max-w-full min-w-0" bind:this={swiperContainer}>
-				<div class="swiper-wrapper pb-1">
+				<div class="swiper-wrapper pb-1 mb-4">
 					{#each certificados as cert (cert.nombre + cert.imagen)}
 						<div class="swiper-slide">
 							<article
@@ -224,7 +224,9 @@
 						</div>
 					{/each}
 				</div>
-				<div class="cert-swiper-pagination"></div>
+				<div class="hidden sm:block">
+					<div class="cert-swiper-pagination mb-4"></div>
+				</div>
 			</div>
 		</div>
 	</div>
