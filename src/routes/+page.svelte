@@ -63,52 +63,65 @@
 	function accentIconClasses(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'text-purple-900';
+				return 'text-violet-700';
 			case 'green':
-				return 'text-emerald-700';
+				return 'text-emerald-600';
 			case 'purple':
-				return 'text-purple-700';
+				return 'text-fuchsia-700';
 			case 'indigo':
-				return 'text-indigo-700';
+				return 'text-sky-700';
 		}
 	}
 
 	function accentCardRing(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'hover:border-purple-300/60 focus-visible:ring-purple-500';
+				return 'hover:border-fuchsia-400 focus-visible:ring-fuchsia-500';
 			case 'green':
-				return 'hover:border-emerald-300/60 focus-visible:ring-emerald-500';
+				return 'hover:border-emerald-400 focus-visible:ring-emerald-500';
 			case 'purple':
-				return 'hover:border-purple-400/50 focus-visible:ring-purple-600';
+				return 'hover:border-fuchsia-500 focus-visible:ring-fuchsia-600';
 			case 'indigo':
-				return 'hover:border-indigo-300/60 focus-visible:ring-indigo-500';
+				return 'hover:border-sky-400 focus-visible:ring-sky-500';
+		}
+	}
+
+	function accentCardSurface(a: DestacadoAccent): string {
+		switch (a) {
+			case 'blue':
+				return 'border-violet-300/90 bg-gradient-to-br from-white via-violet-50/90 to-indigo-100/95 shadow-violet-500/15 hover:shadow-violet-500/25';
+			case 'green':
+				return 'border-emerald-300/90 bg-gradient-to-br from-white via-emerald-50/90 to-teal-100/95 shadow-emerald-500/15 hover:shadow-emerald-500/25';
+			case 'purple':
+				return 'border-fuchsia-300/90 bg-gradient-to-br from-white via-fuchsia-50/85 to-violet-100/95 shadow-fuchsia-500/15 hover:shadow-fuchsia-500/25';
+			case 'indigo':
+				return 'border-sky-300/90 bg-gradient-to-br from-white via-sky-50/85 to-indigo-100/95 shadow-sky-500/15 hover:shadow-sky-500/25';
 		}
 	}
 
 	function accentIconBg(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'from-purple-100 to-indigo-100 ring-purple-200/80';
+				return 'from-violet-200 to-indigo-200 ring-violet-400/70';
 			case 'green':
-				return 'from-emerald-50 to-teal-100 ring-emerald-200/80';
+				return 'from-emerald-200 to-teal-200 ring-emerald-400/70';
 			case 'purple':
-				return 'from-purple-50 to-violet-100 ring-purple-200/80';
+				return 'from-fuchsia-200 to-violet-300 ring-fuchsia-400/70';
 			case 'indigo':
-				return 'from-indigo-50 to-blue-100 ring-indigo-200/80';
+				return 'from-sky-200 to-indigo-200 ring-sky-400/70';
 		}
 	}
 
 	function accentLinkClass(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'text-purple-900 group-hover:text-purple-700';
+				return 'text-violet-700 group-hover:text-fuchsia-700';
 			case 'green':
-				return 'text-emerald-700 group-hover:text-emerald-800';
+				return 'text-emerald-600 group-hover:text-teal-700';
 			case 'purple':
-				return 'text-purple-700 group-hover:text-purple-900';
+				return 'text-fuchsia-700 group-hover:text-violet-800';
 			case 'indigo':
-				return 'text-indigo-700 group-hover:text-indigo-900';
+				return 'text-sky-700 group-hover:text-indigo-800';
 		}
 	}
 
@@ -252,19 +265,19 @@
 			{#each destacados as destacado (destacado.link)}
 				<a
 					href={destacado.link}
-					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white/90 p-6 shadow-md backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 {accentCardRing(
+					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-6 shadow-lg backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 {accentCardSurface(
 						destacado.accent
-					)}"
+					)} {accentCardRing(destacado.accent)}"
 				>
 					<div
-						class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r opacity-90 {destacado.accent ===
+						class="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r opacity-100 {destacado.accent ===
 						'blue'
-							? 'from-purple-600 to-indigo-500'
+							? 'from-fuchsia-500 via-violet-600 to-indigo-600'
 							: destacado.accent === 'green'
-								? 'from-emerald-500 to-teal-500'
+								? 'from-lime-400 via-emerald-500 to-teal-600'
 								: destacado.accent === 'purple'
-									? 'from-purple-500 to-violet-600'
-									: 'from-indigo-500 to-blue-600'}"
+									? 'from-pink-500 via-fuchsia-600 to-violet-700'
+									: 'from-cyan-400 via-sky-500 to-indigo-700'}"
 					></div>
 
 					<div
@@ -392,53 +405,34 @@
 					href="https://www.linkedin.com/in/diegodavidalmiron"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="contact-btn contact-btn-linkedin inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
+					class="contact-btn contact-btn-linkedin inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
 				>
-					<svg class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"
-						/>
-					</svg>
+					<i class="fa-brands fa-linkedin-in fa-lg"></i>
 					LinkedIn
 				</a>
 				<a
 					href="mailto:diegodavidalmiron17@gmail.com"
-					class="contact-btn contact-btn-mail inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
+					class="contact-btn contact-btn-mail inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
 				>
-					<svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							stroke-linecap="round"
-							stroke-width="2"
-							d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
-						/>
-					</svg>
+					<i class="fa-solid fa-at fa-lg"></i>
 					Email
 				</a>
 				<a
 					href="https://wa.me/+543795315483?text=Hola Diego, vi tu portafolio y me gustaría conversar sobre una posible vacante..."
 					target="_blank"
 					rel="noopener noreferrer"
-					class="contact-btn contact-btn-wa inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
+					class="contact-btn contact-btn-wa inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
 				>
-					<svg class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.19 1.6 6.01L0 24l6.18-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.23-1.44l-.37-.22-3.67.96.98-3.58-.24-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.8c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.41-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.62-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.98 2.43.02 1.43 1.03 2.81 1.18 3 .15.19 2.03 3.1 4.93 4.23.69.3 1.23.48 1.65.61.69.22 1.32.19 1.81.12.55-.08 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"
-						/>
-					</svg>
+					<i class="fa-brands fa-whatsapp fa-lg"></i>
 					WhatsApp
 				</a>
 				<button
 					type="button"
-					class="contact-btn contact-btn-cta inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-bold shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
+					class="contact-btn contact-btn-cta inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
 					on:click={() => contactModalOpen.set(true)}
 				>
-					<svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-						<path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4.5" />
-						<path d="M16 3v4" />
-						<path d="M8 3v4" />
-						<path d="M3 10h18" />
-					</svg>
-					Contactame
+					<i class="fa-regular fa-envelope fa-lg"></i>
+					Contacto
 				</button>
 			</div>
 		</div>
@@ -450,80 +444,80 @@
 		position: relative;
 	}
 	.contact-btn-linkedin {
-		background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+		background: linear-gradient(135deg, #064a8f 0%, #002d56 100%);
 		box-shadow:
-			0 10px 25px -5px rgba(10, 102, 194, 0.55),
-			0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+			0 10px 25px -5px rgba(6, 42, 88, 0.6),
+			0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 	}
 	.contact-btn-linkedin:hover {
-		filter: brightness(1.12);
+		filter: brightness(1.1);
 		box-shadow:
-			0 14px 32px -4px rgba(56, 189, 248, 0.45),
-			0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+			0 14px 32px -4px rgba(14, 116, 184, 0.4),
+			0 0 0 1px rgba(255, 255, 255, 0.16) inset;
 	}
 	.contact-btn-linkedin:focus-visible {
 		box-shadow:
 			0 0 0 2px #1e1b4b,
-			0 0 0 4px #38bdf8,
-			0 14px 32px -4px rgba(56, 189, 248, 0.45);
+			0 0 0 4px #0ea5e9,
+			0 14px 32px -4px rgba(14, 116, 184, 0.4);
 	}
 	.contact-btn-mail {
-		background: linear-gradient(135deg, #f43f5e 0%, #ec4899 45%, #a855f7 100%);
+		background: linear-gradient(135deg, #c81e42 0%, #b91c7c 45%, #6d28d9 100%);
 		box-shadow:
-			0 10px 25px -5px rgba(236, 72, 153, 0.55),
-			0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+			0 10px 25px -5px rgba(157, 23, 77, 0.55),
+			0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 	}
 	.contact-btn-mail:hover {
-		filter: brightness(1.1);
+		filter: brightness(1.08);
 		box-shadow:
-			0 14px 32px -4px rgba(244, 114, 182, 0.5),
-			0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+			0 14px 32px -4px rgba(190, 24, 93, 0.48),
+			0 0 0 1px rgba(255, 255, 255, 0.16) inset;
 	}
 	.contact-btn-mail:focus-visible {
 		box-shadow:
 			0 0 0 2px #1e1b4b,
-			0 0 0 4px #f472b6,
-			0 14px 32px -4px rgba(244, 114, 182, 0.5);
+			0 0 0 4px #db2777,
+			0 14px 32px -4px rgba(190, 24, 93, 0.48);
 	}
 	.contact-btn-wa {
-		background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+		background: linear-gradient(135deg, #1a9e52 0%, #0d6b5e 100%);
 		box-shadow:
-			0 10px 25px -5px rgba(37, 211, 102, 0.55),
-			0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+			0 10px 25px -5px rgba(13, 107, 94, 0.55),
+			0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 	}
 	.contact-btn-wa:hover {
-		filter: brightness(1.1);
+		filter: brightness(1.08);
 		box-shadow:
-			0 14px 32px -4px rgba(52, 211, 153, 0.5),
-			0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+			0 14px 32px -4px rgba(22, 163, 74, 0.45),
+			0 0 0 1px rgba(255, 255, 255, 0.16) inset;
 	}
 	.contact-btn-wa:focus-visible {
 		box-shadow:
 			0 0 0 2px #1e1b4b,
-			0 0 0 4px #34d399,
-			0 14px 32px -4px rgba(52, 211, 153, 0.5);
+			0 0 0 4px #16a34a,
+			0 14px 32px -4px rgba(22, 163, 74, 0.45);
 	}
 	.contact-btn-cta {
-		color: #1c1917;
-		background: linear-gradient(135deg, #fde047 0%, #fbbf24 50%, #f59e0b 100%);
+		color: #ffffff;
+		background: linear-gradient(135deg, #404040 0%, #292929 40%, #141414 100%);
 		box-shadow:
-			0 10px 28px -5px rgba(251, 191, 36, 0.65),
-			0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+			0 10px 28px -5px rgba(0, 0, 0, 0.5),
+			0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 	}
 	.contact-btn-cta:hover {
 		filter: brightness(1.08);
 		box-shadow:
-			0 16px 36px -4px rgba(253, 224, 71, 0.55),
-			0 0 0 1px rgba(255, 255, 255, 0.45) inset;
+			0 16px 36px -4px rgba(0, 0, 0, 0.45),
+			0 0 0 1px rgba(255, 255, 255, 0.14) inset;
 	}
 	.contact-btn-cta:focus-visible {
 		box-shadow:
-			0 0 0 2px #1e1b4b,
-			0 0 0 4px #fde047,
-			0 16px 36px -4px rgba(253, 224, 71, 0.55);
+			0 0 0 2px #fafafa,
+			0 0 0 4px #2d2d2d,
+			0 16px 36px -4px rgba(0, 0, 0, 0.4);
 	}
 	.contact-btn-cta :global(svg) {
-		stroke: #1c1917;
+		stroke: #ffffff;
 	}
 </style>
 
