@@ -173,7 +173,7 @@
 				<!-- Botón menú móvil -->
 				<div class="md:hidden flex items-center">
 					<button 
-						on:click={toggleMenu}
+						onclick={toggleMenu}
 						class="text-gray-600 hover:text-purple-900 transition-colors"
 						aria-label="Toggle menu"
 					>
@@ -196,7 +196,7 @@
 							href="/"
 							class={navMobileClass('/')}
 							aria-current={navActive('/') ? 'page' : undefined}
-							on:click={() => (menuAbierto = false)}
+							onclick={() => (menuAbierto = false)}
 						>
 							Inicio
 						</a>
@@ -204,7 +204,7 @@
 							href="/educacion"
 							class={navMobileClass('/educacion')}
 							aria-current={navActive('/educacion') ? 'page' : undefined}
-							on:click={() => (menuAbierto = false)}
+							onclick={() => (menuAbierto = false)}
 						>
 							Educación
 						</a>
@@ -212,7 +212,7 @@
 							href="/experiencia"
 							class={navMobileClass('/experiencia')}
 							aria-current={navActive('/experiencia') ? 'page' : undefined}
-							on:click={() => (menuAbierto = false)}
+							onclick={() => (menuAbierto = false)}
 						>
 							Experiencia
 						</a>
@@ -220,7 +220,7 @@
 							href="/habilidades"
 							class={navMobileClass('/habilidades')}
 							aria-current={navActive('/habilidades') ? 'page' : undefined}
-							on:click={() => (menuAbierto = false)}
+							onclick={() => (menuAbierto = false)}
 						>
 							Habilidades
 						</a>
@@ -228,7 +228,7 @@
 							href="/proyectos"
 							class={navMobileClass('/proyectos')}
 							aria-current={navActive('/proyectos') ? 'page' : undefined}
-							on:click={() => (menuAbierto = false)}
+							onclick={() => (menuAbierto = false)}
 						>
 							Proyectos
 						</a>
@@ -264,7 +264,7 @@
 		<button
 		  class="bg-white border-4 border-purple-900 rounded-full shadow-lg w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center hover:bg-purple-50 transition-colors group"
 		  aria-label="Abrir formulario de contacto"
-		  on:click={() => contactModalOpen.set(true)}
+		  onclick={() => contactModalOpen.set(true)}
 		>
 		  <svg class="w-6 h-6 sm:w-8 sm:h-8 text-purple-900 group-hover:text-purple-700" fill="white" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
 		    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="white"/>
