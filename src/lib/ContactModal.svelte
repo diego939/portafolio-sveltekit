@@ -13,7 +13,7 @@
 	let loading = false;
 
 	const fieldBase =
-		'w-full rounded-xl border border-gray-200 bg-gray-50/80 px-3.5 py-2.5 text-gray-900 placeholder:text-gray-400 transition focus:border-purple-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500/30';
+		'w-full rounded-xl border border-gray-200 bg-gray-50/80 px-3.5 py-2.5 text-gray-900 placeholder:text-gray-400 transition focus:border-purple-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-600';
 
 	function closeModal() {
 		open = false;
@@ -81,23 +81,23 @@
 <svelte:window on:keydown={handleBackdropKeydown} />
 
 {#if open}
-	<div class="fixed inset-0 z-[1000] flex items-center justify-center p-4 sm:p-6">
-		<button
-			type="button"
-			class="absolute inset-0 bg-gray-900/50 backdrop-blur-md"
-			aria-label="Cerrar formulario de contacto"
-			on:click={closeModal}
-		></button>
+	<div
+		class="fixed inset-0 z-[1000] flex min-h-0 items-center justify-center overflow-y-auto overscroll-contain px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom,0px))] pt-[max(0.75rem,env(safe-area-inset-top,0px))] sm:overflow-y-hidden sm:overscroll-auto sm:p-6"
+	>
+		<div class="fixed inset-0 bg-gray-900/50 backdrop-blur-md" aria-hidden="true"></div>
 		<div
-			class="animate-fadeIn relative z-10 w-full max-w-lg overflow-hidden rounded-2xl border border-purple-900/10 bg-white shadow-2xl shadow-purple-900/10"
+			class="animate-fadeIn relative z-10 my-auto flex w-full max-w-lg min-h-0 max-h-[calc(100dvh-1.5rem)] flex-col overflow-hidden rounded-2xl border border-purple-900/10 bg-white shadow-2xl shadow-purple-900/10 sm:max-h-none"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="contact-modal-title"
 			aria-describedby="contact-modal-desc"
 		>
-			<div class="h-1.5 w-full bg-gradient-to-r from-purple-600 via-violet-500 to-indigo-600"></div>
+			<div
+				class="h-1.5 w-full shrink-0 rounded-t-2xl bg-gradient-to-r from-purple-600 via-violet-500 to-indigo-600"
+				aria-hidden="true"
+			></div>
 
-			<div class="flex items-start justify-between gap-4 border-b border-gray-100 px-5 pb-4 pt-5 sm:px-6">
+			<div class="flex shrink-0 items-start justify-between gap-4 border-b border-gray-100 px-5 pb-4 pt-5 sm:px-6">
 				<div>
 					<h2 id="contact-modal-title" class="flex items-center gap-2.5 text-xl font-bold tracking-tight text-gray-900">
 						<span
@@ -112,11 +112,8 @@
 								/>
 							</svg>
 						</span>
-						Escribime
+						Contactame
 					</h2>
-					<p id="contact-modal-desc" class="mt-2 pl-[3.25rem] text-sm leading-relaxed text-gray-600">
-						Dejá tus datos y te respondo por correo. Suele ser en menos de 24 horas.
-					</p>
 				</div>
 				<button
 					type="button"
@@ -130,7 +127,11 @@
 				</button>
 			</div>
 
-			<form class="space-y-4 px-5 py-5 sm:space-y-5 sm:px-6 sm:pb-6" on:submit|preventDefault={validar} novalidate>
+			<form
+				class="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-y-contain px-5 py-5 [-webkit-overflow-scrolling:touch] sm:flex-none sm:overflow-visible sm:space-y-5 sm:px-6 sm:pb-6"
+				on:submit|preventDefault={validar}
+				novalidate
+			>
 				{#if error}
 					<div
 						class="flex gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
@@ -240,12 +241,12 @@
 					</label>
 					<textarea
 						id="contact-mensaje"
-						rows="4"
-						class="{fieldBase} min-h-[7rem] resize-y"
+						rows="3"
+						class="{fieldBase} min-h-[5.5rem] resize-y sm:min-h-[7rem]"
 						placeholder="Contame en pocas líneas en qué puedo ayudarte."
 						bind:value={mensaje}
 					></textarea>
-					<p class="text-xs text-gray-500">Cuanto más concreto sea el mensaje, mejor podré orientarte.</p>
+					<p class="text-xs text-gray-500">Desde ya, muchas gracias por tu interés.</p>
 				</div>
 
 				<div class="flex flex-col-reverse gap-3 border-t border-gray-100 pt-5 sm:flex-row sm:justify-end">
@@ -262,6 +263,7 @@
 						disabled={loading}
 					>
 						{#if loading}
+							Enviando…
 							<svg class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
 								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
 								<path
@@ -270,17 +272,9 @@
 									d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 								></path>
 							</svg>
-							Enviando…
 						{:else}
-							<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-								/>
-							</svg>
 							Enviar mensaje
+							<i class="fa-regular fa-paper-plane"></i>
 						{/if}
 					</button>
 				</div>
