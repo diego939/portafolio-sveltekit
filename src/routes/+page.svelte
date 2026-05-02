@@ -87,15 +87,16 @@
 	}
 
 	function accentCardSurface(a: DestacadoAccent): string {
+		/* En móvil: tintes y sombras más marcados, sin depender del hover (blur desactivado en el markup). */
 		switch (a) {
 			case 'blue':
-				return 'border-violet-300/90 bg-gradient-to-br from-white via-violet-50/90 to-indigo-100/95 shadow-violet-500/15 hover:shadow-violet-500/25';
+				return 'border-violet-300/90 bg-gradient-to-br from-white via-violet-50/90 to-indigo-100/95 shadow-lg shadow-violet-500/15 hover:shadow-violet-500/25 max-md:border-violet-500 max-md:from-violet-50 max-md:via-violet-100 max-md:to-indigo-100 max-md:shadow-md max-md:shadow-violet-600/40';
 			case 'green':
-				return 'border-emerald-300/90 bg-gradient-to-br from-white via-emerald-50/90 to-teal-100/95 shadow-emerald-500/15 hover:shadow-emerald-500/25';
+				return 'border-emerald-300/90 bg-gradient-to-br from-white via-emerald-50/90 to-teal-100/95 shadow-lg shadow-emerald-500/15 hover:shadow-emerald-500/25 max-md:border-emerald-500 max-md:from-emerald-50 max-md:via-emerald-100 max-md:to-teal-100 max-md:shadow-md max-md:shadow-emerald-600/40';
 			case 'purple':
-				return 'border-fuchsia-300/90 bg-gradient-to-br from-white via-fuchsia-50/85 to-violet-100/95 shadow-fuchsia-500/15 hover:shadow-fuchsia-500/25';
+				return 'border-fuchsia-300/90 bg-gradient-to-br from-white via-fuchsia-50/85 to-violet-100/95 shadow-lg shadow-fuchsia-500/15 hover:shadow-fuchsia-500/25 max-md:border-fuchsia-500 max-md:from-fuchsia-50 max-md:via-fuchsia-100 max-md:to-violet-100 max-md:shadow-md max-md:shadow-fuchsia-600/40';
 			case 'indigo':
-				return 'border-sky-300/90 bg-gradient-to-br from-white via-sky-50/85 to-indigo-100/95 shadow-sky-500/15 hover:shadow-sky-500/25';
+				return 'border-sky-300/90 bg-gradient-to-br from-white via-sky-50/85 to-indigo-100/95 shadow-lg shadow-sky-500/15 hover:shadow-sky-500/25 max-md:border-sky-500 max-md:from-sky-50 max-md:via-sky-100 max-md:to-indigo-100 max-md:shadow-md max-md:shadow-sky-600/40';
 		}
 	}
 
@@ -113,15 +114,16 @@
 	}
 
 	function accentLinkClass(a: DestacadoAccent): string {
+		/* Base muy legible en móvil; group-hover a partir de sm (donde el hover es fiable). */
 		switch (a) {
 			case 'blue':
-				return 'text-violet-700 group-hover:text-fuchsia-700';
+				return 'text-fuchsia-800 sm:group-hover:text-violet-900';
 			case 'green':
-				return 'text-emerald-600 group-hover:text-teal-700';
+				return 'text-teal-700 sm:group-hover:text-emerald-900';
 			case 'purple':
-				return 'text-fuchsia-700 group-hover:text-violet-800';
+				return 'text-fuchsia-800 sm:group-hover:text-violet-900';
 			case 'indigo':
-				return 'text-sky-700 group-hover:text-indigo-800';
+				return 'text-indigo-800 sm:group-hover:text-sky-800';
 		}
 	}
 
@@ -265,12 +267,12 @@
 			{#each destacados as destacado (destacado.link)}
 				<a
 					href={destacado.link}
-					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-6 shadow-lg backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 {accentCardSurface(
+					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-6 shadow-lg transition-shadow duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 md:backdrop-blur-sm md:transition-[transform,box-shadow] md:duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl {accentCardSurface(
 						destacado.accent
 					)} {accentCardRing(destacado.accent)}"
 				>
 					<div
-						class="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r opacity-100 {destacado.accent ===
+						class="pointer-events-none absolute inset-x-0 top-0 h-2 bg-gradient-to-r opacity-100 sm:h-1.5 {destacado.accent ===
 						'blue'
 							? 'from-fuchsia-500 via-violet-600 to-indigo-600'
 							: destacado.accent === 'green'
@@ -281,7 +283,7 @@
 					></div>
 
 					<div
-						class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br shadow-inner ring-1 {accentIconBg(
+						class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ring-1 max-md:shadow-sm md:shadow-inner {accentIconBg(
 							destacado.accent
 						)}"
 					>
@@ -353,7 +355,7 @@
 						{destacado.descripcion}
 					</p>
 					<span
-						class="mt-auto inline-flex items-center gap-1 text-sm font-semibold transition group-hover:gap-2 {accentLinkClass(
+						class="mt-auto inline-flex items-center gap-2 text-sm font-semibold transition-[gap] duration-150 sm:gap-1 sm:duration-300 sm:group-hover:gap-2 {accentLinkClass(
 							destacado.accent
 						)}"
 					>
