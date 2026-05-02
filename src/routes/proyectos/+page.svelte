@@ -17,7 +17,7 @@
 			descripcion: "Landing page moderna para servicios médicos con un fuerte enfoque en UI/UX. Diseñé una interfaz limpia, responsive y orientada a la conversión, incorporando componentes visuales atractivos como formularios con floating labels, carruseles animados y secciones dinámicas. Se priorizó la experiencia del usuario en todos los dispositivos, optimizando accesibilidad, jerarquía visual y microinteracciones. El proyecto está desplegado en Vercel para alta disponibilidad.",
 			imagen: "🩺",
 			categoria: "Frontend",
-			tecnologias: ["Angular", "TailwindCSS", "Flowbite", "SweetAlert"],
+			tecnologias: ["Angular", "TailwindCSS", "Flowbite", "SweetAlert", "AOS"],
 			url: "https://github.com/diego939/medicina-y-salud-frontend-angular",
 			demo: "https://medicina-y-salud-frontend-angular.vercel.app",
 			destacado: true

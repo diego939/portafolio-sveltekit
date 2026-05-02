@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import AOS from 'aos';
+	import 'aos/dist/aos.css';
 
 	// Datos de ejemplo - personaliza con tu información
 	const experiencia = [
@@ -118,8 +121,41 @@
 		}
 	];
 
-	onMount(() => {
+	/** Evita [data-aos] en HTML inicial: aos.css deja fade-* en opacity:0 hasta init. */
+	let aosMounted = false;
+	let aosDidInit = false;
+
+	function syncAos() {
+		if (!aosMounted) return;
+
+		if (!aosDidInit) {
+			AOS.init({
+				duration: 700,
+				easing: 'ease-out-cubic',
+				once: true,
+				offset: 48,
+				anchorPlacement: 'top-bottom'
+			});
+			aosDidInit = true;
+		}
+
+		void tick().then(() => {
+			requestAnimationFrame(() => {
+				AOS.refreshHard();
+				AOS.refresh();
+			});
+		});
+	}
+
+	onMount(async () => {
 		document.title = 'Experiencia - Diego David Almirón';
+		aosMounted = true;
+		await tick();
+		syncAos();
+	});
+
+	afterNavigate(() => {
+		syncAos();
 	});
 </script>
 
@@ -174,7 +210,11 @@
 						</div>
 
 						<article
-							class="group flex-1 overflow-hidden rounded-2xl border border-purple-900/10 bg-white/85 shadow-lg backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/25 hover:shadow-xl"
+							class="group flex-1 overflow-hidden rounded-2xl border border-purple-900/10 bg-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/25 hover:shadow-xl sm:bg-white/85 sm:backdrop-blur-sm"
+							data-aos={aosMounted ? 'fade-up' : undefined}
+							data-aos-duration={aosMounted ? '700' : undefined}
+							data-aos-easing={aosMounted ? 'ease-out-cubic' : undefined}
+							data-aos-delay={aosMounted ? index * 80 : undefined}
 						>
 							<div
 								class="h-1 w-full bg-gradient-to-r from-purple-600 via-violet-500 to-indigo-600 opacity-90"
@@ -260,7 +300,7 @@
 
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
 				<div
-					class="rounded-2xl border border-emerald-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-emerald-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg sm:bg-white/90 sm:backdrop-blur-sm"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg"
@@ -280,7 +320,7 @@
 				</div>
 
 				<div
-					class="rounded-2xl border border-purple-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-purple-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg sm:bg-white/90 sm:backdrop-blur-sm"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-700 to-indigo-700 text-white shadow-lg"
@@ -300,7 +340,7 @@
 				</div>
 
 				<div
-					class="rounded-2xl border border-violet-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-violet-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg sm:bg-white/90 sm:backdrop-blur-sm"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-lg"
@@ -320,7 +360,7 @@
 				</div>
 
 				<div
-					class="rounded-2xl border border-amber-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-amber-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg sm:bg-white/90 sm:backdrop-blur-sm"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg"
@@ -372,7 +412,7 @@
 
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
 				<div
-					class="group rounded-2xl border border-white/10 bg-white/10 p-6 text-center shadow-lg backdrop-blur-md transition hover:border-white/25 hover:bg-white/15"
+					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
@@ -383,7 +423,7 @@
 					<p class="mt-1 text-xs text-purple-200/80">Iteración y entrega continua</p>
 				</div>
 				<div
-					class="group rounded-2xl border border-white/10 bg-white/10 p-6 text-center shadow-lg backdrop-blur-md transition hover:border-white/25 hover:bg-white/15"
+					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 to-orange-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
@@ -394,7 +434,7 @@
 					<p class="mt-1 text-xs text-purple-200/80">Pipelines y calidad de entrega</p>
 				</div>
 				<div
-					class="group rounded-2xl border border-white/10 bg-white/10 p-6 text-center shadow-lg backdrop-blur-md transition hover:border-white/25 hover:bg-white/15"
+					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
@@ -405,7 +445,7 @@
 					<p class="mt-1 text-xs text-purple-200/80">Pruebas como guía del diseño</p>
 				</div>
 				<div
-					class="group rounded-2xl border border-white/10 bg-white/10 p-6 text-center shadow-lg backdrop-blur-md transition hover:border-white/25 hover:bg-white/15"
+					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-400 to-purple-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
