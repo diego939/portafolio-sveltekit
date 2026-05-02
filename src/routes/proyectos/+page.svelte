@@ -14,7 +14,7 @@
 		{
 			id: 1,
 			titulo: "Medicina y Salud",
-			descripcion: "Landing page moderna para servicios médicos con un fuerte enfoque en UI/UX. Diseñé una interfaz limpia, responsive y orientada a la conversión, incorporando componentes visuales atractivos como formularios con floating labels, carruseles animados y secciones dinámicas. Se priorizó la experiencia del usuario en todos los dispositivos, optimizando accesibilidad, jerarquía visual y microinteracciones. El proyecto está desplegado en Vercel para alta disponibilidad.",
+			descripcion: "Landing page moderna para servicios médicos con un fuerte enfoque en UI/UX y optimización de la conversión. Diseñé una interfaz limpia, responsive y orientada a la captación de usuarios, incorporando componentes visuales atractivos como formularios con floating labels, carruseles animados y secciones dinámicas. Se priorizó la experiencia del usuario en todos los dispositivos, mejorando accesibilidad, jerarquía visual y microinteracciones. Además, optimicé el rendimiento de carga y la estructura del contenido para SEO básico. El proyecto está desplegado en Vercel para visibilidad.",
 			imagen: "🩺",
 			categoria: "Frontend",
 			tecnologias: ["Angular", "TailwindCSS", "Flowbite", "SweetAlert", "AOS"],
@@ -25,7 +25,7 @@
 		{
 			id: 2,
 			titulo: "Sistema de Gestión Escolar",
-			descripcion: "Sistema de gestión escolar fullstack en desarrollo, diseñado como una solución flexible y escalable para instituciones educativas. El objetivo es construir una plataforma adaptable a diferentes modelos organizativos, permitiendo personalización por institución. Implementado con backend en .NET (API REST documentada con Swagger) y base de datos SQL Server, junto a un frontend en Angular enfocado en experiencia de usuario, modularidad y mantenibilidad.",
+			descripcion: "Sistema de gestión escolar fullstack en desarrollo, diseñado como una solución flexible, modular y escalable para instituciones educativas. El objetivo es construir una plataforma adaptable a diferentes modelos organizativos, permitiendo personalización por institución y crecimiento progresivo del sistema. Implementado con backend en .NET mediante una API REST documentada con Swagger y base de datos SQL Server, junto a un frontend en Angular enfocado en experiencia de usuario, reutilización de componentes y mantenibilidad. Se prioriza su arquitectura facilitando la evolución del sistema.",
 			imagen: "🏫",
 			categoria: "Full Stack",
 			tecnologias: ["Angular", ".NET", "SQL Server", "Swagger"],
@@ -56,7 +56,7 @@
 		{
 			id: 4,
 			titulo: "App de Tareas",
-			descripcion: "Mi primera aplicación Micro FrontEnd desarrollada con Vue.js que demuestra habilidades avanzadas en desarrollo web moderno. Implementé un sistema completo de gestión de tareas con autenticación de usuarios, operaciones CRUD completas y integración con APIs REST. La aplicación utiliza arquitectura SPA con modales interactivos y está optimizada para una experiencia de usuario fluida.",
+			descripcion: "Aplicación desarrollada bajo arquitectura Micro Frontend con Vue.js, enfocada en demostrar buenas prácticas de desarrollo moderno y escalabilidad. Implementé un sistema completo de gestión de tareas con autenticación de usuarios, operaciones CRUD robustas y consumo de APIs REST. La interfaz está diseñada como una SPA con modales interactivos, validaciones en tiempo real y una experiencia de usuario fluida, optimizada para rendimiento y mantenibilidad.",
 			imagen: "📝",
 			categoria: "Frontend",
 			tecnologias: ["Vue", "Bootstrap", "JavaScript", "HTML", "CSS"],
@@ -78,7 +78,7 @@
 		{
 			id: 6,
 			titulo: "E-commerce ASP.NET Core",
-			descripcion: "Aplicación web de comercio electrónico desarrollada con ASP.NET Core MVC utilizando Razor Views y una arquitectura en capas. El sistema incluye catálogo de productos, carrito de compras, panel administrativo y procesamiento de pagos mediante integración con PayPal Developer. También se utilizan AJAX y jQuery para mejorar la experiencia de usuario mediante interacciones dinámicas sin recarga de página.",
+			descripcion: "Aplicación web de comercio electrónico desarrollada con ASP.NET Core MVC utilizando Razor Views y una arquitectura en capas orientada a mantenibilidad y escalabilidad. El sistema incluye catálogo dinámico de productos, carrito de compras persistente, panel administrativo completo y procesamiento de pagos mediante integración con PayPal Developer. Se incorporaron AJAX y jQuery para mejorar la experiencia de usuario mediante interacciones dinámicas sin recarga, optimizando tiempos de respuesta y usabilidad.",
 			imagen: "🛒",
 			categoria: "Full Stack",
 			tecnologias: [".NET", "ASP.NET Core", "Razor", "SQL Server", "jQuery", "AJAX", "Bootstrap"],
@@ -89,8 +89,7 @@
 		{
 			id: 7,
 			titulo: "Polirubro D & P",
-			descripcion: "Sistema de gestión empresarial desarrollado con tecnologías Microsoft para administrar las operaciones de un polirubro. La aplicación incluye control de ventas, gestión de productos, manejo de stock y generación de reportes administrativos. Implementa un sistema de roles jerárquico (Cajero, Encargado, Gerente y Gerente General) que habilita funcionalidades según el nivel de acceso del usuario.",
-			imagen: "🏪",
+			descripcion: "Sistema de gestión empresarial desarrollado con tecnologías Microsoft para optimizar las operaciones de un polirubro. La aplicación permite administrar ventas, productos, control de stock y generación de reportes administrativos en tiempo real. Implementa un sistema de roles jerárquico (Cajero, Encargado, Gerente y Gerente General), asegurando control de accesos y trazabilidad de acciones. Se priorizó la organización de datos y la eficiencia operativa en entornos reales.",imagen: "🏪",
 			categoria: "Full Stack",
 			tecnologias: [".NET", "SQL Server", "HTML", "CSS", "Entity Framework", "Report Viewer"],
 			url: "https://github.com/Pablin89/Proyecto2023",
@@ -100,7 +99,7 @@
 		{
 			id: 8,
 			titulo: "Mi Portafolio",
-			descripcion: "Aplicación web profesional desarrollada durante el programa Argentina Programa (YoProgramo). Creé una plataforma que simula una red social profesional para la comunidad IT, implementando funcionalidades avanzadas de networking y presentación de proyectos. El sistema incluye envío automatizado de información por email para facilitar la colaboración.",
+			descripcion: "Aplicación web profesional desarrollada durante el programa Argentina Programa (YoProgramo), orientada a simular una red social para la comunidad IT. Implementé funcionalidades de presentación de proyectos, gestión de perfiles y envío automatizado de información por email para facilitar el networking. El sistema integra frontend y backend con comunicación eficiente, priorizando experiencia de usuario, organización del contenido y escalabilidad.",
 			imagen: "💼",
 			categoria: "Full Stack",
 			tecnologias: ["Angular","Spring boot","Bootstrap","Java"],
@@ -111,7 +110,7 @@
 		{
 			id: 9,
 			titulo: "Tienda en línea",
-			descripcion: "E-commerce completo con sistema de gestión de inventario y facturación automatizada. Desarrollé una plataforma robusta que incluye control de stock en tiempo real, sistema de ventas integrado y facturación automática. Implementé un sistema de roles escalable (Cliente, Administrador, Super Administrador) con funcionalidades específicas para cada nivel de acceso.",
+			descripcion: "E-commerce completo desarrollado con CodeIgniter y PHP, enfocado en la gestión integral de ventas, inventario y facturación automatizada. La plataforma incluye control de stock en tiempo real, administración de productos y procesamiento de ventas con generación de comprobantes. Implementé un sistema de roles escalable (Cliente, Administrador, Super Administrador), asegurando control de acceso y una experiencia adaptada a cada tipo de usuario.",
 			imagen: "🛒",
 			categoria: "Full Stack",
 			tecnologias: ["Codeigniter", "PHP","Bootstrap", "JavaScript", "HTML", "CSS"],
@@ -122,7 +121,7 @@
 		{
 			id: 10,
 			titulo: "Amazon SES",
-			descripcion: "Integración avanzada con Amazon Simple Email Service (SES) para automatización de comunicaciones empresariales. Desarrollé una solución que aprovecha la infraestructura cloud de AWS para enviar emails transaccionales, de marketing y notificaciones de forma escalable y confiable. La implementación optimiza costos y garantiza alta disponibilidad.",
+			descripcion: "Integración avanzada con Amazon Simple Email Service (SES) para automatización de comunicaciones empresariales. Desarrollé una solución escalable que permite el envío de emails transaccionales, campañas de marketing y notificaciones en tiempo real. La implementación optimiza costos aprovechando la infraestructura cloud de AWS y garantiza alta disponibilidad, confiabilidad y rendimiento en el manejo de grandes volúmenes de envíos.",
 			imagen: "✉️",
 			categoria: "Full Stack",
 			tecnologias: ["JavaScript", "Svelte", "Node.js", "Bootstrap", "AWS", "Express"],
@@ -133,7 +132,7 @@
 		{
 			id: 11,
 			titulo: "Actividades Diversa",
-			descripcion: "Plataforma web integral para la gestión de actividades educativas y deportivas de la Fundación Corrientes Diversa. Desarrollé un sistema que centraliza la información de cursos, deportes y eventos, facilitando la difusión y organización de actividades inclusivas. La aplicación está desplegada en Vercel para máxima disponibilidad.",
+			descripcion: "Plataforma web desarrollada para la gestión y difusión de actividades educativas y deportivas de la Fundación Corrientes Diversa. El sistema centraliza la información de cursos, eventos y disciplinas, facilitando la organización y el acceso a los usuarios. Se priorizó una interfaz clara, accesible y responsive, optimizada para distintos dispositivos y desplegada en la nube mediante Vercel para asegurar disponibilidad continua.",
 			imagen: "🏳️‍🌈",
 			categoria: "Frontend",
 			tecnologias: ["HTML", "SweetAlert", "CSS", "Bootstrap"],
@@ -141,17 +140,6 @@
 			demo: "https://actividades-diversa.vercel.app",
 			destacado: false
 		},
-		/*{
-			id: 13,
-			titulo: "Caja Handball",
-			descripcion: "Sistema de administración financiera para gestión de caja en eventos de handball. Desarrollé una plataforma que registra y controla todos los movimientos de dinero (depósitos y extracciones) con sus respectivos detalles. La aplicación permite visualizar el historial completo de transacciones, generar reportes detallados y descargar archivos de encabezado y detalle en formatos Excel y PDF para auditoría y control administrativo.",
-			imagen: "💰",
-			categoria: "Frontend",
-			tecnologias: ["HTML", "JavaScript", "Bootstrap", "CSS"],
-			url: "https://github.com/diego939/caja-handball",
-			demo: "https://caja-handball.vercel.app/",
-			destacado: false
-		},*/
 		{
 			id: 12,
 			titulo: "Job Tracker App",
@@ -396,9 +384,9 @@
 								</span>
 							{/if}
 						</div>
-						<p class="mb-4 flex-1 text-sm leading-relaxed text-gray-600 line-clamp-4">
+						<div class="mb-4 flex-1 text-sm leading-relaxed text-gray-600">
 							{proyecto.descripcion}
-						</p>
+						</div>
 						<div class="mb-5 flex flex-wrap gap-1.5">
 							{#each proyecto.tecnologias.slice(0, 4) as tecnologia}
 								<span
@@ -420,7 +408,7 @@
 								rel="noopener noreferrer"
 								class="inline-flex flex-1 items-center justify-center rounded-xl bg-gray-900 px-3 py-2.5 text-xs font-semibold text-white transition hover:bg-gray-800 sm:text-sm"
 							>
-								GitHub
+								<i class="fa-brands fa-github mx-1"></i> GitHub
 							</a>
 							{#if proyecto.demo}
 								<a
