@@ -2,57 +2,85 @@
 	import '../app.css';
 	import ContactModal from '$lib/ContactModal.svelte';
 	import { contactModalOpen } from '$lib/stores/contactModal';
-	import { page } from '$app/stores';
-	
-	let menuAbierto = false;
+	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
+
+	let menuAbierto = $state(false);
+
+	/** `$state`: las asignaciones desde `afterNavigate` deben invalidar la vista en Svelte 5; `let` solo a veces no. */
+	let pathname = $state(page.url.pathname);
+
+	afterNavigate((navigation) => {
+		pathname = navigation.to?.url.pathname ?? page.url.pathname;
+	});
+
+	function navActive(href: string): boolean {
+		if (href === '/') return pathname === '/';
+		return pathname === href || pathname.startsWith(`${href}/`);
+	}
+
+	function navDesktopClass(href: string): string {
+		const base =
+			'inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium transition-colors';
+		return navActive(href)
+			? `${base} bg-gray-50 border-purple-700 text-purple-900`
+			: `${base} border-transparent text-gray-600 hover:bg-gray-50 hover:text-purple-800 hover:border-purple-200/80`;
+	}
+
+	function navMobileClass(href: string): string {
+		const base = 'block rounded-lg border py-2.5 px-3 transition-colors font-medium';
+		return navActive(href)
+			? `${base} bg-gray-50 border-purple-700 text-purple-900`
+			: `${base} border-transparent text-gray-600 hover:bg-gray-50 hover:text-purple-800`;
+	}
 	
 	function toggleMenu() {
 		menuAbierto = !menuAbierto;
 	}
 	
-	// Función para obtener el título y descripción según la ruta
-	function getPageInfo() {
-		const path = $page.url.pathname;
-		
-		switch (path) {
+	const pageInfo = $derived.by(() => {
+		switch (pathname) {
 			case '/':
 				return {
 					title: 'Diego David Almirón - Desarrollador Full Stack',
-					description: 'Analista Programador Universitario y Desarrollador Full Stack. Especializado en Java, Spring Boot, Angular, Node.js y tecnologías web modernas.'
+					description:
+						'Analista Programador Universitario y Desarrollador Full Stack. Especializado en Java, Spring Boot, Angular, Node.js y tecnologías web modernas.'
 				};
 			case '/educacion':
 				return {
 					title: 'Educación - Diego David Almirón',
-					description: 'Formación académica, certificaciones y trayectoria educativa de Diego David Almirón. Analista Programador Universitario con múltiples certificaciones en desarrollo web.'
+					description:
+						'Formación académica, certificaciones y trayectoria educativa de Diego David Almirón. Analista Programador Universitario con múltiples certificaciones en desarrollo web.'
 				};
 			case '/experiencia':
 				return {
 					title: 'Experiencia - Diego David Almirón',
-					description: 'Experiencia profesional y trayectoria laboral de Diego David Almirón. Proyectos destacados y roles en diferentes empresas como desarrollador Full Stack.'
+					description:
+						'Experiencia profesional y trayectoria laboral de Diego David Almirón. Proyectos destacados y roles en diferentes empresas como desarrollador Full Stack.'
 				};
 			case '/habilidades':
 				return {
 					title: 'Habilidades - Diego David Almirón',
-					description: 'Habilidades técnicas, tecnologías y competencias de Diego David Almirón. Especializado en Java, Spring Boot, Angular, Node.js y desarrollo web moderno.'
+					description:
+						'Habilidades técnicas, tecnologías y competencias de Diego David Almirón. Especializado en Java, Spring Boot, Angular, Node.js y desarrollo web moderno.'
 				};
 			case '/proyectos':
 				return {
 					title: 'Proyectos - Diego David Almirón',
-					description: 'Portafolio de proyectos desarrollados por Diego David Almirón. Aplicaciones web, sistemas empresariales y soluciones tecnológicas innovadoras.'
+					description:
+						'Portafolio de proyectos desarrollados por Diego David Almirón. Aplicaciones web, sistemas empresariales y soluciones tecnológicas innovadoras.'
 				};
 			default:
 				return {
 					title: 'Diego David Almirón - Desarrollador Full Stack',
-					description: 'Analista Programador Universitario y Desarrollador Full Stack. Especializado en Java, Spring Boot, Angular, Node.js y tecnologías web modernas.'
+					description:
+						'Analista Programador Universitario y Desarrollador Full Stack. Especializado en Java, Spring Boot, Angular, Node.js y tecnologías web modernas.'
 				};
 		}
-	}
+	});
 
-	// Variable reactiva para el texto del logo
-	$: logoText = (() => {
-		const path = $page.url.pathname;
-		
-		switch (path) {
+	const logoText = $derived.by(() => {
+		switch (pathname) {
 			case '/':
 				return 'Mi Portafolio';
 			case '/educacion':
@@ -66,13 +94,10 @@
 			default:
 				return 'Mi Portafolio';
 		}
-	})();
+	});
 
-	// Variable reactiva para el enlace del logo
-	$: logoHref = (() => {
-		const path = $page.url.pathname;
-		
-		switch (path) {
+	const logoHref = $derived.by(() => {
+		switch (pathname) {
 			case '/':
 				return '/';
 			case '/educacion':
@@ -86,42 +111,17 @@
 			default:
 				return '/';
 		}
-	})();
-	
-	// Actualizar el título y meta tags de la página
-	$: if (typeof document !== 'undefined') {
-		const pageInfo = getPageInfo();
-		document.title = pageInfo.title;
-		
-		// Actualizar meta description
-		let metaDescription = document.querySelector('meta[name="description"]');
-		if (metaDescription) {
-			metaDescription.setAttribute('content', pageInfo.description);
-		}
-		
-		// Actualizar Open Graph tags
-		let ogTitle = document.querySelector('meta[property="og:title"]');
-		if (ogTitle) {
-			ogTitle.setAttribute('content', pageInfo.title);
-		}
-		
-		let ogDescription = document.querySelector('meta[property="og:description"]');
-		if (ogDescription) {
-			ogDescription.setAttribute('content', pageInfo.description);
-		}
-		
-		// Actualizar Twitter tags
-		let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-		if (twitterTitle) {
-			twitterTitle.setAttribute('content', pageInfo.title);
-		}
-		
-		let twitterDescription = document.querySelector('meta[name="twitter:description"]');
-		if (twitterDescription) {
-			twitterDescription.setAttribute('content', pageInfo.description);
-		}
-	}
+	});
 </script>
+
+<svelte:head>
+	<title>{pageInfo.title}</title>
+	<meta name="description" content={pageInfo.description} />
+	<meta property="og:title" content={pageInfo.title} />
+	<meta property="og:description" content={pageInfo.description} />
+	<meta name="twitter:title" content={pageInfo.title} />
+	<meta name="twitter:description" content={pageInfo.description} />
+</svelte:head>
 
 <div class="min-h-screen bg-gray-50">
 	<!-- Navegación -->
@@ -136,20 +136,36 @@
 				</div>
 				
 				<!-- Navegación Desktop -->
-				<div class="hidden md:flex items-center space-x-8">
-					<a href="/" class="text-gray-600 hover:text-purple-900 transition-colors font-medium">
+				<div class="hidden md:flex items-center h-16 gap-1 lg:gap-2">
+					<a href="/" class={navDesktopClass('/')} aria-current={navActive('/') ? 'page' : undefined}>
 						Inicio
 					</a>
-					<a href="/educacion" class="text-gray-600 hover:text-purple-900 transition-colors font-medium">
+					<a
+						href="/educacion"
+						class={navDesktopClass('/educacion')}
+						aria-current={navActive('/educacion') ? 'page' : undefined}
+					>
 						Educación
 					</a>
-					<a href="/experiencia" class="text-gray-600 hover:text-purple-900 transition-colors font-medium">
+					<a
+						href="/experiencia"
+						class={navDesktopClass('/experiencia')}
+						aria-current={navActive('/experiencia') ? 'page' : undefined}
+					>
 						Experiencia
 					</a>
-					<a href="/habilidades" class="text-gray-600 hover:text-purple-900 transition-colors font-medium">
+					<a
+						href="/habilidades"
+						class={navDesktopClass('/habilidades')}
+						aria-current={navActive('/habilidades') ? 'page' : undefined}
+					>
 						Habilidades
 					</a>
-					<a href="/proyectos" class="text-gray-600 hover:text-purple-900 transition-colors font-medium">
+					<a
+						href="/proyectos"
+						class={navDesktopClass('/proyectos')}
+						aria-current={navActive('/proyectos') ? 'page' : undefined}
+					>
 						Proyectos
 					</a>
 				</div>
@@ -174,21 +190,46 @@
 			
 			<!-- Menú móvil -->
 			{#if menuAbierto}
-				<div class="md:hidden bg-white border-t border-gray-200 py-4">
-					<div class="flex flex-col space-y-3 px-4">
-						<a href="/" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
+				<div class="md:hidden bg-white border-t border-gray-200 py-3">
+					<div class="flex flex-col gap-1 px-4">
+						<a
+							href="/"
+							class={navMobileClass('/')}
+							aria-current={navActive('/') ? 'page' : undefined}
+							on:click={() => (menuAbierto = false)}
+						>
 							Inicio
 						</a>
-						<a href="/educacion" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
+						<a
+							href="/educacion"
+							class={navMobileClass('/educacion')}
+							aria-current={navActive('/educacion') ? 'page' : undefined}
+							on:click={() => (menuAbierto = false)}
+						>
 							Educación
 						</a>
-						<a href="/experiencia" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
+						<a
+							href="/experiencia"
+							class={navMobileClass('/experiencia')}
+							aria-current={navActive('/experiencia') ? 'page' : undefined}
+							on:click={() => (menuAbierto = false)}
+						>
 							Experiencia
 						</a>
-						<a href="/habilidades" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
+						<a
+							href="/habilidades"
+							class={navMobileClass('/habilidades')}
+							aria-current={navActive('/habilidades') ? 'page' : undefined}
+							on:click={() => (menuAbierto = false)}
+						>
 							Habilidades
 						</a>
-						<a href="/proyectos" class="text-gray-600 hover:text-purple-900 transition-colors font-medium py-2" on:click={() => menuAbierto = false}>
+						<a
+							href="/proyectos"
+							class={navMobileClass('/proyectos')}
+							aria-current={navActive('/proyectos') ? 'page' : undefined}
+							on:click={() => (menuAbierto = false)}
+						>
 							Proyectos
 						</a>
 					</div>
