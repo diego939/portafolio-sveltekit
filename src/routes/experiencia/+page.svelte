@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { afterNavigate } from '$app/navigation';
-	import 'aos/dist/aos.css';
-	
+
 	// Datos de ejemplo - personaliza con tu información
 	const experiencia = [
 		{
@@ -120,33 +118,8 @@
 		}
 	];
 
-	function initAos() {
-		void import('aos').then(({ default: AOS }) => {
-			AOS.init({
-				duration: 700,
-				easing: 'ease-out-cubic',
-				once: true,
-				offset: 56,
-				anchorPlacement: 'top-bottom'
-			});
-			requestAnimationFrame(() => AOS.refresh());
-		});
-	}
-
-	function refreshAos() {
-		void import('aos').then(({ default: AOS }) => {
-			requestAnimationFrame(() => AOS.refresh());
-		});
-	}
-
-	// Establecer el título de la página y animaciones al entrar
 	onMount(() => {
 		document.title = 'Experiencia - Diego David Almirón';
-		initAos();
-	});
-
-	afterNavigate(() => {
-		refreshAos();
 	});
 </script>
 
@@ -166,7 +139,7 @@
 
 	<!-- Timeline (sin “card” envolvente en móvil: más ancho útil y menos márgenes) -->
 	<section
-		class="relative mx-0 overflow-visible px-4 py-8 sm:mx-6 sm:overflow-hidden sm:rounded-3xl sm:border sm:border-purple-900/10 sm:px-6 sm:py-12 sm:shadow-xl md:py-14"
+		class="relative mx-0 overflow-visible px-3 py-8 sm:mx-6 sm:overflow-hidden sm:rounded-3xl sm:border sm:border-purple-900/10 sm:px-5 sm:py-12 sm:shadow-xl md:px-6 md:py-14"
 		aria-label="Línea de tiempo de experiencia"
 	>
 		<div
@@ -179,7 +152,7 @@
 			class="pointer-events-none absolute -bottom-20 -left-20 hidden h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl sm:block"
 		></div>
 
-		<div class="relative z-10 mx-auto max-w-4xl max-sm:max-w-none">
+		<div class="relative z-10 mx-auto w-full max-w-6xl max-sm:max-w-none">
 			<!-- línea + glow -->
 			<div
 				class="absolute bottom-0 left-[1.125rem] top-0 w-1 -translate-x-1/2 rounded-full bg-gradient-to-b from-purple-600 via-indigo-500 to-purple-900 shadow-[0_0_20px_rgba(88,28,135,0.35)] md:left-8"
@@ -202,10 +175,6 @@
 
 						<article
 							class="group flex-1 overflow-hidden rounded-2xl border border-purple-900/10 bg-white/85 shadow-lg backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/25 hover:shadow-xl"
-							data-aos="fade-up"
-							data-aos-duration="700"
-							data-aos-easing="ease-out-cubic"
-							data-aos-delay={index * 90}
 						>
 							<div
 								class="h-1 w-full bg-gradient-to-r from-purple-600 via-violet-500 to-indigo-600 opacity-90"
