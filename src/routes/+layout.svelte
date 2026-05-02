@@ -5,6 +5,8 @@
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 
+	let { children } = $props();
+
 	let menuAbierto = $state(false);
 
 	/** `$state`: las asignaciones desde `afterNavigate` deben invalidar la vista en Svelte 5; `let` solo a veces no. */
@@ -240,7 +242,7 @@
 
 	<!-- Contenido principal -->
 	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-		<slot />
+		{@render children()}
 	</main>
 
 	<ContactModal bind:open={$contactModalOpen} />
