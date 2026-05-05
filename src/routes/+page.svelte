@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { initFlowbite } from 'flowbite';
 	import { contactModalOpen } from '$lib/stores/contactModal';
 	import ImageModal from '$lib/ImageModal.svelte';
+    import Swal from 'sweetalert2';
+	import { goto } from '$app/navigation';
 
 	const nombre = 'Diego David Almirón';
 	const titulo = 'Analista Programador Universitario';
@@ -127,8 +130,26 @@
 		}
 	}
 
+	function copiarTexto(texto: string) {
+	navigator.clipboard.writeText(texto)
+		.then(() => {
+		Swal.fire({
+			icon: 'success',
+			toast: true,
+			position: 'top',
+			text: 'Correo copiado exitosamente.',
+			timer: 2000,
+			showConfirmButton: false
+		});
+		})
+		.catch((err) => {
+		console.error("Error al copiar: ", err);
+		});
+	}
+
 	onMount(() => {
 		document.title = 'Inicio - Diego David Almirón';
+		initFlowbite();
 	});
 </script>
 
@@ -147,10 +168,6 @@
 		<div
 			class="pointer-events-none absolute -bottom-28 -left-16 h-80 w-80 rounded-full bg-indigo-400/15 blur-3xl"
 		></div>
-		<div
-			class="pointer-events-none absolute top-1/2 left-1/2 h-px w-[min(90%,48rem)] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-purple-300/40 to-transparent"
-		></div>
-
 		<div
 			class="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 px-5 py-10 text-center sm:px-8 sm:py-12 md:gap-10 md:px-10 md:py-16"
 		>
@@ -218,8 +235,10 @@
 				<div
 					class="flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:max-w-none sm:flex-row sm:justify-center"
 				>
-					<a
-						href="/proyectos"
+					<button
+						data-tooltip-target="tooltip-proyectos"
+						data-tooltip-placement="bottom"
+						on:click={() => goto('/proyectos')}
 						class="inline-flex items-center justify-center gap-2 rounded-xl bg-purple-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/25 transition hover:bg-purple-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 sm:px-6"
 					>
 						Ver proyectos
@@ -231,8 +250,14 @@
 								d="M17 8l4 4m0 0l-4 4m4-4H3"
 							/>
 						</svg>
-					</a>
+					</button>
+						<div id="tooltip-proyectos" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+							Explorá algunos de mis proyectos destacados
+							<div class="tooltip-arrow" data-popper-arrow></div>
+						</div>
 					<button
+						data-tooltip-target="tooltip-contacto-cta"
+						data-tooltip-placement="bottom"
 						type="button"
 						class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900/25 bg-white/80 px-5 py-3 text-sm font-semibold text-purple-900 backdrop-blur-sm transition hover:border-purple-900/40 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 sm:px-6"
 						on:click={() => contactModalOpen.set(true)}
@@ -247,6 +272,11 @@
 						</svg>
 						Contacto
 					</button>
+					<div id="tooltip-contacto-cta" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+						Abrí el formulario de contacto
+						<div class="tooltip-arrow" data-popper-arrow></div>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -404,6 +434,8 @@
 				class="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3 md:gap-4"
 			>
 				<a
+					data-tooltip-target="tooltip-linkedin"
+					data-tooltip-placement="bottom"
 					href="https://www.linkedin.com/in/diegodavidalmiron"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -412,14 +444,26 @@
 					<i class="fa-brands fa-linkedin-in fa-lg"></i>
 					LinkedIn
 				</a>
+				<div id="tooltip-linkedin" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+					Visita mi perfil de LinkedIn
+					<div class="tooltip-arrow" data-popper-arrow></div>
+				</div>
 				<a
+					data-tooltip-target="tooltip-correo-mailto"
+					data-tooltip-placement="bottom"
 					href="mailto:diegodavidalmiron17@gmail.com"
 					class="contact-btn contact-btn-mail inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
 				>
 					<i class="fa-solid fa-at fa-lg"></i>
 					Email
 				</a>
+				<div id="tooltip-correo-mailto" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+					Enviar un correo electrónico
+					<div class="tooltip-arrow" data-popper-arrow></div>
+				</div>
 				<a
+					data-tooltip-target="tooltip-wa"
+					data-tooltip-placement="bottom"
 					href="https://wa.me/+543795315483?text=Hola Diego, vi tu portafolio y me gustaría conversar sobre una posible vacante..."
 					target="_blank"
 					rel="noopener noreferrer"
@@ -428,7 +472,13 @@
 					<i class="fa-brands fa-whatsapp fa-lg"></i>
 					WhatsApp
 				</a>
+				<div id="tooltip-wa" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+					Iniciar una conversación por WhatsApp
+					<div class="tooltip-arrow" data-popper-arrow></div>
+				</div>
 				<button
+					data-tooltip-target="tooltip-contacto-cta-modal"
+					data-tooltip-placement="bottom"
 					type="button"
 					class="contact-btn contact-btn-cta inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
 					on:click={() => contactModalOpen.set(true)}
@@ -436,6 +486,19 @@
 					<i class="fa-regular fa-envelope fa-lg"></i>
 					Contacto
 				</button>
+				<div id="tooltip-contacto-cta-modal" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+					Abrir el formulario de contacto
+					<div class="tooltip-arrow" data-popper-arrow></div>
+				</div>
+			</div>
+			<div class="">
+				<button data-tooltip-target="tooltip-correo" data-tooltip-placement="bottom" class="mt-6 text-xs sm:text-sm font-mono text-purple-200" on:click={() => copiarTexto("diegodavidalmiron17@gmail.com")}>
+						diegodavidalmiron17@gmail.com <i class="fa-regular fa-copy"></i>
+				</button>
+				<div id="tooltip-correo" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip whitespace-nowrap">
+					Copiar al portapapeles
+					<div class="tooltip-arrow" data-popper-arrow></div>
+				</div>
 			</div>
 		</div>
 	</section>

@@ -358,7 +358,7 @@
 		<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
 			{#each proyectosFiltrados as proyecto (proyecto.id)}
 				<article
-					class="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/15 hover:shadow-xl"
+					class="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gray-200/80 bg-white shadow-lg transition duration-300 hover:border-gray-300 hover:shadow-2xl"
 				>
 					<div class="flex flex-1 flex-col p-5 sm:p-6">
 						<div class="mb-3 flex items-start gap-3">

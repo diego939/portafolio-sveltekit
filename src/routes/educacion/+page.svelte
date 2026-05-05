@@ -269,10 +269,10 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7">
 				{#each institutos as inst (inst.url)}
 					<article
-						class="group relative flex flex-col h-full min-h-[300px] sm:min-h-[340px] rounded-2xl bg-white/80 backdrop-blur-sm border border-purple-900/10 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/25 transition-all duration-300 hover:-translate-y-1"
-					>
+						class="group relative overflow-hidden flex flex-col h-full min-h-[300px] sm:min-h-[340px] rounded-2xl bg-white/80 backdrop-blur-sm border border-purple-900/10 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/25 transition-all duration-300 hover:-translate-y-1"
+						>
 						<div
-							class="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-500 opacity-90"
+							class="absolute top-0 left-0 right-0 h-1 rounded-t-4xl bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-500 opacity-90"
 						></div>
 
 						<div class="flex flex-col flex-1 p-5 sm:p-6 pt-6">
