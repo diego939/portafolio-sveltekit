@@ -439,7 +439,7 @@
 					href="https://www.linkedin.com/in/diegodavidalmiron"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="contact-btn contact-btn-linkedin inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
+					class="contact-btn contact-btn-linkedin inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
 				>
 					<i class="fa-brands fa-linkedin-in fa-lg"></i>
 					LinkedIn
@@ -449,25 +449,12 @@
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
 				<a
-					data-tooltip-target="tooltip-correo-mailto"
-					data-tooltip-placement="bottom"
-					href="mailto:diegodavidalmiron17@gmail.com"
-					class="contact-btn contact-btn-mail inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
-				>
-					<i class="fa-solid fa-at fa-lg"></i>
-					Email
-				</a>
-				<div id="tooltip-correo-mailto" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
-					Enviar un correo electrónico
-					<div class="tooltip-arrow" data-popper-arrow></div>
-				</div>
-				<a
 					data-tooltip-target="tooltip-wa"
 					data-tooltip-placement="bottom"
 					href="https://wa.me/+543795315483?text=Hola Diego, vi tu portafolio y me gustaría conversar sobre una posible vacante..."
 					target="_blank"
 					rel="noopener noreferrer"
-					class="contact-btn contact-btn-wa inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none"
+					class="contact-btn contact-btn-wa inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
 				>
 					<i class="fa-brands fa-whatsapp fa-lg"></i>
 					WhatsApp
