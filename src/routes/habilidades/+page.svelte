@@ -1,45 +1,34 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	// Reemplazo de softSkills por modelo visual con imágenes y valoración
+	type HabilidadBlanda = { nombre: string; imagen: string };
+
 	const habilidadesBlandas = [
 		{
 			nombre: "Trabajo en equipo",
-			imagen: "/images/skills/habilidadesBlandas/trabajo en equipo.png",
-			valoracion: "Muy Bueno",
-			estrellas: 4
+			imagen: "/images/skills/habilidadesBlandas/trabajo en equipo.png"
 		},
 		{
 			nombre: "Gestión del tiempo",
-			imagen: "/images/skills/habilidadesBlandas/gestion del tiempo.png",
-			valoracion: "Muy Bueno",
-			estrellas: 4
+			imagen: "/images/skills/habilidadesBlandas/gestion del tiempo.png"
 		},
 		{
 			nombre: "Liderazgo",
-			imagen: "/images/skills/habilidadesBlandas/liderazgo.png",
-			valoracion: "Excelente",
-			estrellas: 5
+			imagen: "/images/skills/habilidadesBlandas/liderazgo.png"
 		},
 		{
 			nombre: "Resolución de Problemas",
-			imagen: "/images/skills/habilidadesBlandas/Resolucion de Problemas.png",
-			valoracion: "Muy Bueno",
-			estrellas: 4
+			imagen: "/images/skills/habilidadesBlandas/Resolucion de Problemas.png"
 		},
 		{
 			nombre: "Diseño de sistemas",
-			imagen: "/images/skills/habilidadesBlandas/disenio de sistemas.png",
-			valoracion: "Muy Bueno",
-			estrellas: 4
+			imagen: "/images/skills/habilidadesBlandas/disenio de sistemas.png"
 		},
 		{
 			nombre: "Creatividad",
-			imagen: "/images/skills/habilidadesBlandas/creatividad.png",
-			valoracion: "Muy Bueno",
-			estrellas: 4
+			imagen: "/images/skills/habilidadesBlandas/creatividad.png"
 		}
-	];
+	] as HabilidadBlanda[];
 
 	type SkillIcon = { nombre: string; imagen: string };
 
@@ -125,6 +114,10 @@
 	function duplicated(items: SkillIcon[]) {
 		return [...items, ...items];
 	}
+
+	const totalStackItems = skillTracks.reduce((acc, track) => acc + track.items.length, 0);
+	const totalCategoriasTecnicas = skillTracks.length;
+	const totalHabilidadesBlandas = habilidadesBlandas.length;
 
 	// Establecer el título de la página
 	onMount(() => {
@@ -230,64 +223,22 @@
 
 			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
 				{#each habilidadesBlandas as habilidad (habilidad.nombre)}
-					<article
-						class="group flex flex-col overflow-hidden rounded-2xl border border-purple-900/10 bg-white/90 shadow-lg backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-purple-900/20 hover:shadow-2xl"
+					<div
+						class="group flex min-h-[4.25rem] items-center justify-center gap-3 rounded-2xl border border-purple-900/10 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-sm ring-1 ring-purple-200/50 transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/20 hover:shadow-xl"
 					>
-						<div
-							class="h-1 w-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-600 opacity-95"
-						></div>
-
-						<div class="border-b border-purple-900/5 px-5 pb-4 pt-5 text-center">
-							<h3 class="text-lg font-bold leading-snug text-gray-900 sm:text-xl">
-								{habilidad.nombre}
-							</h3>
-							<p class="mt-3 flex justify-center">
-								<span
-									class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ring-1 {habilidad.valoracion ===
-									'Excelente'
-										? 'bg-amber-100 text-amber-900 ring-amber-200/80'
-										: 'bg-purple-100 text-purple-900 ring-purple-200/80'}"
-								>
-									{habilidad.valoracion}
-								</span>
-							</p>
-						</div>
-
-						<div
-							class="relative mx-4 my-4 flex min-h-[11rem] flex-1 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50/90 via-white to-purple-50/90 p-6 shadow-inner ring-1 ring-purple-900/10 sm:min-h-[12rem]"
-						>
-							<div
-								class="pointer-events-none absolute inset-0 rounded-2xl opacity-70 [background:radial-gradient(circle_at_25%_15%,rgba(139,92,246,0.14),transparent_55%),radial-gradient(circle_at_85%_80%,rgba(99,102,241,0.12),transparent_45%)]"
-							></div>
-							<img
-								src={habilidad.imagen}
-								alt=""
-								class="relative z-10 max-h-40 w-auto object-contain transition duration-300 ease-out group-hover:scale-[1.06]"
-							/>
-						</div>
-
-						<div
-							class="mt-auto border-t border-purple-900/10 bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 px-4 py-4 text-center sm:px-5 sm:py-5"
-						>
-							<p class="mb-2 text-[0.65rem] font-semibold uppercase tracking-widest text-purple-200/90">
-								Autoevaluación
-							</p>
-							<div
-								class="flex justify-center gap-0.5 sm:gap-1"
-								role="img"
-								aria-label="{habilidad.estrellas} de 5 estrellas"
-							>
-								{#each Array(5) as _, i}
-									<span
-										class="select-none text-lg leading-none sm:text-xl {i < habilidad.estrellas
-											? 'text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.35)]'
-											: 'text-white/20'}"
-										aria-hidden="true"
-									>★</span>
-								{/each}
-							</div>
-						</div>
-					</article>
+						<img
+							src={habilidad.imagen}
+							alt=""
+							class="h-7 w-7 rounded-full object-contain"
+							width="28"
+							height="28"
+							loading="lazy"
+							decoding="async"
+						/>
+						<p class="text-center text-sm font-semibold leading-tight text-purple-900 sm:text-base">
+							{habilidad.nombre}
+						</p>
+					</div>
 				{/each}
 			</div>
 		</div>
@@ -317,7 +268,7 @@
 					Estadísticas de habilidades
 				</h2>
 				<p class="mx-auto mt-2 max-w-lg text-sm text-gray-600 sm:text-base">
-					Cifras orientativas sobre mi stack y nivel de dominio autopercibido.
+					Cifras basadas en la cantidad de tecnologías y competencias listadas en esta sección.
 				</p>
 			</div>
 
@@ -337,9 +288,9 @@
 							/>
 						</svg>
 					</div>
-					<p class="text-3xl font-bold tabular-nums text-purple-900 sm:text-4xl">20+</p>
+					<p class="text-3xl font-bold tabular-nums text-purple-900 sm:text-4xl">{totalStackItems}</p>
 					<p class="mt-1 text-sm font-semibold text-gray-900">Tecnologías</p>
-					<p class="mt-1 text-xs text-gray-500">Dominadas en proyectos reales</p>
+					<p class="mt-1 text-xs text-gray-500">Incluidas en las bandas técnicas</p>
 				</div>
 
 				<div
@@ -380,14 +331,9 @@
 							/>
 						</svg>
 					</div>
-					<div class="mb-2 flex justify-center gap-0.5" role="img" aria-label="4 de 5 estrellas">
-						{#each Array(4) as _, i}
-							<span class="text-xl text-amber-400 drop-shadow-sm sm:text-2xl" aria-hidden="true">★</span>
-						{/each}
-						<span class="text-xl text-gray-300 sm:text-2xl" aria-hidden="true">★</span>
-					</div>
+					<p class="text-3xl font-bold tabular-nums text-amber-600 sm:text-4xl">{totalHabilidadesBlandas}</p>
 					<p class="text-sm font-semibold text-gray-900">Competencias blandas</p>
-					<p class="mt-1 text-xs text-gray-500">Autoevaluación: muy bueno</p>
+					<p class="mt-1 text-xs text-gray-500">Habilidades humanas destacadas</p>
 				</div>
 
 				<div
@@ -405,9 +351,9 @@
 							/>
 						</svg>
 					</div>
-					<p class="text-3xl font-bold tabular-nums text-orange-600 sm:text-4xl">80%</p>
-					<p class="mt-1 text-sm font-semibold text-gray-900">Dominio medio</p>
-					<p class="mt-1 text-xs text-gray-500">Promedio estimado del stack</p>
+					<p class="text-3xl font-bold tabular-nums text-orange-600 sm:text-4xl">{totalCategoriasTecnicas}</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900">Categorías técnicas</p>
+					<p class="mt-1 text-xs text-gray-500">Frontend, Backend, Tecnologías y Herramientas</p>
 				</div>
 			</div>
 		</div>
