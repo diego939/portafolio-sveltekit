@@ -1,64 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	
-	// Datos de ejemplo - personaliza con tu información
-	const categoriasHabilidades = [
-		{
-			categoria: "Frontend",
-			icono: "🎨",
-			color: "blue",
-			habilidades: [
-				{ nombre: "React", nivel: 90, color: "blue" },
-				{ nombre: "TypeScript", nivel: 85, color: "blue" },
-				{ nombre: "Vue.js", nivel: 80, color: "blue" },
-				{ nombre: "SvelteKit", nivel: 75, color: "blue" },
-				{ nombre: "HTML/CSS", nivel: 95, color: "blue" }
-			]
-		},
-		{
-			categoria: "Backend",
-			icono: "⚙️",
-			color: "green",
-			habilidades: [
-				{ nombre: "Node.js", nivel: 88, color: "green" },
-				{ nombre: "Python", nivel: 82, color: "green" },
-				{ nombre: "PHP", nivel: 75, color: "green" },
-				{ nombre: "Java", nivel: 70, color: "green" },
-				{ nombre: "C#", nivel: 65, color: "green" }
-			]
-		},
-		{
-			categoria: "Bases de Datos",
-			icono: "🗄️",
-			color: "purple",
-			habilidades: [
-				{ nombre: "PostgreSQL", nivel: 85, color: "purple" },
-				{ nombre: "MongoDB", nivel: 80, color: "purple" },
-				{ nombre: "MySQL", nivel: 75, color: "purple" },
-				{ nombre: "Redis", nivel: 70, color: "purple" }
-			]
-		},
-		{
-			categoria: "DevOps & Cloud",
-			icono: "☁️",
-			color: "orange",
-			habilidades: [
-				{ nombre: "AWS", nivel: 80, color: "orange" },
-				{ nombre: "Docker", nivel: 75, color: "orange" },
-				{ nombre: "Git", nivel: 90, color: "orange" },
-				{ nombre: "CI/CD", nivel: 70, color: "orange" }
-			]
-		}
-	];
-
-	const herramientas = [
-		{ nombre: "VS Code", icono: "💻", categoria: "IDE" },
-		{ nombre: "Figma", icono: "🎨", categoria: "Diseño" },
-		{ nombre: "Postman", icono: "📡", categoria: "API" },
-		{ nombre: "Jira", icono: "📋", categoria: "Gestión" },
-		{ nombre: "Slack", icono: "💬", categoria: "Comunicación" },
-		{ nombre: "Notion", icono: "📝", categoria: "Documentación" }
-	];
 
 	// Reemplazo de softSkills por modelo visual con imágenes y valoración
 	const habilidadesBlandas = [
@@ -99,16 +40,6 @@
 			estrellas: 4
 		}
 	];
-
-	function getColorClasses(color: string, isBg = false) {
-		const colors = {
-			blue: isBg ? "bg-blue-100 text-blue-800" : "bg-blue-500",
-			green: isBg ? "bg-green-100 text-green-800" : "bg-green-500",
-			purple: isBg ? "bg-purple-100 text-purple-800" : "bg-purple-500",
-			orange: isBg ? "bg-orange-100 text-orange-800" : "bg-orange-500"
-		};
-		return colors[color as keyof typeof colors] || colors.blue;
-	}
 
 	type SkillIcon = { nombre: string; imagen: string };
 
@@ -185,8 +116,7 @@
 				{ nombre: 'Eclipse', imagen: '/images/skills/herramientas/eclipse.png' },
 				{ nombre: 'UML', imagen: '/images/skills/herramientas/uml.png' },
 				{ nombre: 'XAMPP', imagen: '/images/skills/herramientas/xampp.png' },
-				{ nombre: 'Hibernate', imagen: '/images/skills/herramientas/hibernate.png' },
-				{ nombre: 'Enterprise Architect', imagen: '/images/skills/herramientas/enterprise_architect.png' }
+				{ nombre: 'Hibernate', imagen: '/images/skills/herramientas/hibernate.png' }
 			]
 		}
 	];
