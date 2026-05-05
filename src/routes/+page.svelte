@@ -149,7 +149,12 @@
 
 	onMount(() => {
 		document.title = 'Inicio - Diego David Almirón';
-		initFlowbite();
+		//initFlowbite();
+		if (window.innerWidth >= 640) {
+			import("flowbite").then(({ initTooltips }) => {
+				initTooltips();
+			});
+		}
 	});
 </script>
 
