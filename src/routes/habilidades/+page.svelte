@@ -57,17 +57,17 @@
 			subtitulo: 'Frameworks, librerías UI y capa de presentación',
 			direction: 'left',
 			items: [
-				{ nombre: 'Angular', imagen: '/images/skills/frameworks/angular.png' },
-				{ nombre: 'SvelteKit', imagen: '/images/skills/frameworks/svetle.png' },
-				{ nombre: 'React', imagen: '/images/skills/librerias/react.png' },
-				{ nombre: 'Vue.js', imagen: '/images/skills/librerias/vuejs.png' },
-				{ nombre: 'Tailwind CSS', imagen: '/images/skills/librerias/tailwind.png' },
-				{ nombre: 'Bootstrap', imagen: '/images/skills/librerias/bootstrap.png' },
-				{ nombre: 'jQuery', imagen: '/images/skills/librerias/jquery.png' },
-				{ nombre: 'HTML5', imagen: '/images/skills/lenguajes/html5.png' },
-				{ nombre: 'CSS3', imagen: '/images/skills/lenguajes/css3.png' },
-				{ nombre: 'TypeScript', imagen: '/images/skills/lenguajes/typescript.png' },
-				{ nombre: 'JavaScript', imagen: '/images/skills/lenguajes/javascript.png' }
+				{ nombre: 'Angular', imagen: '/iconos/angular.svg' },
+				{ nombre: 'SvelteKit', imagen: '/iconos/svelte.svg' },
+				{ nombre: 'React', imagen: '/iconos/react.svg' },
+				{ nombre: 'Vue.js', imagen: '/iconos/vue.svg' },
+				{ nombre: 'Tailwind CSS', imagen: '/iconos/tailwind.svg' },
+				{ nombre: 'Bootstrap', imagen: '/iconos/bootstrap.svg' },
+				{ nombre: 'jQuery', imagen: '/iconos/jquery.svg' },
+				{ nombre: 'HTML5', imagen: '/iconos/html5.svg' },
+				{ nombre: 'CSS3', imagen: '/iconos/css3.svg' },
+				{ nombre: 'TypeScript', imagen: '/iconos/typescript.svg' },
+				{ nombre: 'JavaScript', imagen: '/iconos/javascript.svg' }
 			]
 		},
 		{
@@ -76,11 +76,11 @@
 			subtitulo: 'Runtimes y frameworks de servidor',
 			direction: 'right',
 			items: [
-				{ nombre: 'NestJS', imagen: '/images/skills/frameworks/nestjs.png' },
-				{ nombre: 'Node.js', imagen: '/images/skills/frameworks/nodejs.png' },
-				{ nombre: 'Spring Boot', imagen: '/images/skills/frameworks/spring-boot.png' },
-				{ nombre: 'CodeIgniter', imagen: '/images/skills/frameworks/codeigniter.png' },
-				{ nombre: 'ASP.NET Core', imagen: '/images/skills/frameworks/NET_Core.png' }
+				{ nombre: 'NestJS', imagen: '/iconos/nestjs.svg' },
+				{ nombre: 'Node.js', imagen: '/iconos/nodejs.svg' },
+				{ nombre: 'Spring Boot', imagen: '/iconos/spring-boot.svg' },
+				{ nombre: 'CodeIgniter', imagen: '/iconos/codeigniter.svg' },
+				{ nombre: 'ASP .NET Core', imagen: '/iconos/.net-core.svg' }
 			]
 		},
 		{
@@ -89,34 +89,35 @@
 			subtitulo: 'Lenguajes y tecnologías de datos / interoperabilidad',
 			direction: 'left',
 			items: [
-				{ nombre: 'Java', imagen: '/images/skills/lenguajes/java.png' },
-				{ nombre: '.NET', imagen: '/images/skills/lenguajes/net.png' },
-				{ nombre: 'PHP', imagen: '/images/skills/lenguajes/php.png' },
-				{ nombre: 'Ruby', imagen: '/images/skills/lenguajes/ruby.png' },
-				{ nombre: 'SQL', imagen: '/images/skills/lenguajes/sql.png' },
-				{ nombre: 'JSON', imagen: '/images/skills/lenguajes/json.png' }
+				{ nombre: 'Java', imagen: '/iconos/java.svg' },
+				{ nombre: '.NET', imagen: '/iconos/.net.svg' },
+				{ nombre: 'PHP', imagen: '/iconos/php.svg' },
+				{ nombre: 'Ruby', imagen: '/iconos/ruby.svg' },
+				{ nombre: 'SQL', imagen: '/iconos/sql.svg' },
+				{ nombre: 'JSON', imagen: '/iconos/json.svg' }
 			]
 		},
 		{
 			id: 'herramientas',
 			titulo: 'Herramientas',
-			subtitulo: 'IDE, DevOps, bases de datos y diseño',
+			subtitulo: 'IDE, ORM, DevOps, bases de datos y diseño',
 			direction: 'right',
 			items: [
-				{ nombre: 'Cursor', imagen: '/images/skills/herramientas/cursor.png' },
-				{ nombre: 'Git', imagen: '/images/skills/herramientas/git.png' },
-				{ nombre: 'GitHub', imagen: '/images/skills/herramientas/github.png' },
-				{ nombre: 'Postman', imagen: '/images/skills/herramientas/postman.png' },
-				{ nombre: 'MySQL', imagen: '/images/skills/herramientas/mysql.png' },
-				{ nombre: 'SQL Server', imagen: '/images/skills/herramientas/sqlserver.png' },
-				{ nombre: 'PostgreSQL', imagen: '/images/skills/herramientas/Postgresql.png' },
-				{ nombre: 'Maven', imagen: '/images/skills/herramientas/maven.png' },
-				{ nombre: 'Visual Studio Code', imagen: '/images/skills/herramientas/microsoft_visual_studio_code.png' },
-				{ nombre: 'Visual Studio', imagen: '/images/skills/herramientas/visual_studio.png' },
-				{ nombre: 'Eclipse', imagen: '/images/skills/herramientas/eclipse.png' },
-				{ nombre: 'UML', imagen: '/images/skills/herramientas/uml.png' },
-				{ nombre: 'XAMPP', imagen: '/images/skills/herramientas/xampp.png' },
-				{ nombre: 'Hibernate', imagen: '/images/skills/herramientas/hibernate.png' }
+				{ nombre: 'Cursor', imagen: '/iconos/cursor.svg' },
+				{ nombre: 'Git', imagen: '/iconos/git.svg' },
+				{ nombre: 'GitHub', imagen: '/iconos/github.svg' },
+				{ nombre: 'Postman', imagen: '/iconos/postman.svg' },
+				{ nombre: 'MySQL', imagen: '/iconos/mysql.svg' },
+				{ nombre: 'SQL Server', imagen: '/iconos/sqlserver.svg' },
+				{ nombre: 'PostgreSQL', imagen: '/iconos/postgresql.svg' },
+				{ nombre: 'Maven', imagen: '/iconos/maven.svg' },
+				{ nombre: 'Visual Studio Code', imagen: '/iconos/visual-studio-code.svg' },
+				{ nombre: 'Visual Studio', imagen: '/iconos/visual-studio.svg' },
+				{ nombre: 'Eclipse', imagen: '/iconos/eclipse.svg' },
+				{ nombre: 'UML', imagen: '/iconos/uml.svg' },
+				{ nombre: 'XAMPP', imagen: '/iconos/xampp.svg' },
+				{ nombre: 'Hibernate', imagen: '/iconos/hibernate.svg' },
+				{ nombre: 'Prisma', imagen: '/iconos/prisma.svg' }
 			]
 		}
 	];
@@ -142,13 +143,9 @@
 
 	<!-- Stack técnico: marquesinas con fades laterales (filas alternadas ← →) -->
 	<section
-		class="skills-marquee-wrap relative mx-4 mb-10 overflow-hidden rounded-2xl border border-purple-900/10 bg-white shadow-xl sm:mx-6 sm:rounded-3xl"
+		class="skills-marquee-wrap relative mb-10"
 		aria-label="Tecnologías por categoría"
 	>
-		<div
-			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-50/40 via-white to-purple-50/50"
-		></div>
-
 		<div class="relative z-10 px-4 pb-10 pt-8 sm:px-8 sm:pb-12 sm:pt-10">
 			<div class="mb-8 text-center sm:mb-10">
 				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85">
@@ -179,24 +176,20 @@
 							>
 								{#each duplicated(track.items) as item, idx (`${track.id}-${item.nombre}-${idx}`)}
 									<div
-										class="flex min-w-[200px] max-w-[220px] flex-shrink-0 flex-col items-center rounded-xl border border-gray-200/90 bg-white px-5 py-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:min-w-[220px]"
+										class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md sm:min-w-[230px]"
 									>
-										<div
-											class="mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow-inner"
-										>
-											<img
-												src={item.imagen}
-												alt=""
-												class="h-8 w-8 object-contain"
-												width="32"
-												height="32"
-												loading="lazy"
-												decoding="async"
-											/>
-										</div>
-										<p class="text-sm font-semibold leading-tight text-purple-900 sm:text-base">
+										<p class="truncate text-sm font-semibold leading-tight text-black sm:text-base">
 											{item.nombre}
 										</p>
+										<img
+											src={item.imagen}
+											alt=""
+											class="h-6 w-6 flex-shrink-0 object-contain sm:h-7 sm:w-7"
+											width="28"
+											height="28"
+											loading="lazy"
+											decoding="async"
+										/>
 									</div>
 								{/each}
 							</div>
