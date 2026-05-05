@@ -162,10 +162,7 @@
 <div class="space-y-10 pb-6 sm:space-y-14 md:space-y-16">
 	<!-- Header -->
 	<header class="px-4 text-center sm:px-6">
-		<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85">
-			Trayectoria profesional
-		</p>
-		<h1 class="mb-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
+		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
 			Experiencia laboral
 		</h1>
 		<p class="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg">
@@ -382,82 +379,6 @@
 		</div>
 	</section>
 
-	<!-- Metodologías -->
-	<section
-		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/15 px-5 py-10 sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14"
-		aria-labelledby="metodologias-heading"
-	>
-		<div
-			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-purple-900/95 via-indigo-900 to-purple-950"
-		></div>
-		<div
-			class="pointer-events-none absolute -right-20 top-10 h-56 w-56 rounded-full bg-white/10 blur-3xl"
-		></div>
-		<div
-			class="pointer-events-none absolute bottom-0 left-0 h-48 w-48 rounded-full bg-indigo-500/20 blur-3xl"
-		></div>
-
-		<div class="relative z-10 mx-auto max-w-5xl">
-			<div class="mb-8 text-center sm:mb-10">
-				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-200/90">
-					Forma de trabajo
-				</p>
-				<h2 id="metodologias-heading" class="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-					Metodologías y prácticas
-				</h2>
-				<p class="mx-auto mt-2 max-w-xl text-sm text-purple-100/90 sm:text-base">
-					Referencias que suelo aplicar en equipo y en proyectos reales.
-				</p>
-			</div>
-
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-				<div
-					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
-				>
-					<div
-						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
-					>
-						<i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
-					</div>
-					<h3 class="text-lg font-bold text-white">Agile / Scrum</h3>
-					<p class="mt-1 text-xs text-purple-200/80">Iteración y entrega continua</p>
-				</div>
-				<div
-					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
-				>
-					<div
-						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 to-orange-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
-					>
-						<i class="fa-solid fa-hammer" aria-hidden="true"></i>
-					</div>
-					<h3 class="text-lg font-bold text-white">DevOps</h3>
-					<p class="mt-1 text-xs text-purple-200/80">Pipelines y calidad de entrega</p>
-				</div>
-				<div
-					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
-				>
-					<div
-						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
-					>
-						<i class="fa-solid fa-vial" aria-hidden="true"></i>
-					</div>
-					<h3 class="text-lg font-bold text-white">TDD</h3>
-					<p class="mt-1 text-xs text-purple-200/80">Pruebas como guía del diseño</p>
-				</div>
-				<div
-					class="group rounded-2xl border border-white/15 bg-indigo-950/85 p-6 text-center shadow-lg transition hover:border-white/25 hover:bg-indigo-950/95 sm:border-white/10 sm:bg-white/10 sm:backdrop-blur-md sm:hover:bg-white/15"
-				>
-					<div
-						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-400 to-purple-600 text-2xl text-white shadow-lg transition group-hover:scale-105"
-					>
-						<i class="fa-solid fa-users" aria-hidden="true"></i>
-					</div>
-					<h3 class="text-lg font-bold text-white">Liderazgo</h3>
-					<p class="mt-1 text-xs text-purple-200/80">Comunicación y coordinación</p>
-				</div>
-			</div>
-		</div>
-	</section>
 </div>
 
 <style>
