@@ -80,6 +80,7 @@
 			items: [
 				{ nombre: 'Java', imagen: '/iconos/java.svg' },
 				{ nombre: '.NET', imagen: '/iconos/.net.svg' },
+				{ nombre: 'C Sharp', imagen: '/iconos/c-sharp.svg' },
 				{ nombre: 'PHP', imagen: '/iconos/php.svg' },
 				{ nombre: 'Ruby', imagen: '/iconos/ruby.svg' },
 				{ nombre: 'SQL', imagen: '/iconos/sql.svg' },
