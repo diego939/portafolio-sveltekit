@@ -6,27 +6,27 @@
 	const habilidadesBlandas = [
 		{
 			nombre: "Trabajo en equipo",
-			imagen: "/images/skills/habilidadesBlandas/trabajo en equipo.png"
+			imagen: "/images/skills/habilidadesBlandas/hands.svg"
 		},
 		{
 			nombre: "Gestión del tiempo",
-			imagen: "/images/skills/habilidadesBlandas/gestion del tiempo.png"
+			imagen: "/images/skills/habilidadesBlandas/time.svg"
 		},
 		{
 			nombre: "Liderazgo",
-			imagen: "/images/skills/habilidadesBlandas/liderazgo.png"
+			imagen: "/images/skills/habilidadesBlandas/leader.svg"
 		},
 		{
 			nombre: "Resolución de Problemas",
-			imagen: "/images/skills/habilidadesBlandas/Resolucion de Problemas.png"
+			imagen: "/images/skills/habilidadesBlandas/light.svg"
 		},
 		{
 			nombre: "Diseño de sistemas",
-			imagen: "/images/skills/habilidadesBlandas/disenio de sistemas.png"
+			imagen: "/images/skills/habilidadesBlandas/computer.svg"
 		},
 		{
 			nombre: "Creatividad",
-			imagen: "/images/skills/habilidadesBlandas/creatividad.png"
+			imagen: "/images/skills/habilidadesBlandas/palette.svg"
 		}
 	] as HabilidadBlanda[];
 
@@ -224,18 +224,14 @@
 			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
 				{#each habilidadesBlandas as habilidad (habilidad.nombre)}
 					<div
-						class="group flex min-h-[4.25rem] items-center justify-center gap-3 rounded-2xl border border-purple-900/10 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-sm ring-1 ring-purple-200/50 transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/20 hover:shadow-xl"
+						class="group flex min-h-[4.25rem] items-center justify-center gap-3 rounded-2xl border border-purple-900/10 bg-white/90 px-4 py-3 text-purple-900 shadow-lg backdrop-blur-sm ring-1 ring-purple-200/50 transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/20 hover:shadow-xl"
 					>
-						<img
-							src={habilidad.imagen}
-							alt=""
-							class="h-7 w-7 rounded-full object-contain"
-							width="28"
-							height="28"
-							loading="lazy"
-							decoding="async"
-						/>
-						<p class="text-center text-sm font-semibold leading-tight text-purple-900 sm:text-base">
+						<span
+							class="soft-skill-icon rounded-full"
+							style={`--icon-url: url('${habilidad.imagen}')`}
+							aria-hidden="true"
+						></span>
+						<p class="text-center text-sm font-semibold leading-tight text-current sm:text-base">
 							{habilidad.nombre}
 						</p>
 					</div>
@@ -401,5 +397,19 @@
 			animation: none !important;
 			transform: none !important;
 		}
+	}
+	.soft-skill-icon {
+		height: 1.75rem;
+		width: 1.75rem;
+		flex-shrink: 0;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
 	}
 </style>
