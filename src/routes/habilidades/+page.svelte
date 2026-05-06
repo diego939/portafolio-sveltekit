@@ -169,20 +169,16 @@
 							>
 								{#each duplicated(track.items) as item, idx (`${track.id}-${item.nombre}-${idx}`)}
 									<div
-										class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md sm:min-w-[230px]"
+										class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md sm:min-w-[230px]"
 									>
-										<p class="truncate text-sm font-semibold leading-tight text-black sm:text-base">
+										<p class="truncate text-sm font-semibold leading-tight sm:text-base">
 											{item.nombre}
 										</p>
-										<img
-											src={item.imagen}
-											alt=""
-											class="h-6 w-6 flex-shrink-0 object-contain sm:h-7 sm:w-7"
-											width="28"
-											height="28"
-											loading="lazy"
-											decoding="async"
-										/>
+										<span
+											class="skill-icon h-6 w-6 flex-shrink-0 sm:h-7 sm:w-7"
+											style={`--icon-url: url('${item.imagen}')`}
+											aria-hidden="true"
+										></span>
 									</div>
 								{/each}
 							</div>
@@ -402,6 +398,17 @@
 		height: 1.75rem;
 		width: 1.75rem;
 		flex-shrink: 0;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}
+	.skill-icon {
 		background-color: currentColor;
 		-webkit-mask-image: var(--icon-url);
 		mask-image: var(--icon-url);
