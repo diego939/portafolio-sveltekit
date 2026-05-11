@@ -135,12 +135,12 @@
 	class="relative py-10 sm:py-14 px-4 sm:px-6 max-w-full overflow-x-clip box-border sm:rounded-2xl sm:mx-6"
 >
 	<div
-		class="pointer-events-none absolute inset-0 hidden bg-gradient-to-br from-purple-900/10 via-white to-indigo-50/90 sm:block sm:rounded-2xl"
+		class="pointer-events-none absolute inset-0 hidden bg-gradient-to-br from-purple-900/10 via-white to-indigo-50/90 dark:from-purple-950/40 dark:via-gray-900 dark:to-indigo-950/80 sm:block sm:rounded-2xl"
 	></div>
 
 	<div class="text-center mb-8 sm:mb-10 relative z-10">
-		<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">Certificaciones</h2>
-		<p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+		<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 dark:text-gray-100">Certificaciones</h2>
+		<p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base dark:text-gray-400">
 			Credenciales verificables y material descargable de mi formación continua.
 		</p>
 	</div>
@@ -149,7 +149,7 @@
 		<div class="relative w-full max-w-full mx-auto min-w-0 cert-carousel-shell">
 			<button
 				type="button"
-				class="cert-swiper-button-prev absolute left-0 top-[42%] z-20 -translate-y-1/2 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-purple-900/30 bg-white/95 text-purple-900 shadow-md backdrop-blur-sm transition hover:bg-purple-900 hover:text-white hover:shadow-lg disabled:opacity-30 sm:left-1 lg:left-0"
+				class="cert-swiper-button-prev absolute left-0 top-[42%] z-20 -translate-y-1/2 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-purple-900/30 bg-white/95 text-purple-900 shadow-md backdrop-blur-sm transition hover:bg-purple-900 hover:text-white hover:shadow-lg disabled:opacity-30 dark:border-purple-500/40 dark:bg-gray-900/95 dark:text-purple-200 sm:left-1 lg:left-0"
 				aria-label="Certificado anterior"
 			>
 				<svg class="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -159,7 +159,7 @@
 
 			<button
 				type="button"
-				class="cert-swiper-button-next absolute right-0 top-[42%] z-20 -translate-y-1/2 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-purple-900/30 bg-white/95 text-purple-900 shadow-md backdrop-blur-sm transition hover:bg-purple-900 hover:text-white hover:shadow-lg disabled:opacity-30 sm:right-1 lg:right-0"
+				class="cert-swiper-button-next absolute right-0 top-[42%] z-20 -translate-y-1/2 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-purple-900/30 bg-white/95 text-purple-900 shadow-md backdrop-blur-sm transition hover:bg-purple-900 hover:text-white hover:shadow-lg disabled:opacity-30 dark:border-purple-500/40 dark:bg-gray-900/95 dark:text-purple-200 sm:right-1 lg:right-0"
 				aria-label="Certificado siguiente"
 			>
 				<svg class="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -172,7 +172,7 @@
 					{#each certificados as cert (cert.nombre + cert.imagen)}
 						<div class="swiper-slide">
 							<article
-								class="cert-card group h-full backdrop-blur-md bg-white/30 border border-purple-900/12 hover:border-purple-900/35 hover:border-2 rounded-2xl shadow-lg p-4 sm:p-5 transition duration-300 hover:shadow-2xl hover:bg-white/45 flex flex-col"
+								class="cert-card group h-full backdrop-blur-md bg-white/30 border border-purple-900/12 hover:border-purple-900/35 hover:border-2 rounded-2xl shadow-lg p-4 sm:p-5 transition duration-300 hover:shadow-2xl hover:bg-white/45 dark:border-purple-500/25 dark:bg-gray-900/70 dark:hover:bg-gray-800/90 flex flex-col"
 							>
 								<div class="w-full h-32 sm:h-36 mb-3 flex items-center justify-center shrink-0">
 									<img
@@ -184,7 +184,7 @@
 										on:error={onImgError}
 									/>
 									<div
-										class="hidden items-center justify-center w-full h-full bg-gray-100/90 rounded text-gray-500"
+										class="hidden items-center justify-center w-full h-full bg-gray-100/90 rounded text-gray-500 dark:bg-gray-800 dark:text-gray-400"
 									>
 										<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 											<path
@@ -197,10 +197,10 @@
 									</div>
 								</div>
 
-								<h3 class="text-base sm:text-lg font-bold text-gray-800 mb-1 line-clamp-2 text-center">
+								<h3 class="text-base sm:text-lg font-bold text-gray-800 mb-1 line-clamp-2 text-center dark:text-gray-100">
 									{cert.nombre}
 								</h3>
-								<p class="text-xs sm:text-sm text-purple-900 font-semibold mb-3 text-center">
+								<p class="text-xs sm:text-sm text-purple-900 font-semibold mb-3 text-center dark:text-purple-300">
 									Duración: {cert.duracion}
 								</p>
 
@@ -387,5 +387,14 @@
 	:global(.cert-swiper .cert-swiper-pagination .swiper-pagination-bullet-active) {
 		opacity: 1;
 		transform: scale(1.2);
+	}
+
+	:global(html.dark .cert-swiper .cert-swiper-pagination .swiper-pagination-bullet) {
+		background: rgb(196 181 253);
+		opacity: 0.45;
+	}
+
+	:global(html.dark .cert-swiper .cert-swiper-pagination .swiper-pagination-bullet-active) {
+		opacity: 1;
 	}
 </style>

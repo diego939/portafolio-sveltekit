@@ -229,8 +229,8 @@
 <div class="space-y-12">
 	<!-- Header -->
 	<div class="text-center px-4">
-		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Educación</h1>
-		<p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 dark:text-gray-100">Educación</h1>
+		<p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
 			Mi formación académica y certificaciones que respaldan mi experiencia técnica y profesional.
 		</p>
 	</div>
@@ -244,7 +244,7 @@
 		aria-labelledby="institutos-heading"
 	>
 		<div
-			class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50/90 pointer-events-none"
+			class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50/90 pointer-events-none dark:from-gray-900 dark:via-gray-900 dark:to-purple-950/80"
 		></div>
 		<div
 			class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-purple-200/30 blur-3xl pointer-events-none"
@@ -255,13 +255,13 @@
 
 		<div class="relative z-10 max-w-7xl mx-auto">
 			<div class="text-center mb-8 sm:mb-10 md:mb-12">
-				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/80 mb-2">
+				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/80 mb-2 dark:text-purple-300/90">
 					Formación académica
 				</p>
-				<h2 id="institutos-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+				<h2 id="institutos-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 dark:text-gray-100">
 					Institutos
 				</h2>
-				<p class="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+				<p class="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed dark:text-gray-400">
 					Instituciones donde cursé títulos y programas que marcaron mi perfil profesional.
 				</p>
 			</div>
@@ -269,7 +269,7 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7">
 				{#each institutos as inst (inst.url)}
 					<article
-						class="group relative overflow-hidden flex flex-col h-full min-h-[300px] sm:min-h-[340px] rounded-2xl bg-white/80 backdrop-blur-sm border border-purple-900/10 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/25 transition-all duration-300 hover:-translate-y-1"
+						class="group relative overflow-hidden flex flex-col h-full min-h-[300px] sm:min-h-[340px] rounded-2xl bg-white/80 backdrop-blur-sm border border-purple-900/10 shadow-lg shadow-purple-900/5 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/25 transition-all duration-300 hover:-translate-y-1 dark:border-purple-500/20 dark:bg-gray-900/90"
 						>
 						<div
 							class="absolute top-0 left-0 right-0 h-1 rounded-t-4xl bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-500 opacity-90"
@@ -279,7 +279,7 @@
 							<button
 								type="button"
 								on:click={() => abrirInstituto(inst.url)}
-								class="mx-auto mb-5 flex h-24 w-full max-w-[200px] items-center justify-center rounded-2xl bg-gradient-to-b from-white to-purple-50/80 ring-1 ring-purple-900/10 shadow-inner transition-transform duration-300 group-hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2"
+								class="mx-auto mb-5 flex h-24 w-full max-w-[200px] items-center justify-center rounded-2xl bg-gradient-to-b from-white to-purple-50/80 ring-1 ring-purple-900/10 shadow-inner transition-transform duration-300 group-hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 dark:from-gray-800 dark:to-purple-950/80 dark:ring-purple-600/30 dark:focus-visible:ring-offset-gray-900"
 								aria-label="Abrir sitio de {inst.nombre}"
 							>
 								<img
@@ -290,20 +290,20 @@
 							</button>
 
 							<h3
-								class="text-center font-bold text-gray-900 text-sm sm:text-base leading-snug mb-3 line-clamp-3 min-h-[3.5rem] sm:min-h-[4rem]"
+								class="text-center font-bold text-gray-900 text-sm sm:text-base leading-snug mb-3 line-clamp-3 min-h-[3.5rem] sm:min-h-[4rem] dark:text-gray-100"
 							>
 								{inst.nombre}
 							</h3>
 
-							<p class="text-xs font-medium text-purple-900/70 uppercase tracking-wide text-center mb-1">
+							<p class="text-xs font-medium text-purple-900/70 uppercase tracking-wide text-center mb-1 dark:text-purple-300/80">
 								Título obtenido
 							</p>
-							<p class="text-center text-sm sm:text-[0.9375rem] text-purple-900 font-semibold leading-snug mb-4 flex-1">
+							<p class="text-center text-sm sm:text-[0.9375rem] text-purple-900 font-semibold leading-snug mb-4 flex-1 dark:text-purple-200">
 								{inst.titulo}
 							</p>
 
 							<div
-								class="flex items-center justify-center gap-2 rounded-xl bg-gray-50/90 py-2.5 px-3 text-xs text-gray-600 border border-gray-100 mb-4"
+								class="flex items-center justify-center gap-2 rounded-xl bg-gray-50/90 py-2.5 px-3 text-xs text-gray-600 border border-gray-100 mb-4 dark:border-gray-700 dark:bg-gray-800/90 dark:text-gray-300"
 							>
 								<svg
 									class="w-4 h-4 shrink-0 text-purple-700"
@@ -319,7 +319,7 @@
 										d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
 									/>
 								</svg>
-								<span><span class="font-semibold text-gray-700">Finalización</span> · {inst.finalizacion}</span>
+								<span><span class="font-semibold text-gray-700 dark:text-gray-200">Finalización</span> · {inst.finalizacion}</span>
 							</div>
 
 							<button
@@ -352,11 +352,11 @@
 
 	<!-- Sección de Logros Académicos -->
 	<section
-		class="relative mx-4 sm:mx-6 rounded-2xl overflow-hidden px-4 sm:px-6 py-10 sm:py-12 md:py-14 border border-purple-900/10 shadow-xl shadow-purple-900/5"
+		class="relative mx-4 sm:mx-6 rounded-2xl overflow-hidden px-4 sm:px-6 py-10 sm:py-12 md:py-14 border border-purple-900/10 shadow-xl shadow-purple-900/5 dark:border-purple-500/20"
 		aria-labelledby="logros-heading"
 	>
 		<div
-			class="absolute inset-0 bg-gradient-to-br from-white via-purple-50/40 to-indigo-50/60 pointer-events-none"
+			class="absolute inset-0 bg-gradient-to-br from-white via-purple-50/40 to-indigo-50/60 pointer-events-none dark:from-gray-900 dark:via-purple-950/30 dark:to-indigo-950/70"
 		></div>
 		<div
 			class="absolute top-0 left-1/2 -translate-x-1/2 w-[min(100%,42rem)] h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent"
@@ -364,20 +364,20 @@
 
 		<div class="relative z-10 max-w-5xl mx-auto">
 			<div class="text-center mb-8 sm:mb-10">
-				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/80 mb-2">
+				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/80 mb-2 dark:text-purple-300/90">
 					En números
 				</p>
-				<h2 id="logros-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+				<h2 id="logros-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 dark:text-gray-100">
 					Logros alcanzados
 				</h2>
-				<p class="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
+				<p class="text-gray-600 text-sm sm:text-base max-w-xl mx-auto dark:text-gray-400">
 					Resumen de mi trayectoria formativa: tiempo invertido, instituciones y credenciales.
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
 				<div
-					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-purple-900/10 shadow-md hover:shadow-lg hover:border-purple-900/20 transition-all duration-300 hover:-translate-y-0.5"
+					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-purple-900/10 shadow-md hover:shadow-lg hover:border-purple-900/20 transition-all duration-300 hover:-translate-y-0.5 dark:border-purple-800/30 dark:bg-gray-900/90"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-700 to-indigo-700 text-white shadow-lg shadow-purple-900/25 group-hover:scale-105 transition-transform duration-300"
@@ -396,12 +396,12 @@
 					>
 						{totalHorasEsfuerzo.toLocaleString('es-AR')}
 					</p>
-					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1">Horas de esfuerzo</p>
-					<p class="text-xs text-gray-500 leading-relaxed">Estimación según duración de certificaciones</p>
+					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1 dark:text-gray-100">Horas de esfuerzo</p>
+					<p class="text-xs text-gray-500 leading-relaxed dark:text-gray-400">Estimación según duración de certificaciones</p>
 				</div>
 
 				<div
-					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-emerald-900/10 shadow-md hover:shadow-lg hover:border-emerald-700/25 transition-all duration-300 hover:-translate-y-0.5"
+					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-emerald-900/10 shadow-md hover:shadow-lg hover:border-emerald-700/25 transition-all duration-300 hover:-translate-y-0.5 dark:border-emerald-800/30 dark:bg-gray-900/90"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-900/20 group-hover:scale-105 transition-transform duration-300"
@@ -418,12 +418,12 @@
 					<p class="text-3xl sm:text-4xl font-bold text-emerald-700 tabular-nums mb-1">
 						{institutos.length}
 					</p>
-					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1">Instituciones</p>
-					<p class="text-xs text-gray-500 leading-relaxed">Centros donde cursé títulos y programas</p>
+					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1 dark:text-gray-100">Instituciones</p>
+					<p class="text-xs text-gray-500 leading-relaxed dark:text-gray-400">Centros donde cursé títulos y programas</p>
 				</div>
 
 				<div
-					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-violet-900/10 shadow-md hover:shadow-lg hover:border-violet-600/25 transition-all duration-300 hover:-translate-y-0.5"
+					class="group relative rounded-2xl bg-white/85 backdrop-blur-sm p-6 sm:p-7 text-center border border-violet-900/10 shadow-md hover:shadow-lg hover:border-violet-600/25 transition-all duration-300 hover:-translate-y-0.5 dark:border-violet-800/30 dark:bg-gray-900/90"
 				>
 					<div
 						class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-lg shadow-violet-900/20 group-hover:scale-105 transition-transform duration-300"
@@ -440,8 +440,8 @@
 					<p class="text-3xl sm:text-4xl font-bold text-violet-700 tabular-nums mb-1">
 						{certificados.length}
 					</p>
-					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1">Certificaciones</p>
-					<p class="text-xs text-gray-500 leading-relaxed">Credenciales y cursos con certificado</p>
+					<p class="font-semibold text-gray-900 text-sm sm:text-base mb-1 dark:text-gray-100">Certificaciones</p>
+					<p class="text-xs text-gray-500 leading-relaxed dark:text-gray-400">Credenciales y cursos con certificado</p>
 				</div>
 			</div>
 		</div>

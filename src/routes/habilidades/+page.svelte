@@ -129,8 +129,8 @@
 <div class="space-y-8 sm:space-y-12">
 	<!-- Header -->
 	<div class="text-center px-4">
-		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Habilidades y Tecnologías</h1>
-		<p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 dark:text-gray-100">Habilidades y Tecnologías</h1>
+		<p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
 			Un resumen de las tecnologías, herramientas y competencias que he desarrollado a lo largo de mi carrera.
 		</p>
 	</div>
@@ -142,7 +142,7 @@
 	>
 		<div class="relative z-10 px-4 pb-10 pt-8 sm:px-8 sm:pb-12 sm:pt-10">
 			<div class="mb-8 text-center sm:mb-10">
-				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85">
+				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85 dark:text-purple-300/90">
 					Stack técnico
 				</p>
 			</div>
@@ -151,16 +151,16 @@
 				{#each skillTracks as track (track.id)}
 					<div>
 						<div class="mb-3 px-1 text-center sm:mb-4 sm:text-left">
-							<h3 class="text-lg font-bold text-purple-900 sm:text-xl">{track.titulo}</h3>
-							<p class="text-xs text-gray-500 sm:text-sm">{track.subtitulo}</p>
+							<h3 class="text-lg font-bold text-purple-900 sm:text-xl dark:text-purple-200">{track.titulo}</h3>
+							<p class="text-xs text-gray-500 sm:text-sm dark:text-gray-400">{track.subtitulo}</p>
 						</div>
 
 						<div class="skills-marquee relative overflow-hidden py-1">
 							<div
-								class="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white via-white/95 to-transparent sm:w-24"
+								class="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white via-white/95 to-transparent dark:from-gray-950 dark:via-gray-950/95 sm:w-24"
 							></div>
 							<div
-								class="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white via-white/95 to-transparent sm:w-24"
+								class="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white via-white/95 to-transparent dark:from-gray-950 dark:via-gray-950/95 sm:w-24"
 							></div>
 
 							<div
@@ -170,7 +170,7 @@
 							>
 								{#each duplicated(track.items) as item, idx (`${track.id}-${item.nombre}-${idx}`)}
 									<div
-										class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md sm:min-w-[230px]"
+										class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md dark:border-purple-700/50 dark:bg-gray-900 dark:text-gray-100 sm:min-w-[230px]"
 									>
 										<p class="truncate text-sm font-semibold leading-tight sm:text-base">
 											{item.nombre}
@@ -192,11 +192,11 @@
 
 	<!-- Soft Skills -->
 	<section
-		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14"
+		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14 dark:border-purple-500/20"
 		aria-labelledby="soft-skills-heading"
 	>
 		<div
-			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-50/95 via-white to-purple-100/60"
+			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-50/95 via-white to-purple-100/60 dark:from-gray-900 dark:via-gray-900 dark:to-purple-950/70"
 		></div>
 		<div
 			class="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-purple-300/25 blur-3xl"
@@ -207,13 +207,13 @@
 
 		<div class="relative z-10 mx-auto max-w-6xl">
 			<div class="mb-8 text-center sm:mb-10">
-				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85">
+				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85 dark:text-purple-300/90">
 					Competencias humanas
 				</p>
-				<h2 id="soft-skills-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+				<h2 id="soft-skills-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-gray-100">
 					Habilidades blandas
 				</h2>
-				<p class="mx-auto mt-2 max-w-xl text-sm text-gray-600 sm:text-base">
+				<p class="mx-auto mt-2 max-w-xl text-sm text-gray-600 sm:text-base dark:text-gray-400">
 					Cómo trabajo en equipo, organizo el tiempo y afronto desafíos complejos.
 				</p>
 			</div>
@@ -221,7 +221,7 @@
 			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
 				{#each habilidadesBlandas as habilidad (habilidad.nombre)}
 					<div
-						class="group flex min-h-[4.25rem] items-center justify-center gap-3 rounded-2xl border border-purple-900/10 bg-white/90 px-4 py-3 text-purple-900 shadow-lg backdrop-blur-sm ring-1 ring-purple-200/50 transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/20 hover:shadow-xl"
+						class="group flex min-h-[4.25rem] items-center justify-center gap-3 rounded-2xl border border-purple-900/10 bg-white/90 px-4 py-3 text-purple-900 shadow-lg backdrop-blur-sm ring-1 ring-purple-200/50 transition duration-300 hover:-translate-y-0.5 hover:border-purple-900/20 hover:shadow-xl dark:border-purple-500/25 dark:bg-gray-900/95 dark:text-purple-200 dark:ring-purple-800/40"
 					>
 						<span
 							class="soft-skill-icon rounded-full"
@@ -239,11 +239,11 @@
 
 	<!-- Estadísticas de Habilidades -->
 	<section
-		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14"
+		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14 dark:border-purple-500/20"
 		aria-labelledby="stats-habilidades-heading"
 	>
 		<div
-			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-fuchsia-50/40 to-purple-50/70"
+			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-fuchsia-50/40 to-purple-50/70 dark:from-gray-900 dark:via-fuchsia-950/30 dark:to-purple-950/70"
 		></div>
 		<div
 			class="pointer-events-none absolute top-0 left-1/2 h-px w-[min(100%,34rem)] -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-300/55 to-transparent"
@@ -254,20 +254,20 @@
 
 		<div class="relative z-10 mx-auto max-w-5xl">
 			<div class="mb-8 text-center sm:mb-10">
-				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85">
+				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85 dark:text-purple-300/90">
 					Resumen cuantitativo
 				</p>
-				<h2 id="stats-habilidades-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+				<h2 id="stats-habilidades-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-gray-100">
 					Estadísticas de habilidades
 				</h2>
-				<p class="mx-auto mt-2 max-w-lg text-sm text-gray-600 sm:text-base">
+				<p class="mx-auto mt-2 max-w-lg text-sm text-gray-600 sm:text-base dark:text-gray-400">
 					Cifras basadas en la cantidad de tecnologías y competencias listadas en esta sección.
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
 				<div
-					class="rounded-2xl border border-purple-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-purple-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-purple-800/30 dark:bg-gray-900/95"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-700 to-indigo-700 text-white shadow-lg"
@@ -282,12 +282,12 @@
 						</svg>
 					</div>
 					<p class="text-3xl font-bold tabular-nums text-purple-900 sm:text-4xl">{totalStackItems}</p>
-					<p class="mt-1 text-sm font-semibold text-gray-900">Tecnologías</p>
-					<p class="mt-1 text-xs text-gray-500">Incluidas en las bandas técnicas</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Tecnologías</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Incluidas en las bandas técnicas</p>
 				</div>
 
 				<div
-					class="rounded-2xl border border-emerald-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-emerald-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-emerald-800/30 dark:bg-gray-900/95"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg"
@@ -308,12 +308,12 @@
 						</svg>
 					</div>
 					<p class="text-3xl font-bold tabular-nums text-emerald-700 sm:text-4xl">15+</p>
-					<p class="mt-1 text-sm font-semibold text-gray-900">Herramientas</p>
-					<p class="mt-1 text-xs text-gray-500">IDE, DB y utilidades de flujo</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Herramientas</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">IDE, DB y utilidades de flujo</p>
 				</div>
 
 				<div
-					class="rounded-2xl border border-amber-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-amber-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-amber-800/30 dark:bg-gray-900/95"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-white shadow-lg"
@@ -325,12 +325,12 @@
 						</svg>
 					</div>
 					<p class="text-3xl font-bold tabular-nums text-amber-600 sm:text-4xl">{totalHabilidadesBlandas}</p>
-					<p class="text-sm font-semibold text-gray-900">Competencias blandas</p>
-					<p class="mt-1 text-xs text-gray-500">Habilidades humanas destacadas</p>
+					<p class="text-sm font-semibold text-gray-900 dark:text-gray-100">Competencias blandas</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Habilidades humanas destacadas</p>
 				</div>
 
 				<div
-					class="rounded-2xl border border-orange-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+					class="rounded-2xl border border-orange-900/10 bg-white/90 p-6 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-orange-800/30 dark:bg-gray-900/95"
 				>
 					<div
 						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-rose-600 text-white shadow-lg"
@@ -345,8 +345,8 @@
 						</svg>
 					</div>
 					<p class="text-3xl font-bold tabular-nums text-orange-600 sm:text-4xl">{totalCategoriasTecnicas}</p>
-					<p class="mt-1 text-sm font-semibold text-gray-900">Categorías técnicas</p>
-					<p class="mt-1 text-xs text-gray-500">Frontend, Backend, Tecnologías y Herramientas</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Categorías técnicas</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Frontend, Backend, Tecnologías y Herramientas</p>
 				</div>
 			</div>
 		</div>

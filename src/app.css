@@ -3,6 +3,10 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+
+html.dark body {
+  @apply bg-gray-950 text-gray-100;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 

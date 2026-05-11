@@ -66,26 +66,26 @@
 	function accentIconClasses(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'text-violet-700';
+				return 'text-violet-700 dark:text-violet-300';
 			case 'green':
-				return 'text-emerald-600';
+				return 'text-emerald-600 dark:text-emerald-400';
 			case 'purple':
-				return 'text-fuchsia-700';
+				return 'text-fuchsia-700 dark:text-fuchsia-300';
 			case 'indigo':
-				return 'text-sky-700';
+				return 'text-sky-700 dark:text-sky-300';
 		}
 	}
 
 	function accentCardRing(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'hover:border-fuchsia-400 focus-visible:ring-fuchsia-500';
+				return 'hover:border-fuchsia-400 focus-visible:ring-fuchsia-500 dark:hover:border-fuchsia-500 dark:focus-visible:ring-fuchsia-400';
 			case 'green':
-				return 'hover:border-emerald-400 focus-visible:ring-emerald-500';
+				return 'hover:border-emerald-400 focus-visible:ring-emerald-500 dark:hover:border-emerald-500 dark:focus-visible:ring-emerald-400';
 			case 'purple':
-				return 'hover:border-fuchsia-500 focus-visible:ring-fuchsia-600';
+				return 'hover:border-fuchsia-500 focus-visible:ring-fuchsia-600 dark:hover:border-fuchsia-400 dark:focus-visible:ring-fuchsia-400';
 			case 'indigo':
-				return 'hover:border-sky-400 focus-visible:ring-sky-500';
+				return 'hover:border-sky-400 focus-visible:ring-sky-500 dark:hover:border-sky-500 dark:focus-visible:ring-sky-400';
 		}
 	}
 
@@ -93,26 +93,26 @@
 		/* En móvil: tintes y sombras más marcados, sin depender del hover (blur desactivado en el markup). */
 		switch (a) {
 			case 'blue':
-				return 'border-violet-300/90 bg-gradient-to-br from-white via-violet-50/90 to-indigo-100/95 shadow-lg shadow-violet-500/15 hover:shadow-violet-500/25 max-md:border-violet-500 max-md:from-violet-50 max-md:via-violet-100 max-md:to-indigo-100 max-md:shadow-md max-md:shadow-violet-600/40';
+				return 'border-violet-300/90 bg-gradient-to-br from-white via-violet-50/90 to-indigo-100/95 shadow-lg shadow-violet-500/15 hover:shadow-violet-500/25 max-md:border-violet-500 max-md:from-violet-50 max-md:via-violet-100 max-md:to-indigo-100 max-md:shadow-md max-md:shadow-violet-600/40 dark:border-violet-600/50 dark:from-gray-900 dark:via-violet-950/70 dark:to-indigo-950 dark:shadow-violet-900/25 max-md:dark:border-violet-500 max-md:dark:from-violet-950 max-md:dark:via-violet-900 max-md:dark:to-indigo-950';
 			case 'green':
-				return 'border-emerald-300/90 bg-gradient-to-br from-white via-emerald-50/90 to-teal-100/95 shadow-lg shadow-emerald-500/15 hover:shadow-emerald-500/25 max-md:border-emerald-500 max-md:from-emerald-50 max-md:via-emerald-100 max-md:to-teal-100 max-md:shadow-md max-md:shadow-emerald-600/40';
+				return 'border-emerald-300/90 bg-gradient-to-br from-white via-emerald-50/90 to-teal-100/95 shadow-lg shadow-emerald-500/15 hover:shadow-emerald-500/25 max-md:border-emerald-500 max-md:from-emerald-50 max-md:via-emerald-100 max-md:to-teal-100 max-md:shadow-md max-md:shadow-emerald-600/40 dark:border-emerald-600/50 dark:from-gray-900 dark:via-emerald-950/70 dark:to-teal-950 dark:shadow-emerald-900/25 max-md:dark:border-emerald-500 max-md:dark:from-emerald-950 max-md:dark:via-emerald-900 max-md:dark:to-teal-950';
 			case 'purple':
-				return 'border-fuchsia-300/90 bg-gradient-to-br from-white via-fuchsia-50/85 to-violet-100/95 shadow-lg shadow-fuchsia-500/15 hover:shadow-fuchsia-500/25 max-md:border-fuchsia-500 max-md:from-fuchsia-50 max-md:via-fuchsia-100 max-md:to-violet-100 max-md:shadow-md max-md:shadow-fuchsia-600/40';
+				return 'border-fuchsia-300/90 bg-gradient-to-br from-white via-fuchsia-50/85 to-violet-100/95 shadow-lg shadow-fuchsia-500/15 hover:shadow-fuchsia-500/25 max-md:border-fuchsia-500 max-md:from-fuchsia-50 max-md:via-fuchsia-100 max-md:to-violet-100 max-md:shadow-md max-md:shadow-fuchsia-600/40 dark:border-fuchsia-600/50 dark:from-gray-900 dark:via-fuchsia-950/70 dark:to-violet-950 dark:shadow-fuchsia-900/25 max-md:dark:border-fuchsia-500 max-md:dark:from-fuchsia-950 max-md:dark:via-fuchsia-900 max-md:dark:to-violet-950';
 			case 'indigo':
-				return 'border-sky-300/90 bg-gradient-to-br from-white via-sky-50/85 to-indigo-100/95 shadow-lg shadow-sky-500/15 hover:shadow-sky-500/25 max-md:border-sky-500 max-md:from-sky-50 max-md:via-sky-100 max-md:to-indigo-100 max-md:shadow-md max-md:shadow-sky-600/40';
+				return 'border-sky-300/90 bg-gradient-to-br from-white via-sky-50/85 to-indigo-100/95 shadow-lg shadow-sky-500/15 hover:shadow-sky-500/25 max-md:border-sky-500 max-md:from-sky-50 max-md:via-sky-100 max-md:to-indigo-100 max-md:shadow-md max-md:shadow-sky-600/40 dark:border-sky-600/50 dark:from-gray-900 dark:via-sky-950/70 dark:to-indigo-950 dark:shadow-sky-900/25 max-md:dark:border-sky-500 max-md:dark:from-sky-950 max-md:dark:via-sky-900 max-md:dark:to-indigo-950';
 		}
 	}
 
 	function accentIconBg(a: DestacadoAccent): string {
 		switch (a) {
 			case 'blue':
-				return 'from-violet-200 to-indigo-200 ring-violet-400/70';
+				return 'from-violet-200 to-indigo-200 ring-violet-400/70 dark:from-violet-800 dark:to-indigo-900 dark:ring-violet-500/50';
 			case 'green':
-				return 'from-emerald-200 to-teal-200 ring-emerald-400/70';
+				return 'from-emerald-200 to-teal-200 ring-emerald-400/70 dark:from-emerald-800 dark:to-teal-900 dark:ring-emerald-500/50';
 			case 'purple':
-				return 'from-fuchsia-200 to-violet-300 ring-fuchsia-400/70';
+				return 'from-fuchsia-200 to-violet-300 ring-fuchsia-400/70 dark:from-fuchsia-800 dark:to-violet-900 dark:ring-fuchsia-500/50';
 			case 'indigo':
-				return 'from-sky-200 to-indigo-200 ring-sky-400/70';
+				return 'from-sky-200 to-indigo-200 ring-sky-400/70 dark:from-sky-800 dark:to-indigo-900 dark:ring-sky-500/50';
 		}
 	}
 
@@ -120,13 +120,13 @@
 		/* Base muy legible en móvil; group-hover a partir de sm (donde el hover es fiable). */
 		switch (a) {
 			case 'blue':
-				return 'text-fuchsia-800 sm:group-hover:text-violet-900';
+				return 'text-fuchsia-800 sm:group-hover:text-violet-900 dark:text-fuchsia-300 dark:sm:group-hover:text-violet-200';
 			case 'green':
-				return 'text-teal-700 sm:group-hover:text-emerald-900';
+				return 'text-teal-700 sm:group-hover:text-emerald-900 dark:text-emerald-300 dark:sm:group-hover:text-emerald-200';
 			case 'purple':
-				return 'text-fuchsia-800 sm:group-hover:text-violet-900';
+				return 'text-fuchsia-800 sm:group-hover:text-violet-900 dark:text-fuchsia-300 dark:sm:group-hover:text-violet-200';
 			case 'indigo':
-				return 'text-indigo-800 sm:group-hover:text-sky-800';
+				return 'text-indigo-800 sm:group-hover:text-sky-800 dark:text-sky-300 dark:sm:group-hover:text-indigo-200';
 		}
 	}
 
@@ -161,11 +161,11 @@
 <div class="space-y-10 sm:space-y-14 md:space-y-20 pb-4">
 	<!-- Hero -->
 	<section
-		class="relative mx-4 sm:mx-6 overflow-hidden rounded-2xl sm:rounded-3xl border border-purple-900/10 shadow-xl shadow-purple-900/10"
+		class="relative mx-4 sm:mx-6 overflow-hidden rounded-2xl sm:rounded-3xl border border-purple-900/10 shadow-xl shadow-purple-900/10 dark:border-purple-500/20 dark:shadow-black/30"
 		aria-labelledby="hero-heading"
 	>
 		<div
-			class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-100/90"
+			class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-100/90 dark:from-gray-900 dark:via-gray-900 dark:to-purple-950/90"
 		></div>
 		<div
 			class="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-purple-400/20 blur-3xl"
@@ -187,7 +187,7 @@
 						class="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 opacity-75 blur-md transition group-hover:opacity-100"
 					></span>
 					<span
-						class="relative block overflow-hidden rounded-full border-4 border-white shadow-2xl ring-2 ring-purple-900/10 transition duration-300 group-hover:scale-[1.03] group-active:scale-[0.98]"
+						class="relative block overflow-hidden rounded-full border-4 border-white shadow-2xl ring-2 ring-purple-900/10 transition duration-300 group-hover:scale-[1.03] group-active:scale-[0.98] dark:border-gray-700 dark:ring-purple-500/30"
 					>
 						<img
 							src="/images/profile.jpg"
@@ -203,7 +203,7 @@
 			<div class="w-full flex flex-col items-center">
 				<h1
 					id="hero-heading"
-					class="mb-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl xl:leading-tight"
+					class="mb-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl xl:leading-tight dark:text-gray-100"
 				>
 					Hola, soy
 					<span
@@ -213,7 +213,7 @@
 					</span>
 				</h1>
 				<p
-					class="mb-5 max-w-3xl text-base font-medium text-gray-700 sm:text-lg md:text-xl md:leading-snug"
+					class="mb-5 max-w-3xl text-base font-medium text-gray-700 sm:text-lg md:text-xl md:leading-snug dark:text-gray-300"
 				>
 					{titulo}
 				</p>
@@ -224,7 +224,7 @@
 				>
 					{#each tecnologias as tecnologia}
 						<span
-							class="rounded-full border border-purple-200/80 bg-white/80 px-2.5 py-1 text-xs font-medium text-purple-900 shadow-sm backdrop-blur-sm transition hover:border-purple-300 hover:bg-purple-50/90 sm:px-3 sm:text-sm"
+							class="rounded-full border border-purple-200/80 bg-white/80 px-2.5 py-1 text-xs font-medium text-purple-900 shadow-sm backdrop-blur-sm transition hover:border-purple-300 hover:bg-purple-50/90 sm:px-3 sm:text-sm dark:border-purple-600/50 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-500 dark:hover:bg-gray-700"
 						>
 							{tecnologia}
 						</span>
@@ -232,7 +232,7 @@
 				</div>
 
 				<p
-					class="mx-auto mb-8 max-w-4xl px-2 text-center text-sm leading-relaxed text-gray-600 sm:px-4 sm:text-base"
+					class="mx-auto mb-8 max-w-4xl px-2 text-center text-sm leading-relaxed text-gray-600 sm:px-4 sm:text-base dark:text-gray-400"
 				>
 					{descripcion}
 				</p>
@@ -244,7 +244,7 @@
 						data-tooltip-target="tooltip-proyectos"
 						data-tooltip-placement="bottom"
 						on:click={() => goto('/proyectos')}
-						class="inline-flex items-center justify-center gap-2 rounded-xl bg-purple-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/25 transition hover:bg-purple-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 sm:px-6"
+						class="inline-flex items-center justify-center gap-2 rounded-xl bg-purple-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/25 transition hover:bg-purple-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 sm:px-6"
 					>
 						Ver proyectos
 						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -264,7 +264,7 @@
 						data-tooltip-target="tooltip-contacto-cta"
 						data-tooltip-placement="bottom"
 						type="button"
-						class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900/25 bg-white/80 px-5 py-3 text-sm font-semibold text-purple-900 backdrop-blur-sm transition hover:border-purple-900/40 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 sm:px-6"
+						class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900/25 bg-white/80 px-5 py-3 text-sm font-semibold text-purple-900 backdrop-blur-sm transition hover:border-purple-900/40 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:border-purple-400/40 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-300 dark:hover:bg-gray-700 sm:px-6 dark:focus-visible:ring-offset-gray-900"
 						on:click={() => contactModalOpen.set(true)}
 					>
 						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -290,10 +290,10 @@
 	<!-- Explorá el portafolio -->
 	<section class="px-4 sm:px-6" aria-labelledby="explorar-heading">
 		<div class="mx-auto mb-8 max-w-2xl text-center md:mb-10">
-			<h2 id="explorar-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+			<h2 id="explorar-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-gray-100">
 				Explorá el portafolio
 			</h2>
-			<p class="mt-2 text-sm text-gray-600 sm:text-base">
+			<p class="mt-2 text-sm text-gray-600 sm:text-base dark:text-gray-400">
 				Navegá por cada sección para conocer mi formación, experiencia y trabajo.
 			</p>
 		</div>
@@ -302,7 +302,7 @@
 			{#each destacados as destacado (destacado.link)}
 				<a
 					href={destacado.link}
-					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-6 shadow-lg transition-shadow duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 md:backdrop-blur-sm md:transition-[transform,box-shadow] md:duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl {accentCardSurface(
+					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-6 shadow-lg transition-shadow duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950 md:backdrop-blur-sm md:transition-[transform,box-shadow] md:duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl {accentCardSurface(
 						destacado.accent
 					)} {accentCardRing(destacado.accent)}"
 				>
@@ -385,8 +385,8 @@
 						{/if}
 					</div>
 
-					<h3 class="mb-2 text-lg font-bold text-gray-900 sm:text-xl">{destacado.titulo}</h3>
-					<p class="mb-5 flex-grow text-sm leading-relaxed text-gray-600 sm:text-base">
+					<h3 class="mb-2 text-lg font-bold text-gray-900 sm:text-xl dark:text-gray-100">{destacado.titulo}</h3>
+					<p class="mb-5 flex-grow text-sm leading-relaxed text-gray-600 sm:text-base dark:text-gray-400">
 						{destacado.descripcion}
 					</p>
 					<span
@@ -412,7 +412,7 @@
 	<!-- Contacto -->
 	<section
 		id="contacto"
-		class="relative mx-4 sm:mx-6 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:rounded-3xl sm:px-8 sm:py-12 md:py-14"
+		class="relative mx-4 sm:mx-6 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:rounded-3xl sm:px-8 sm:py-12 md:py-14 dark:border-purple-500/20"
 		aria-labelledby="contacto-heading"
 	>
 		<div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-900 to-indigo-900"></div>

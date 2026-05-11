@@ -2,6 +2,7 @@
 	import '../app.css';
 	import ContactModal from '$lib/ContactModal.svelte';
 	import { contactModalOpen } from '$lib/stores/contactModal';
+	import { darkMode, toggleDarkMode } from '$lib/stores/theme';
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
@@ -25,17 +26,18 @@
 
 	function navDesktopClass(href: string): string {
 		const base =
-			'inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium transition-colors';
+			'inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium transition-colors dark:border-gray-600';
 		return navActive(href)
-			? `${base} bg-gray-50 border-purple-700 text-purple-900`
-			: `${base} border-transparent text-gray-600 hover:bg-gray-50 hover:text-purple-800 hover:border-purple-200/80`;
+			? `${base} bg-gray-50 border-purple-700 text-purple-900 dark:bg-gray-800 dark:border-purple-400 dark:text-purple-100`
+			: `${base} border-transparent text-gray-600 hover:bg-gray-50 hover:text-purple-800 hover:border-purple-200/80 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-purple-300 dark:hover:border-purple-500/40`;
 	}
 
 	function navMobileClass(href: string): string {
-		const base = 'block rounded-lg border py-2.5 px-3 transition-colors font-medium';
+		const base =
+			'block rounded-lg border py-2.5 px-3 transition-colors font-medium dark:border-gray-600';
 		return navActive(href)
-			? `${base} bg-gray-50 border-purple-700 text-purple-900`
-			: `${base} border-transparent text-gray-600 hover:bg-gray-50 hover:text-purple-800`;
+			? `${base} bg-gray-50 border-purple-700 text-purple-900 dark:bg-gray-800 dark:border-purple-400 dark:text-purple-100`
+			: `${base} border-transparent text-gray-600 hover:bg-gray-50 hover:text-purple-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-purple-300`;
 	}
 	
 	function toggleMenu() {
@@ -131,14 +133,17 @@
 	<meta name="twitter:description" content={pageInfo.description} />
 </svelte:head>
 
-<div class="min-h-screen bg-gray-50">
+<div class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
 	<!-- Navegación -->
-	<nav class="bg-white shadow-lg sticky top-0 z-50">
+	<nav class="bg-white shadow-lg sticky top-0 z-50 dark:bg-gray-900 dark:shadow-black/40 dark:border-b dark:border-gray-800">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between h-16">
 				<!-- Logo -->
 				<div class="flex items-center">
-					<a href={logoHref} class="text-xl font-bold text-gray-800 hover:text-purple-900 transition-colors">
+					<a
+						href={logoHref}
+						class="text-xl font-bold text-gray-800 hover:text-purple-900 transition-colors dark:text-gray-100 dark:hover:text-purple-300"
+					>
 						{logoText}
 					</a>
 				</div>
@@ -182,7 +187,7 @@
 				<div class="md:hidden flex items-center">
 					<button 
 						onclick={toggleMenu}
-						class="text-gray-600 hover:text-purple-900 transition-colors"
+						class="text-gray-600 hover:text-purple-900 transition-colors dark:text-gray-300 dark:hover:text-purple-300"
 						aria-label="Toggle menu"
 					>
 						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,7 +203,7 @@
 			
 			<!-- Menú móvil -->
 			{#if menuAbierto}
-				<div class="md:hidden bg-white border-t border-gray-200 py-3">
+				<div class="md:hidden bg-white border-t border-gray-200 py-3 dark:bg-gray-900 dark:border-gray-700">
 					<div class="flex flex-col gap-1 px-4">
 						<a
 							href="/"
@@ -247,7 +252,7 @@
 	</nav>
 
 	<!-- Contenido principal -->
-	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 dark:bg-gray-950">
 		{@render children()}
 	</main>
 
@@ -255,6 +260,53 @@
 
 	<!-- Botones flotantes -->
 	<div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+		<!-- Tema claro / oscuro -->
+		<button
+			type="button"
+			data-tooltip-target="tooltip-tema"
+			data-tooltip-placement="left"
+			class="bg-slate-800 border-4 border-slate-950 rounded-full shadow-lg w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center hover:bg-slate-700 transition-colors group dark:bg-amber-400 dark:border-amber-500 dark:hover:bg-amber-300"
+			aria-label={$darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+			onclick={toggleDarkMode}
+		>
+			{#if $darkMode}
+				<svg
+					class="h-6 w-6 shrink-0 sm:h-8 sm:w-8 text-amber-950"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path
+						d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z"
+					/>
+				</svg>
+			{:else}
+				<svg
+					class="w-6 h-6 sm:w-8 sm:h-8 text-amber-200"
+					fill="currentColor"
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+				>
+					<path
+						d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+					/>
+				</svg>
+			{/if}
+		</button>
+		<div
+			id="tooltip-tema"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip whitespace-nowrap dark:bg-gray-700"
+		>
+			{$darkMode ? 'Modo claro' : 'Modo oscuro'}
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+
 		<!-- Botón de WhatsApp -->
 		<a	data-tooltip-target="tooltip-whatsapp" data-tooltip-placement="left"
 			href="https://wa.me/+543795315483?text=Hola Diego, vi tu portafolio y me gustaría conversar sobre una posible vacante..."
@@ -276,14 +328,11 @@
 		<button
 		  data-tooltip-target="tooltip-contacto"
 		  data-tooltip-placement="left"
-		  class="bg-white border-4 border-purple-900 rounded-full shadow-lg w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center hover:bg-purple-50 transition-colors group"
+		  class="bg-white border-4 border-purple-900 rounded-full shadow-lg w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center hover:bg-purple-50 transition-colors group dark:bg-gray-800 dark:border-purple-400 dark:hover:bg-gray-700"
 		  aria-label="Abrir formulario de contacto"
 		  onclick={() => contactModalOpen.set(true)}
 		>
-		  <svg class="w-6 h-6 sm:w-8 sm:h-8 text-purple-900 group-hover:text-purple-700" fill="white" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-		    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="white"/>
-		    <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="2" fill="none"/>
-		  </svg>
+		  <i class="fa-regular fa-envelope text-lg sm:text-3xl text-purple-900 dark:text-purple-200"></i>
 		</button>
 		<div id="tooltip-contacto" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip whitespace-nowrap">
 			Abrir el formulario de contacto

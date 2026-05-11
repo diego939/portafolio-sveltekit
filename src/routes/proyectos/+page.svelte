@@ -4,9 +4,10 @@
 
 	function badgeCategoria(c: string): string {
 		if (c === 'Full Stack')
-			return 'bg-purple-100 text-purple-900 ring-1 ring-purple-200/80';
-		if (c === 'Frontend') return 'bg-sky-100 text-sky-900 ring-1 ring-sky-200/80';
-		return 'bg-emerald-100 text-emerald-900 ring-1 ring-emerald-200/80';
+			return 'bg-purple-100 text-purple-900 ring-1 ring-purple-200/80 dark:bg-purple-950/90 dark:text-purple-100 dark:ring-purple-700/50';
+		if (c === 'Frontend')
+			return 'bg-sky-100 text-sky-900 ring-1 ring-sky-200/80 dark:bg-sky-950/90 dark:text-sky-100 dark:ring-sky-700/50';
+		return 'bg-emerald-100 text-emerald-900 ring-1 ring-emerald-200/80 dark:bg-emerald-950/90 dark:text-emerald-100 dark:ring-emerald-700/50';
 	}
 
 	// Datos de ejemplo - personaliza con tu información
@@ -203,10 +204,10 @@
 <div class="space-y-10 pb-6 sm:space-y-14 md:space-y-16">
 	<!-- Header -->
 	<header class="px-4 text-center sm:px-6">
-		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 dark:text-gray-100">
 			Mis proyectos
 		</h1>
-		<p class="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg">
+		<p class="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg dark:text-gray-400">
 			Aplicaciones y sistemas que muestran cómo resuelvo problemas reales con código limpio y stack moderno.
 		</p>
 	</header>
@@ -214,7 +215,7 @@
 	<!-- Filtros -->
 	<div class="flex justify-center px-4 sm:px-6">
 		<div
-			class="inline-flex flex-wrap justify-center gap-1.5 rounded-2xl border border-purple-900/10 bg-white/90 p-2 shadow-lg backdrop-blur-sm sm:gap-2"
+			class="inline-flex flex-wrap justify-center gap-1.5 rounded-2xl border border-purple-900/10 bg-white/90 p-2 shadow-lg backdrop-blur-sm dark:border-purple-500/20 dark:bg-gray-900/95 sm:gap-2"
 			role="tablist"
 			aria-label="Filtrar por categoría"
 		>
@@ -224,7 +225,7 @@
 					class="rounded-xl px-3 py-2 text-xs font-semibold transition-all sm:px-4 sm:text-sm md:text-base {filtroCategoria ===
 					categoria
 						? 'bg-purple-900 text-white shadow-md shadow-purple-900/25'
-						: 'bg-gray-50 text-gray-700 hover:bg-purple-50 hover:text-purple-900'}"
+						: 'bg-gray-50 text-gray-700 hover:bg-purple-50 hover:text-purple-900 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-purple-950 dark:hover:text-purple-200'}"
 					on:click={() => (filtroCategoria = categoria)}
 					aria-pressed={filtroCategoria === categoria}
 				>
@@ -238,17 +239,17 @@
 	{#if filtroCategoria === 'Todos'}
 		<section class="space-y-6 px-4 sm:space-y-8 sm:px-6" aria-labelledby="destacados-heading">
 			<div class="flex flex-col gap-2 text-center sm:text-left">
-				<h2 id="destacados-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl">
+				<h2 id="destacados-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-gray-100">
 					Proyectos destacados
 				</h2>
-				<p class="text-sm text-gray-600 sm:text-base">
+				<p class="text-sm text-gray-600 sm:text-base dark:text-gray-400">
 					Los que mejor representan mi trabajo actual y mi enfoque full stack.
 				</p>
 			</div>
 			<div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
 				{#each proyectosDestacados as proyecto (proyecto.id)}
 					<article
-						class="group relative flex flex-col overflow-hidden rounded-2xl border border-purple-900/10 bg-white/95 shadow-xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-purple-900/25 hover:shadow-2xl"
+						class="group relative flex flex-col overflow-hidden rounded-2xl border border-purple-900/10 bg-white/95 shadow-xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-purple-900/25 hover:shadow-2xl dark:border-purple-500/20 dark:bg-gray-900/95"
 					>
 						<div
 							class="h-1.5 w-full bg-gradient-to-r from-purple-600 via-violet-500 to-indigo-600"
@@ -257,13 +258,13 @@
 							<div class="mb-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 								<div class="flex items-start gap-4">
 									<div
-										class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 text-3xl shadow-inner ring-1 ring-purple-900/10 sm:h-16 sm:w-16 sm:text-4xl"
+										class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 text-3xl shadow-inner ring-1 ring-purple-900/10 dark:from-purple-950 dark:to-indigo-950 dark:ring-purple-600/30 sm:h-16 sm:w-16 sm:text-4xl"
 										aria-hidden="true"
 									>
 										{proyecto.imagen}
 									</div>
 									<div>
-										<h3 class="text-xl font-bold text-gray-900 sm:text-2xl">{proyecto.titulo}</h3>
+										<h3 class="text-xl font-bold text-gray-900 sm:text-2xl dark:text-gray-100">{proyecto.titulo}</h3>
 										<span
 											class="mt-2 inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide {badgeCategoria(
 												proyecto.categoria
@@ -275,19 +276,19 @@
 								</div>
 								{#if proyecto.destacado}
 									<span
-										class="self-start rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-amber-900 ring-1 ring-amber-200/80"
+										class="self-start rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-amber-900 ring-1 ring-amber-200/80 dark:bg-amber-950/80 dark:text-amber-200 dark:ring-amber-800/50"
 									>
 										Destacado
 									</span>
 								{/if}
 							</div>
-							<p class="mb-5 flex-1 text-sm leading-relaxed text-gray-600 sm:text-base">
+							<p class="mb-5 flex-1 text-sm leading-relaxed text-gray-600 sm:text-base dark:text-gray-400">
 								{proyecto.descripcion}
 							</p>
 							<div class="mb-6 flex flex-wrap gap-2">
 								{#each proyecto.tecnologias as tecnologia}
 									<span
-										class="rounded-full border border-purple-200/70 bg-gradient-to-br from-white to-purple-50/90 px-3 py-1 text-xs font-medium text-purple-900 shadow-sm"
+										class="rounded-full border border-purple-200/70 bg-gradient-to-br from-white to-purple-50/90 px-3 py-1 text-xs font-medium text-purple-900 shadow-sm dark:border-purple-700/50 dark:from-gray-800 dark:to-purple-950 dark:text-purple-200"
 									>
 										{tecnologia}
 									</span>
@@ -312,7 +313,7 @@
 										href={proyecto.demo}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-purple-900/20 bg-white px-4 py-3 text-sm font-semibold text-purple-900 transition hover:border-purple-900/40 hover:bg-purple-50/80"
+										class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-purple-900/20 bg-white px-4 py-3 text-sm font-semibold text-purple-900 transition hover:border-purple-900/40 hover:bg-purple-50/80 dark:border-purple-400/30 dark:bg-gray-800 dark:text-purple-200 dark:hover:bg-gray-700"
 									>
 										<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 											<path
@@ -333,7 +334,7 @@
 								{:else}
 									<button
 										type="button"
-										class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-600 transition hover:bg-gray-100"
+										class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-600 transition hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
 										on:click={() => noDisponible()}
 									>
 										Demo no disponible
@@ -349,24 +350,24 @@
 
 	<!-- Grid proyectos -->
 	<section class="space-y-6 px-4 sm:space-y-8 sm:px-6" aria-labelledby="lista-proyectos-heading">
-		<h2 id="lista-proyectos-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl">
+		<h2 id="lista-proyectos-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-gray-100">
 			{filtroCategoria === 'Todos' ? 'Todos los proyectos' : `Proyectos · ${filtroCategoria}`}
 		</h2>
 		<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
 			{#each proyectosFiltrados as proyecto (proyecto.id)}
 				<article
-					class="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gray-200/80 bg-white shadow-lg transition duration-300 hover:border-gray-300 hover:shadow-2xl"
+					class="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gray-200/80 bg-white shadow-lg transition duration-300 hover:border-gray-300 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-600"
 				>
 					<div class="flex flex-1 flex-col p-5 sm:p-6">
 						<div class="mb-3 flex items-start gap-3">
 							<div
-								class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-2xl ring-1 ring-gray-100 transition group-hover:bg-purple-50 group-hover:ring-purple-100"
+								class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-2xl ring-1 ring-gray-100 transition group-hover:bg-purple-50 group-hover:ring-purple-100 dark:bg-gray-800 dark:ring-gray-700 dark:group-hover:bg-purple-950 dark:group-hover:ring-purple-800"
 								aria-hidden="true"
 							>
 								{proyecto.imagen}
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="font-bold leading-snug text-gray-900 sm:text-lg">{proyecto.titulo}</h3>
+								<h3 class="font-bold leading-snug text-gray-900 sm:text-lg dark:text-gray-100">{proyecto.titulo}</h3>
 								<span
 									class="mt-1 inline-flex rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide {badgeCategoria(
 										proyecto.categoria
@@ -376,24 +377,24 @@
 								</span>
 							</div>
 							{#if proyecto.destacado}
-								<span class="shrink-0 rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-900">
+								<span class="shrink-0 rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-900 dark:bg-amber-950/80 dark:text-amber-200">
 									★
 								</span>
 							{/if}
 						</div>
-						<div class="mb-4 flex-1 text-sm leading-relaxed text-gray-600">
+						<div class="mb-4 flex-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
 							{proyecto.descripcion}
 						</div>
 						<div class="mb-5 flex flex-wrap gap-1.5">
 							{#each proyecto.tecnologias.slice(0, 4) as tecnologia}
 								<span
-									class="rounded-md bg-purple-50/90 px-2 py-0.5 text-[11px] font-medium text-purple-900 ring-1 ring-purple-100"
+									class="rounded-md bg-purple-50/90 px-2 py-0.5 text-[11px] font-medium text-purple-900 ring-1 ring-purple-100 dark:bg-purple-950/60 dark:text-purple-200 dark:ring-purple-800"
 								>
 									{tecnologia}
 								</span>
 							{/each}
 							{#if proyecto.tecnologias.length > 4}
-								<span class="rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-600">
+								<span class="rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-600 dark:bg-gray-800 dark:text-gray-400">
 									+{proyecto.tecnologias.length - 4}
 								</span>
 							{/if}
@@ -412,14 +413,14 @@
 									href={proyecto.demo}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="inline-flex flex-1 items-center justify-center rounded-xl border border-purple-900/20 bg-white px-3 py-2.5 text-xs font-semibold text-purple-900 transition hover:bg-purple-50 sm:text-sm"
+									class="inline-flex flex-1 items-center justify-center rounded-xl border border-purple-900/20 bg-white px-3 py-2.5 text-xs font-semibold text-purple-900 transition hover:bg-purple-50 dark:border-purple-500/30 dark:bg-gray-800 dark:text-purple-200 dark:hover:bg-gray-700 sm:text-sm"
 								>
 									Demo
 								</a>
 							{:else}
 								<button
 									type="button"
-									class="inline-flex flex-1 items-center justify-center rounded-xl border border-dashed border-gray-300 bg-gray-50 px-3 py-2.5 text-xs font-semibold text-gray-600 hover:bg-gray-100 sm:text-sm"
+									class="inline-flex flex-1 items-center justify-center rounded-xl border border-dashed border-gray-300 bg-gray-50 px-3 py-2.5 text-xs font-semibold text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 sm:text-sm"
 									on:click={() => noDisponible()}
 								>
 									Sin demo
@@ -434,18 +435,18 @@
 
 	<!-- Estadísticas -->
 	<section
-		class="relative mx-4 overflow-hidden rounded-3xl border border-purple-900/10 bg-gradient-to-br from-indigo-50/90 via-white to-purple-50/80 p-8 shadow-inner sm:mx-6 sm:p-10"
+		class="relative mx-4 overflow-hidden rounded-3xl border border-purple-900/10 bg-gradient-to-br from-indigo-50/90 via-white to-purple-50/80 p-8 shadow-inner dark:border-purple-500/20 dark:from-gray-900 dark:via-gray-900 dark:to-purple-950/80 sm:mx-6 sm:p-10"
 		aria-labelledby="stats-proyectos-heading"
 	>
 		<div
 			class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-purple-400/15 blur-3xl"
 		></div>
-		<h2 id="stats-proyectos-heading" class="relative mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+		<h2 id="stats-proyectos-heading" class="relative mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl dark:text-gray-100">
 			Cifras del portafolio
 		</h2>
 		<div class="relative grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
 			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm"
+				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
 			>
 				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-900">
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -458,10 +459,10 @@
 					</svg>
 				</div>
 				<div class="text-3xl font-bold text-purple-900">{proyectos.length}</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm">Proyectos relevantes</p>
+				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Proyectos relevantes</p>
 			</div>
 			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm"
+				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
 			>
 				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800">
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -474,10 +475,10 @@
 					</svg>
 				</div>
 				<div class="text-3xl font-bold text-emerald-700">{proyectosDestacados.length}</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm">Destacados</p>
+				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Destacados</p>
 			</div>
 			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm"
+				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
 			>
 				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-violet-900">
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -490,10 +491,10 @@
 					</svg>
 				</div>
 				<div class="text-3xl font-bold text-violet-800">20+</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm">Tecnologías</p>
+				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Tecnologías</p>
 			</div>
 			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm"
+				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
 			>
 				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900">
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -506,7 +507,7 @@
 					</svg>
 				</div>
 				<div class="text-3xl font-bold text-amber-800">100%</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm">Código abierto</p>
+				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Código abierto</p>
 			</div>
 		</div>
 	</section>
@@ -523,7 +524,7 @@
 			href="https://github.com/diego939"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-3.5 text-sm font-bold text-gray-900 shadow-lg transition hover:bg-purple-900 hover:text-white hover:shadow-xl transition duration-300 hover:-translate-y-0.5"
+			class="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-3.5 text-sm font-bold text-gray-900 shadow-lg transition hover:bg-purple-900 hover:text-white hover:shadow-xl transition duration-300 hover:-translate-y-0.5 dark:bg-gray-100 dark:hover:bg-purple-700 dark:hover:text-white"
 		>
 			<i class="fa-brands fa-github fa-lg"></i>
 			Ver perfil en GitHub
