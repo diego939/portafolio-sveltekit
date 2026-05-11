@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { get } from 'svelte/store';
 	import Swal from 'sweetalert2';
+	import { darkMode } from '$lib/stores/theme';
 
 	export let open = false;
 	const dispatch = createEventDispatcher();
@@ -58,7 +60,8 @@
 				title: `${nombre}: gracias por tu interés ☺️`,
 				text: 'Te estaré contactando a la brevedad!',
 				showConfirmButton: false,
-				timer: 4000
+				timer: 4000,
+				theme: get(darkMode) ? 'dark' : 'light'
 			});
 			closeModal();
 		} catch (e) {

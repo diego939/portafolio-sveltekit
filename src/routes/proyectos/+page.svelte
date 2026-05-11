@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 	import Swal from 'sweetalert2';
+	import { darkMode } from '$lib/stores/theme';
 
 	function badgeCategoria(c: string): string {
 		if (c === 'Full Stack')
@@ -189,7 +191,8 @@
 			title: 'Demo no disponible',
 			text: 'Lo siento, este proyecto no tiene una demo pública disponible en este momento.',
 			showConfirmButton: true,
-			confirmButtonText: 'Cerrar'
+			confirmButtonText: 'Cerrar',
+			theme: get(darkMode) ? 'dark' : 'light'
 		});
 	};
 

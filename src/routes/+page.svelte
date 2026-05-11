@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 	import { initFlowbite } from 'flowbite';
 	import { contactModalOpen } from '$lib/stores/contactModal';
+	import { darkMode } from '$lib/stores/theme';
 	import ImageModal from '$lib/ImageModal.svelte';
-    import Swal from 'sweetalert2';
+	import Swal from 'sweetalert2';
 	import { goto } from '$app/navigation';
 
 	const nombre = 'Diego David Almirón';
@@ -131,20 +133,21 @@
 	}
 
 	function copiarTexto(texto: string) {
-	navigator.clipboard.writeText(texto)
-		.then(() => {
-		Swal.fire({
-			icon: 'success',
-			toast: true,
-			position: 'top',
-			text: 'Correo copiado exitosamente.',
-			timer: 2000,
-			showConfirmButton: false
-		});
-		})
-		.catch((err) => {
-		console.error("Error al copiar: ", err);
-		});
+		navigator.clipboard.writeText(texto)
+			.then(() => {
+				Swal.fire({
+					icon: 'success',
+					toast: true,
+					position: 'top',
+					text: 'Correo copiado exitosamente.',
+					timer: 2000,
+					showConfirmButton: false,
+					theme: get(darkMode) ? 'dark' : 'light'
+				});
+			})
+			.catch((err) => {
+				console.error('Error al copiar: ', err);
+			});
 	}
 
 	onMount(() => {
