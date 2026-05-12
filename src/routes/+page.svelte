@@ -11,22 +11,22 @@
 	const nombre = 'Diego David Almirón';
 	const titulo = 'Analista Programador Universitario';
 	const descripcion =
-		'Analista Programador Universitario graduado de la Universidad Nacional Del Nordeste (UNNE). Certificado como Desarrollador Fullstack con Java, Desarrollador Web y Programador Web Fullstack Junior. Manejo tecnologías como Java, Spring Boot, Angular, Node.js, JavaScript, TypeScript, PHP, HTML5, CSS3, SQL (MySQL y SQL Server), .NET, JSON. Experiencia en frameworks como ReactJS, VueJS, Bootstrap, Codeigniter, NestJS, SvelteKit, Tailwind CSS. Control de versiones con Git, GitHub y Azure DevOps. Conocimientos en metodologías ágiles (Scrum, Kanban, XP) y tradicionales. Busco aportar mi experiencia técnica y pasión por el desarrollo para crear soluciones innovadoras que impulsen el crecimiento de su empresa.';
+		'Analista Programador Universitario graduado de la Universidad Nacional Del Nordeste (UNNE), con certificaciones en desarrollo fullstack y web. Mi foco principal está en el frontend con Angular y SvelteKit, y en el backend con Node.js y NestJS, construyendo aplicaciones con TypeScript, APIs bien estructuradas y buenas prácticas de arquitectura. Complemento ese stack con Java y Spring Boot, bases de datos SQL (MySQL, PostgreSQL, SQL Server), HTML5, CSS3 y Tailwind CSS, además de experiencia puntual con React, Vue.js, PHP, .NET y otros entornos cuando el proyecto lo requiere. Uso Git, GitHub y Azure DevOps para el trabajo colaborativo y trabajo con metodologías ágiles (Scrum, Kanban, XP) y tradicionales. Busco aportar soluciones web coherentes de punta a punta, alineando interfaz y servicios para sumar valor a su equipo.';
 
 	const tecnologias = [
-		'Web',
-		'Front End',
-		'Back End',
+		'Angular',
+		'SvelteKit',
+		'Node.js',
+		'NestJS',
+		'TypeScript',
+		'JavaScript',
+		'SQL',
+		'Tailwind CSS',
 		'Java',
 		'Spring Boot',
-		'Sveltekit',
-		'NodeJs',
-		'NestJs',
-		'Angular',
-		'Javascript',
-		'Typescript',
-		'SQL',
-		'Tailwind CSS'
+		'React',
+		'Vue.js',
+		'Git'
 	];
 
 	type DestacadoAccent = 'blue' | 'green' | 'purple' | 'indigo';
