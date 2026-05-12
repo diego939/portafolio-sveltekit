@@ -407,7 +407,7 @@
 								href={proyecto.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="inline-flex flex-1 items-center justify-center rounded-xl bg-gray-900 px-3 py-2.5 text-xs font-semibold text-white transition hover:bg-gray-800 sm:text-sm"
+								class="inline-flex flex-1 items-center justify-center rounded-xl bg-gray-900 px-3 py-2.5 text-xs font-semibold text-white transition hover:bg-gray-800 dark:bg-gray-200 dark:text-gray-950 dark:hover:bg-gray-300 sm:text-sm"
 							>
 								<i class="fa-brands fa-github mx-1"></i> GitHub
 							</a>
