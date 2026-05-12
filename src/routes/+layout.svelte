@@ -7,18 +7,50 @@
 	import { darkMode, toggleDarkMode } from '$lib/stores/theme';
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { initFlowbite } from 'flowbite';
+	import AOS from 'aos';
+	import 'aos/dist/aos.css';
 
 	let { children } = $props();
 
 	let menuAbierto = $state(false);
+
+	/** Muestra el FAB "subir" solo cerca del final del documento; la entrada usa AOS. */
+	let showBackToTop = $state(false);
+	const scrollBottomThresholdPx = 160;
+
+	function updateScrollBottomFlag() {
+		if (typeof document === 'undefined') return;
+		const root = document.documentElement;
+		const scrollBottom = window.scrollY + window.innerHeight;
+		const atBottom = scrollBottom >= root.scrollHeight - scrollBottomThresholdPx;
+		const next = atBottom && root.scrollHeight > window.innerHeight + 40;
+		if (next === showBackToTop) return;
+		showBackToTop = next;
+		if (next) {
+			void tick().then(() => {
+				requestAnimationFrame(() => {
+					AOS.refreshHard();
+					AOS.refresh();
+					initFlowbite();
+				});
+			});
+		}
+	}
+
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
 
 	/** `$state`: las asignaciones desde `afterNavigate` deben invalidar la vista en Svelte 5; `let` solo a veces no. */
 	let pathname = $state(page.url.pathname);
 
 	afterNavigate((navigation) => {
 		pathname = navigation.to?.url.pathname ?? page.url.pathname;
+		void tick().then(() => {
+			requestAnimationFrame(() => updateScrollBottomFlag());
+		});
 	});
 
 	function navActive(href: string): boolean {
@@ -135,9 +167,24 @@
 		}
 	});
 
-	onMount(async () => {
-    initFlowbite();
-  });
+	onMount(() => {
+		initFlowbite();
+		AOS.init({
+			duration: 650,
+			easing: 'ease-out-cubic',
+			once: false,
+			offset: 32,
+			anchorPlacement: 'top-bottom'
+		});
+		updateScrollBottomFlag();
+		const onScroll = () => updateScrollBottomFlag();
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onScroll);
+		return () => {
+			window.removeEventListener('scroll', onScroll);
+			window.removeEventListener('resize', onScroll);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -276,6 +323,42 @@
 
 	<!-- Botones flotantes: escritorio (Flowbite tooltips; ids únicos) -->
 	<div class="fixed bottom-6 right-6 z-40 hidden flex-col space-y-3 md:flex">
+		{#if showBackToTop}
+			<button
+				type="button"
+				data-tooltip-target="tooltip-subir"
+				data-tooltip-placement="left"
+				data-aos="fade-up"
+				data-aos-duration="650"
+				data-aos-easing="ease-out-cubic"
+				data-aos-once="false"
+				class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-4 border-sky-600 bg-sky-500 shadow-lg transition-colors hover:bg-sky-400 sm:h-16 sm:w-16 dark:border-sky-300 dark:bg-sky-400 dark:hover:bg-sky-300"
+				aria-label="Volver arriba"
+				onclick={scrollToTop}
+			>
+				<svg
+					class="h-6 w-6 text-white sm:h-8 sm:w-8"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M5 10l7-7m0 0l7 7m-7-7v18" />
+				</svg>
+			</button>
+			<div
+				id="tooltip-subir"
+				role="tooltip"
+				class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium whitespace-nowrap text-white opacity-0 shadow-xs dark:bg-gray-700"
+			>
+				Volver arriba
+				<div class="tooltip-arrow" data-popper-arrow></div>
+			</div>
+		{/if}
 		<!-- Tema claro / oscuro -->
 		<button
 			type="button"
@@ -362,6 +445,32 @@
 	<div
 		class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 max-sm:bottom-4 max-sm:right-2 max-sm:gap-2 md:hidden"
 	>
+		{#if showBackToTop}
+			<button
+				type="button"
+				data-aos="fade-up"
+				data-aos-duration="650"
+				data-aos-easing="ease-out-cubic"
+				data-aos-once="false"
+				class="flex h-12 w-12 max-sm:h-10 max-sm:w-10 shrink-0 items-center justify-center rounded-full border-4 border-sky-600 max-sm:border-2 bg-sky-500 shadow-lg transition-colors hover:bg-sky-400 dark:border-sky-300 dark:bg-sky-400 dark:hover:bg-sky-300"
+				aria-label="Volver arriba"
+				onclick={scrollToTop}
+			>
+				<svg
+					class="h-6 w-6 max-sm:h-5 max-sm:w-5 text-white"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M5 10l7-7m0 0l7 7m-7-7v18" />
+				</svg>
+			</button>
+		{/if}
 		<button
 			type="button"
 			class="bg-slate-800 border-4 border-slate-950 rounded-full shadow-lg h-12 w-12 max-sm:h-10 max-sm:w-10 max-sm:border-2 flex items-center justify-center hover:bg-slate-700 transition-colors group dark:bg-amber-400 dark:border-amber-500 dark:hover:bg-amber-300"
