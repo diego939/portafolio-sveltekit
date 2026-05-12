@@ -120,6 +120,9 @@
 	const totalCategoriasTecnicas = skillTracks.length;
 	const totalHabilidadesBlandas = habilidadesBlandas.length;
 
+	/** Vista del bloque Stack técnico: marquesinas alternadas (por defecto) o rejilla estática */
+	let stackVista: 'bandas' | 'lista' = 'bandas';
+
 	// Establecer el título de la página
 	onMount(() => {
 		document.title = 'Habilidades - Diego David Almirón';
@@ -141,10 +144,62 @@
 		aria-label="Tecnologías por categoría"
 	>
 		<div class="relative z-10 px-4 pb-10 pt-8 sm:px-8 sm:pb-12 sm:pt-10">
-			<div class="mb-8 text-center sm:mb-10">
-				<p class="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-800/85 dark:text-purple-300/90">
+			<div class="mb-8 flex flex-col items-center gap-5 text-center sm:mb-10">
+				<p class="text-sm font-semibold uppercase tracking-wider text-purple-800/85 dark:text-purple-300/90">
 					Stack técnico
 				</p>
+				<div
+					class="inline-flex items-center gap-1 rounded-2xl border border-purple-200/90 bg-white/95 p-1 shadow-md backdrop-blur-sm dark:border-purple-700/55 dark:bg-gray-900/95"
+					role="group"
+					aria-label="Modo de visualización del stack técnico"
+				>
+					<button
+						type="button"
+						class="inline-flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 sm:px-4 sm:text-sm"
+						class:bg-purple-900={stackVista === 'bandas'}
+						class:text-white={stackVista === 'bandas'}
+						class:shadow-md={stackVista === 'bandas'}
+						class:text-gray-600={stackVista !== 'bandas'}
+						class:hover:bg-purple-50={stackVista !== 'bandas'}
+						class:dark:text-gray-300={stackVista !== 'bandas'}
+						class:dark:hover:bg-gray-800={stackVista !== 'bandas'}
+						aria-pressed={stackVista === 'bandas'}
+						on:click={() => (stackVista = 'bandas')}
+					>
+						<svg class="h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 9c1.5-1.5 3.5-1.5 5 0s3.5 1.5 5 0 3.5-1.5 5 0 3.5 1.5 5 0M4 15c1.5 1.5 3.5 1.5 5 0s3.5-1.5 5 0 3.5 1.5 5 0 3.5-1.5 5 0"
+							/>
+						</svg>
+						Bandas cruzadas
+					</button>
+					<button
+						type="button"
+						class="inline-flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 sm:px-4 sm:text-sm"
+						class:bg-purple-900={stackVista === 'lista'}
+						class:text-white={stackVista === 'lista'}
+						class:shadow-md={stackVista === 'lista'}
+						class:text-gray-600={stackVista !== 'lista'}
+						class:hover:bg-purple-50={stackVista !== 'lista'}
+						class:dark:text-gray-300={stackVista !== 'lista'}
+						class:dark:hover:bg-gray-800={stackVista !== 'lista'}
+						aria-pressed={stackVista === 'lista'}
+						on:click={() => (stackVista = 'lista')}
+					>
+						<svg class="h-4 w-4 shrink-0 sm:h-[1.125rem] sm:w-[1.125rem]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 10h16M4 14h16M4 18h16"
+							/>
+						</svg>
+						Listado
+					</button>
+				</div>
 			</div>
 
 			<div class="flex flex-col gap-10 sm:gap-12">
@@ -155,35 +210,59 @@
 							<p class="text-xs text-gray-500 sm:text-sm dark:text-gray-400">{track.subtitulo}</p>
 						</div>
 
-						<div class="skills-marquee relative overflow-hidden py-1">
-							<div
-								class="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white via-white/95 to-transparent dark:from-gray-950 dark:via-gray-950/95 sm:w-24"
-							></div>
-							<div
-								class="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white via-white/95 to-transparent dark:from-gray-950 dark:via-gray-950/95 sm:w-24"
-							></div>
+						{#if stackVista === 'bandas'}
+							<div class="skills-marquee relative overflow-hidden py-1">
+								<div
+									class="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white via-white/95 to-transparent dark:from-gray-950 dark:via-gray-950/95 sm:w-24"
+								></div>
+								<div
+									class="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white via-white/95 to-transparent dark:from-gray-950 dark:via-gray-950/95 sm:w-24"
+								></div>
 
-							<div
-								class="flex w-max gap-5 pr-5"
-								class:skills-marquee-animate-left={track.direction === 'left'}
-								class:skills-marquee-animate-right={track.direction === 'right'}
-							>
-								{#each duplicated(track.items) as item, idx (`${track.id}-${item.nombre}-${idx}`)}
-									<div
-										class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md dark:border-purple-700/50 dark:bg-gray-900 dark:text-gray-100 sm:min-w-[230px]"
-									>
-										<p class="truncate text-sm font-semibold leading-tight sm:text-base">
-											{item.nombre}
-										</p>
-										<span
-											class="skill-icon h-6 w-6 flex-shrink-0 sm:h-7 sm:w-7"
-											style={`--icon-url: url('${item.imagen}')`}
-											aria-hidden="true"
-										></span>
-									</div>
-								{/each}
+								<div
+									class="flex w-max gap-5 pr-5"
+									class:skills-marquee-animate-left={track.direction === 'left'}
+									class:skills-marquee-animate-right={track.direction === 'right'}
+								>
+									{#each duplicated(track.items) as item, idx (`${track.id}-${item.nombre}-${idx}`)}
+										<div
+											class="flex min-w-[210px] max-w-[240px] flex-shrink-0 items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md dark:border-purple-700/50 dark:bg-gray-900 dark:text-gray-100 sm:min-w-[230px]"
+										>
+											<p class="truncate text-sm font-semibold leading-tight sm:text-base">
+												{item.nombre}
+											</p>
+											<span
+												class="skill-icon h-6 w-6 flex-shrink-0 sm:h-7 sm:w-7"
+												style={`--icon-url: url('${item.imagen}')`}
+												aria-hidden="true"
+											></span>
+										</div>
+									{/each}
+								</div>
 							</div>
-						</div>
+						{:else}
+							<ul
+								class="flex list-none flex-wrap justify-center gap-3 px-0 sm:justify-start"
+								aria-label={`${track.titulo}: tecnologías`}
+							>
+								{#each track.items as item (item.nombre)}
+									<li>
+										<div
+											class="flex min-w-0 max-w-[16rem] items-center justify-center gap-2 rounded-full border border-purple-200/80 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md dark:border-purple-700/50 dark:bg-gray-900 dark:text-gray-100"
+										>
+											<p class="truncate text-sm font-semibold leading-tight sm:text-base">
+												{item.nombre}
+											</p>
+											<span
+												class="skill-icon h-6 w-6 flex-shrink-0 sm:h-7 sm:w-7"
+												style={`--icon-url: url('${item.imagen}')`}
+												aria-hidden="true"
+											></span>
+										</div>
+									</li>
+								{/each}
+							</ul>
+						{/if}
 					</div>
 				{/each}
 			</div>
