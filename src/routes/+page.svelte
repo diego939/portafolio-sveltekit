@@ -193,7 +193,7 @@
 						class="relative block overflow-hidden rounded-full border-4 border-white shadow-2xl ring-2 ring-purple-900/10 transition duration-300 group-hover:scale-[1.03] group-active:scale-[0.98] dark:border-gray-700 dark:ring-purple-500/30"
 					>
 						<img
-							src="/images/profile.jpg"
+							src="/images/profile.png"
 							alt=""
 							class="h-28 w-28 object-cover sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40"
 							width="160"
@@ -604,7 +604,7 @@
 
 <ImageModal
 	isOpen={imageModalOpen}
-	imageSrc="/images/profile.jpg"
+	imageSrc="/images/profile.png"
 	imageAlt="Diego David Almirón"
 	on:close={() => (imageModalOpen = false)}
 />
