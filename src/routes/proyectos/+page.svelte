@@ -438,79 +438,113 @@
 
 	<!-- Estadísticas -->
 	<section
-		class="relative mx-4 overflow-hidden rounded-3xl border border-purple-900/10 bg-gradient-to-br from-indigo-50/90 via-white to-purple-50/80 p-8 shadow-inner dark:border-purple-500/20 dark:from-gray-900 dark:via-gray-900 dark:to-purple-950/80 sm:mx-6 sm:p-10"
+		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14 dark:border-purple-500/20"
 		aria-labelledby="stats-proyectos-heading"
 	>
 		<div
-			class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-purple-400/15 blur-3xl"
+			class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-purple-50/50 to-indigo-50/70 dark:from-gray-900 dark:via-purple-950/40 dark:to-indigo-950/70"
 		></div>
-		<h2 id="stats-proyectos-heading" class="relative mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl dark:text-gray-100">
-			Cifras del portafolio
-		</h2>
-		<div class="relative grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
-			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
-			>
-				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-900">
-					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-						/>
-					</svg>
-				</div>
-				<div class="text-3xl font-bold text-purple-900">{proyectos.length}</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Proyectos relevantes</p>
+		<div
+			class="pointer-events-none absolute left-1/2 top-0 h-px w-[min(100%,36rem)] -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-300/50 to-transparent"
+		></div>
+
+		<div class="relative z-10 mx-auto max-w-5xl">
+			<div class="mb-8 text-center sm:mb-10">
+				<h2
+					id="stats-proyectos-heading"
+					class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-gray-100"
+				>
+					Cifras del portafolio
+				</h2>
+				<p class="mt-2 text-sm text-gray-600 sm:text-base dark:text-gray-400">
+					Resumen de lo que encontrarás en esta página de proyectos.
+				</p>
 			</div>
-			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
-			>
-				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800">
-					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-						/>
-					</svg>
+
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+				<div
+					class="rounded-2xl border border-purple-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-purple-800/30 dark:bg-gray-900 sm:bg-white/90 sm:backdrop-blur-sm dark:sm:bg-gray-900/95"
+				>
+					<div
+						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-700 to-indigo-700 text-white shadow-lg"
+					>
+						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+							/>
+						</svg>
+					</div>
+					<p class="text-3xl font-bold text-purple-900 tabular-nums sm:text-4xl">
+						{proyectos.length}
+					</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Proyectos relevantes</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Casos recogidos en este portafolio</p>
 				</div>
-				<div class="text-3xl font-bold text-emerald-700">{proyectosDestacados.length}</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Destacados</p>
-			</div>
-			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
-			>
-				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-violet-900">
-					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-						/>
-					</svg>
+
+				<div
+					class="rounded-2xl border border-emerald-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-emerald-800/30 dark:bg-gray-900 sm:bg-white/90 sm:backdrop-blur-sm dark:sm:bg-gray-900/95"
+				>
+					<div
+						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg"
+					>
+						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+							/>
+						</svg>
+					</div>
+					<p class="text-3xl font-bold text-emerald-700 tabular-nums sm:text-4xl">
+						{proyectosDestacados.length}
+					</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Destacados</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Los que mejor representan mi trabajo</p>
 				</div>
-				<div class="text-3xl font-bold text-violet-800">20+</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Tecnologías</p>
-			</div>
-			<div
-				class="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-md backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/95"
-			>
-				<div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900">
-					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-						/>
-					</svg>
+
+				<div
+					class="rounded-2xl border border-violet-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-violet-800/30 dark:bg-gray-900 sm:bg-white/90 sm:backdrop-blur-sm dark:sm:bg-gray-900/95"
+				>
+					<div
+						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-lg"
+					>
+						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+							/>
+						</svg>
+					</div>
+					<p class="text-3xl font-bold text-violet-700 tabular-nums sm:text-4xl">20+</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Tecnologías</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Stack que aparece en los repositorios</p>
 				</div>
-				<div class="text-3xl font-bold text-amber-800">100%</div>
-				<p class="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">Código abierto</p>
+
+				<div
+					class="rounded-2xl border border-amber-900/10 bg-white p-6 text-center shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-amber-800/30 dark:bg-gray-900 sm:bg-white/90 sm:backdrop-blur-sm dark:sm:bg-gray-900/95"
+				>
+					<div
+						class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg"
+					>
+						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+							/>
+						</svg>
+					</div>
+					<p class="text-3xl font-bold text-amber-700 tabular-nums sm:text-4xl">100%</p>
+					<p class="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">Código abierto</p>
+					<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Todo visible en GitHub para revisión</p>
+				</div>
 			</div>
 		</div>
 	</section>
