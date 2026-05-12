@@ -8,8 +8,11 @@
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { onMount, tick } from 'svelte';
-	import { slide } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
+	import { fade, slide } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+
+	const mobileMenuEase = cubicInOut;
+	const mobileMenuMs = 950;
 	import { initFlowbite } from 'flowbite';
 	import AOS from 'aos';
 	import 'aos/dist/aos.css';
@@ -18,16 +21,14 @@
 
 	let menuAbierto = $state(false);
 
-	/** Muestra el FAB "subir" solo cerca del final del documento; la entrada usa AOS. */
+	/** Muestra el FAB "subir" cuando el scroll supera el 50% del recorrido de la página; la entrada usa AOS. */
 	let showBackToTop = $state(false);
-	const scrollBottomThresholdPx = 160;
 
-	function updateScrollBottomFlag() {
+	function updateBackToTopVisibility() {
 		if (typeof document === 'undefined') return;
 		const root = document.documentElement;
-		const scrollBottom = window.scrollY + window.innerHeight;
-		const atBottom = scrollBottom >= root.scrollHeight - scrollBottomThresholdPx;
-		const next = atBottom && root.scrollHeight > window.innerHeight + 40;
+		const maxScroll = Math.max(0, root.scrollHeight - window.innerHeight);
+		const next = maxScroll > 0 && window.scrollY > maxScroll * 0.5;
 		if (next === showBackToTop) return;
 		showBackToTop = next;
 		if (next) {
@@ -52,7 +53,7 @@
 		pathname = navigation.to?.url.pathname ?? page.url.pathname;
 		menuAbierto = false;
 		void tick().then(() => {
-			requestAnimationFrame(() => updateScrollBottomFlag());
+			requestAnimationFrame(() => updateBackToTopVisibility());
 		});
 	});
 
@@ -179,8 +180,8 @@
 			offset: 32,
 			anchorPlacement: 'top-bottom'
 		});
-		updateScrollBottomFlag();
-		const onScroll = () => updateScrollBottomFlag();
+		updateBackToTopVisibility();
+		const onScroll = () => updateBackToTopVisibility();
 		window.addEventListener('scroll', onScroll, { passive: true });
 		window.addEventListener('resize', onScroll);
 		return () => {
@@ -293,14 +294,15 @@
 		{#if menuAbierto}
 			<button
 				type="button"
-				class="fixed inset-x-0 bottom-0 top-16 z-[55] bg-slate-950/35 backdrop-blur-[2px] transition-opacity duration-300 md:hidden"
+				class="fixed inset-x-0 bottom-0 top-16 z-[55] bg-slate-950/35 backdrop-blur-[2px] md:hidden"
 				aria-label="Cerrar menú"
+				transition:fade={{ duration: mobileMenuMs, easing: mobileMenuEase }}
 				onclick={() => (menuAbierto = false)}
 			></button>
 			<div
 				id="nav-mobile-panel"
 				class="relative z-[56] border-t border-gray-200/60 bg-white/90 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl dark:border-gray-800/80 dark:bg-gray-950/90 dark:shadow-black/40 md:hidden"
-				transition:slide={{ duration: 280, easing: cubicOut }}
+				transition:slide={{ duration: mobileMenuMs, easing: mobileMenuEase }}
 				role="navigation"
 				aria-label="Móvil"
 			>
