@@ -486,14 +486,35 @@
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
 			</div>
-			<div class="">
-				<button data-tooltip-target="tooltip-correo" data-tooltip-placement="bottom" class="mt-6 text-xs sm:text-sm font-mono text-purple-200" on:click={() => copiarTexto("diegodavidalmiron17@gmail.com")}>
-						diegodavidalmiron17@gmail.com <i class="fa-regular fa-copy"></i>
+			<!-- Correo: desktop (tooltip Flowbite) -->
+			<div class="hidden md:block">
+				<button
+					type="button"
+					data-tooltip-target="tooltip-correo"
+					data-tooltip-placement="bottom"
+					class="mt-6 text-xs sm:text-sm font-mono text-purple-200 transition hover:text-white"
+					on:click={() => copiarTexto('diegodavidalmiron17@gmail.com')}
+				>
+					diegodavidalmiron17@gmail.com <i class="fa-regular fa-copy" aria-hidden="true"></i>
 				</button>
-				<div id="tooltip-correo" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip whitespace-nowrap">
+				<div
+					id="tooltip-correo"
+					role="tooltip"
+					class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip whitespace-nowrap"
+				>
 					Copiar al portapapeles
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
+			</div>
+			<!-- Correo: móvil (sin tooltip) -->
+			<div class="md:hidden">
+				<button
+					type="button"
+					class="mt-6 text-xs sm:text-sm font-mono text-purple-200 transition hover:text-white"
+					on:click={() => copiarTexto('diegodavidalmiron17@gmail.com')}
+				>
+					diegodavidalmiron17@gmail.com <i class="fa-regular fa-copy" aria-hidden="true"></i>
+				</button>
 			</div>
 		</div>
 	</section>
