@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '../app.css';
+	import { get } from 'svelte/store';
+	import Swal from 'sweetalert2';
 	import ContactModal from '$lib/ContactModal.svelte';
 	import { contactModalOpen } from '$lib/stores/contactModal';
 	import { darkMode, toggleDarkMode } from '$lib/stores/theme';
@@ -42,6 +44,20 @@
 	
 	function toggleMenu() {
 		menuAbierto = !menuAbierto;
+	}
+
+	function toastThemeChanged() {
+		toggleDarkMode();
+		const isDark = get(darkMode);
+		Swal.fire({
+			toast: true,
+			position: 'top',
+			icon: 'success',
+			text: isDark ? 'Modo oscuro activado' : 'Modo claro activado',
+			timer: 2000,
+			showConfirmButton: false,
+			theme: isDark ? 'dark' : 'light'
+		});
 	}
 	
 	const pageInfo = $derived.by(() => {
@@ -267,7 +283,7 @@
 			data-tooltip-placement="left"
 			class="bg-slate-800 border-4 border-slate-950 rounded-full shadow-lg w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center hover:bg-slate-700 transition-colors group dark:bg-amber-400 dark:border-amber-500 dark:hover:bg-amber-300"
 			aria-label={$darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
-			onclick={toggleDarkMode}
+			onclick={toastThemeChanged}
 		>
 			{#if $darkMode}
 				<svg
