@@ -5,14 +5,15 @@
 	import ContactModal from '$lib/ContactModal.svelte';
 	import { contactModalOpen } from '$lib/stores/contactModal';
 	import { darkMode, toggleDarkMode } from '$lib/stores/theme';
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { onMount, tick } from 'svelte';
-	import { fade, slide } from 'svelte/transition';
-	import { cubicInOut } from 'svelte/easing';
+	import { fade, fly } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
 
-	const mobileMenuEase = cubicInOut;
-	const mobileMenuMs = 950;
+	/** Menú móvil: duración corta + easing “out” para sensación ágil; `fly` evita animar altura (más fluido en móvil). */
+	const mobileMenuEase = cubicOut;
+	const mobileMenuMs = 260;
 	import { initFlowbite } from 'flowbite';
 	import AOS from 'aos';
 	import 'aos/dist/aos.css';
@@ -64,7 +65,7 @@
 
 	function navDesktopClass(href: string): string {
 		const base =
-			'relative isolate inline-flex items-center justify-center rounded-xl px-3.5 py-2 text-sm font-semibold tracking-tight outline-none transition-[color,transform,box-shadow,background-color] duration-300 ease-out focus-visible:ring-2 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950 active:scale-[0.97]';
+			'm-0 cursor-pointer appearance-none border-0 bg-transparent font-inherit relative isolate inline-flex items-center justify-center rounded-xl px-3.5 py-2 text-sm font-semibold tracking-tight outline-none transition-[color,transform,box-shadow,background-color] duration-300 ease-out focus-visible:ring-2 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950 active:scale-[0.97]';
 		return navActive(href)
 			? `${base} text-white shadow-lg shadow-purple-900/25 ring-1 ring-white/20 bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 dark:from-purple-500 dark:via-violet-500 dark:to-indigo-500 dark:shadow-purple-950/40`
 			: `${base} text-gray-600 hover:text-purple-900 hover:bg-white/90 hover:shadow-md hover:shadow-gray-900/5 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/10`;
@@ -72,7 +73,7 @@
 
 	function navMobileClass(href: string): string {
 		const base =
-			'block rounded-xl border border-transparent py-3 px-4 text-[15px] font-semibold tracking-tight outline-none transition-[color,transform,background-color,border-color,box-shadow] duration-300 ease-out focus-visible:ring-2 focus-visible:ring-purple-500/50 active:scale-[0.99]';
+			'm-0 block w-full cursor-pointer appearance-none rounded-xl border border-transparent py-3 px-4 text-left text-[15px] font-semibold tracking-tight outline-none transition-[color,transform,background-color,border-color,box-shadow] duration-300 ease-out focus-visible:ring-2 focus-visible:ring-purple-500/50 active:scale-[0.99]';
 		return navActive(href)
 			? `${base} border-purple-500/30 bg-gradient-to-r from-purple-600/15 via-violet-600/12 to-transparent text-purple-900 shadow-inner dark:from-purple-400/20 dark:text-purple-100 dark:border-purple-400/25`
 			: `${base} text-gray-700 hover:border-gray-200/80 hover:bg-gray-50/90 dark:text-gray-200 dark:hover:border-gray-600 dark:hover:bg-white/5`;
@@ -81,6 +82,17 @@
 	function toggleMenu() {
 		menuAbierto = !menuAbierto;
 	}
+
+	$effect(() => {
+		if (typeof document === 'undefined') return;
+		if (!menuAbierto) return;
+		const { style } = document.body;
+		const previousOverflow = style.overflow;
+		style.overflow = 'hidden';
+		return () => {
+			style.overflow = previousOverflow;
+		};
+	});
 
 	function toastThemeChanged() {
 		toggleDarkMode();
@@ -209,9 +221,10 @@
 		<div class="relative z-[60] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex h-16 items-center justify-between gap-4">
 				<div class="flex min-w-0 flex-1 items-center">
-					<a
-						href={logoHref}
-						class="group relative inline-flex items-center rounded-xl px-1 py-0.5 outline-none transition-[transform,opacity] duration-300 hover:opacity-95 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-purple-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
+					<button
+						type="button"
+						onclick={() => void goto(logoHref)}
+						class="group relative inline-flex cursor-pointer items-center rounded-xl border-0 bg-transparent px-1 py-0.5 outline-none transition-[transform,opacity] duration-300 hover:opacity-95 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-purple-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
 					>
 						<span
 							class="bg-gradient-to-r from-purple-700 via-violet-600 to-indigo-600 bg-clip-text text-xl font-bold tracking-tight text-transparent transition-[filter] duration-300 group-hover:brightness-110 dark:from-purple-300 dark:via-violet-300 dark:to-indigo-300"
@@ -222,7 +235,7 @@
 							class="pointer-events-none absolute -inset-x-1 -bottom-0.5 h-px scale-x-0 bg-gradient-to-r from-purple-500/0 via-purple-500/50 to-violet-500/0 opacity-0 transition-[transform,opacity] duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"
 							aria-hidden="true"
 						></span>
-					</a>
+					</button>
 				</div>
 
 				<!-- Navegación desktop: “dock” con enlaces tipo píldora -->
@@ -230,37 +243,46 @@
 					<div
 						class="flex items-center gap-0.5 rounded-2xl border border-gray-200/80 bg-gray-100/50 p-1 shadow-inner ring-1 ring-black/[0.02] dark:border-gray-700/80 dark:bg-gray-900/50 dark:ring-white/[0.04] lg:gap-1"
 					>
-						<a href="/" class={navDesktopClass('/')} aria-current={navActive('/') ? 'page' : undefined}>
+						<button
+							type="button"
+							class={navDesktopClass('/')}
+							aria-current={navActive('/') ? 'page' : undefined}
+							onclick={() => void goto('/')}
+						>
 							Inicio
-						</a>
-						<a
-							href="/educacion"
+						</button>
+						<button
+							type="button"
 							class={navDesktopClass('/educacion')}
 							aria-current={navActive('/educacion') ? 'page' : undefined}
+							onclick={() => void goto('/educacion')}
 						>
 							Educación
-						</a>
-						<a
-							href="/experiencia"
+						</button>
+						<button
+							type="button"
 							class={navDesktopClass('/experiencia')}
 							aria-current={navActive('/experiencia') ? 'page' : undefined}
+							onclick={() => void goto('/experiencia')}
 						>
 							Experiencia
-						</a>
-						<a
-							href="/habilidades"
+						</button>
+						<button
+							type="button"
 							class={navDesktopClass('/habilidades')}
 							aria-current={navActive('/habilidades') ? 'page' : undefined}
+							onclick={() => void goto('/habilidades')}
 						>
 							Habilidades
-						</a>
-						<a
-							href="/proyectos"
+						</button>
+						<button
+							type="button"
 							class={navDesktopClass('/proyectos')}
 							aria-current={navActive('/proyectos') ? 'page' : undefined}
+							onclick={() => void goto('/proyectos')}
 						>
 							Proyectos
-						</a>
+						</button>
 					</div>
 				</div>
 
@@ -274,7 +296,7 @@
 						aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
 					>
 						<svg
-							class="h-6 w-6 transition-transform duration-300 ease-out {menuAbierto ? 'rotate-90' : ''}"
+							class="h-6 w-6 transition-transform duration-200 ease-out {menuAbierto ? 'rotate-90' : ''}"
 							fill="none"
 							stroke="currentColor"
 							viewBox="0 0 24 24"
@@ -294,15 +316,15 @@
 		{#if menuAbierto}
 			<button
 				type="button"
-				class="fixed inset-x-0 bottom-0 top-16 z-[55] bg-slate-950/35 backdrop-blur-[2px] md:hidden"
+				class="fixed inset-x-0 bottom-0 top-16 z-[55] bg-slate-950/45 md:hidden"
 				aria-label="Cerrar menú"
 				transition:fade={{ duration: mobileMenuMs, easing: mobileMenuEase }}
 				onclick={() => (menuAbierto = false)}
 			></button>
 			<div
 				id="nav-mobile-panel"
-				class="relative z-[56] border-t border-gray-200/60 bg-white/90 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.15)] backdrop-blur-xl dark:border-gray-800/80 dark:bg-gray-950/90 dark:shadow-black/40 md:hidden"
-				transition:slide={{ duration: mobileMenuMs, easing: mobileMenuEase }}
+				class="fixed left-0 right-0 top-16 z-[56] max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-gray-200/60 bg-white/95 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.12)] backdrop-blur-md dark:border-gray-800/80 dark:bg-gray-950/95 dark:shadow-black/35 md:hidden"
+				transition:fly={{ y: -12, duration: mobileMenuMs, easing: mobileMenuEase }}
 				role="navigation"
 				aria-label="Móvil"
 			>
@@ -311,46 +333,61 @@
 						Navegación
 					</p>
 					<div class="flex flex-col gap-1.5">
-						<a
-							href="/"
+						<button
+							type="button"
 							class={navMobileClass('/')}
 							aria-current={navActive('/') ? 'page' : undefined}
-							onclick={() => (menuAbierto = false)}
+							onclick={() => {
+								void goto('/');
+								menuAbierto = false;
+							}}
 						>
 							Inicio
-						</a>
-						<a
-							href="/educacion"
+						</button>
+						<button
+							type="button"
 							class={navMobileClass('/educacion')}
 							aria-current={navActive('/educacion') ? 'page' : undefined}
-							onclick={() => (menuAbierto = false)}
+							onclick={() => {
+								void goto('/educacion');
+								menuAbierto = false;
+							}}
 						>
 							Educación
-						</a>
-						<a
-							href="/experiencia"
+						</button>
+						<button
+							type="button"
 							class={navMobileClass('/experiencia')}
 							aria-current={navActive('/experiencia') ? 'page' : undefined}
-							onclick={() => (menuAbierto = false)}
+							onclick={() => {
+								void goto('/experiencia');
+								menuAbierto = false;
+							}}
 						>
 							Experiencia
-						</a>
-						<a
-							href="/habilidades"
+						</button>
+						<button
+							type="button"
 							class={navMobileClass('/habilidades')}
 							aria-current={navActive('/habilidades') ? 'page' : undefined}
-							onclick={() => (menuAbierto = false)}
+							onclick={() => {
+								void goto('/habilidades');
+								menuAbierto = false;
+							}}
 						>
 							Habilidades
-						</a>
-						<a
-							href="/proyectos"
+						</button>
+						<button
+							type="button"
 							class={navMobileClass('/proyectos')}
 							aria-current={navActive('/proyectos') ? 'page' : undefined}
-							onclick={() => (menuAbierto = false)}
+							onclick={() => {
+								void goto('/proyectos');
+								menuAbierto = false;
+							}}
 						>
 							Proyectos
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
