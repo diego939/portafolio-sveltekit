@@ -517,20 +517,144 @@
 
 	<!-- GitHub CTA -->
 	<section
-		class="mx-4 overflow-hidden rounded-3xl bg-gradient-to-r from-gray-900 via-purple-950 to-gray-900 px-6 py-10 text-center shadow-2xl sm:mx-6 sm:px-10 sm:py-12"
+		class="github-cta-section relative mx-3 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-gray-950 via-purple-950 to-gray-900 px-4 py-8 text-center shadow-[0_25px_80px_-12px_rgba(88,28,135,0.55)] sm:mx-6 sm:rounded-3xl sm:px-10 sm:py-14"
+		aria-labelledby="github-cta-heading"
 	>
-		<h2 class="mb-3 text-xl font-bold text-white sm:text-2xl">¿Más en GitHub?</h2>
-		<p class="mx-auto mb-8 max-w-xl text-xs text-purple-100/90 sm:text-sm">
-			Para ver más proyectos, contribuciones y mi actividad de desarrollo, visita mi perfil de GitHub. Ahí encontrarás repositorios adicionales, colaboraciones y un vistazo a mi evolución como desarrollador.
-		</p>
-		<a
-			href="https://github.com/diego939"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-3.5 text-sm font-bold text-gray-900 shadow-lg transition hover:bg-purple-900 hover:text-white hover:shadow-xl transition duration-300 hover:-translate-y-0.5 dark:bg-gray-100 dark:hover:bg-purple-700 dark:hover:text-white"
-		>
-			<i class="fa-brands fa-github fa-lg"></i>
-			Ver perfil en GitHub
-		</a>
+		<div
+			class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(168,85,247,0.35),transparent)]"
+			aria-hidden="true"
+		></div>
+		<div
+			class="github-cta-blob-a pointer-events-none absolute -left-24 top-[12%] h-80 w-80 rounded-full bg-violet-500/25 blur-3xl"
+			aria-hidden="true"
+		></div>
+		<div
+			class="github-cta-blob-b pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,black,transparent)]"
+			aria-hidden="true"
+		></div>
+
+		<div class="relative z-10">
+			<p
+				class="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-purple-300/90 sm:mb-3 sm:text-xs sm:tracking-[0.28em]"
+			>
+				Explora más código
+			</p>
+			<h2
+				id="github-cta-heading"
+				class="mb-3 bg-gradient-to-r from-white via-purple-100 to-fuchsia-200 bg-clip-text text-xl font-extrabold leading-tight text-transparent sm:mb-4 sm:text-3xl md:text-4xl"
+			>
+				¿Más en GitHub?
+			</h2>
+			<p
+				class="mx-auto mb-8 max-w-lg px-0.5 text-xs leading-relaxed text-purple-100/95 sm:mb-10 sm:px-0 sm:text-base md:mb-12"
+			>
+				Para ver más proyectos, contribuciones y mi actividad de desarrollo, visita mi perfil de GitHub.
+				<span class="text-white/95"> Repositorios, colaboraciones y cómo evoluciono como desarrollador.</span>
+			</p>
+
+			<div
+				class="relative mx-auto inline-flex w-full max-w-sm flex-col items-stretch gap-1.5 sm:max-w-none sm:w-auto sm:items-center sm:gap-2"
+			>
+				<span
+					class="github-cta-glow pointer-events-none absolute -inset-2 rounded-2xl bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-400 opacity-50 blur-2xl sm:-inset-3 sm:rounded-3xl"
+					aria-hidden="true"
+				></span>
+				<a
+					href="https://github.com/diego939"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Ver perfil en GitHub. Se abre en una pestaña nueva."
+					class="github-cta-btn group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-white px-5 py-3.5 text-sm font-bold text-gray-900 shadow-[0_10px_40px_-8px_rgba(0,0,0,0.45)] ring-2 ring-white/50 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-950 hover:text-white hover:shadow-[0_20px_50px_-10px_rgba(168,85,247,0.65)] hover:ring-purple-400/50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple-300 focus-visible:ring-offset-2 focus-visible:ring-offset-purple-950 active:translate-y-0 active:scale-[0.98] dark:bg-gray-100 dark:text-gray-950 dark:hover:bg-gray-950 dark:hover:text-white sm:w-auto sm:justify-center sm:gap-3 sm:rounded-2xl sm:px-10 sm:py-4 sm:text-lg sm:focus-visible:ring-offset-4"
+				>
+					<span
+						class="github-cta-shimmer pointer-events-none absolute inset-0 -translate-x-full skew-x-[-12deg] opacity-0"
+						aria-hidden="true"
+					></span>
+					<i
+						class="fa-brands fa-github relative z-10 text-base transition-transform duration-300 group-hover:scale-110 sm:text-xl"
+						aria-hidden="true"
+					></i>
+					<span class="relative z-10 sm:hidden">Ver perfil</span>
+					<span class="relative z-10 hidden sm:inline">Ver perfil en GitHub</span>
+					<svg
+						class="relative z-10 h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 sm:h-5 sm:w-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						aria-hidden="true"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2.5"
+							d="M13 7l5 5m0 0l-5 5m5-5H6"
+						/>
+					</svg>
+				</a>
+				<span
+					class="text-center text-[10px] font-medium leading-snug text-purple-200/70 sm:text-[11px]"
+				>
+					<span class="sm:hidden">Nueva pestaña</span>
+					<span class="hidden sm:inline">Se abre en una pestaña nueva</span>
+				</span>
+			</div>
+		</div>
 	</section>
 </div>
+
+<style>
+	@keyframes github-cta-blob {
+		0%,
+		100% {
+			transform: translate(0, 0) scale(1);
+		}
+		50% {
+			transform: translate(12px, -10px) scale(1.06);
+		}
+	}
+	.github-cta-blob-a {
+		animation: github-cta-blob 14s ease-in-out infinite;
+	}
+	.github-cta-blob-b {
+		animation: github-cta-blob 18s ease-in-out infinite reverse;
+	}
+	@keyframes github-cta-glow-pulse {
+		0%,
+		100% {
+			opacity: 0.4;
+			transform: scale(0.92);
+		}
+		50% {
+			opacity: 0.75;
+			transform: scale(1.05);
+		}
+	}
+	.github-cta-glow {
+		animation: github-cta-glow-pulse 2.6s ease-in-out infinite;
+	}
+	.github-cta-shimmer {
+		background: linear-gradient(
+			105deg,
+			transparent 0%,
+			rgba(255, 255, 255, 0.55) 45%,
+			rgba(255, 255, 255, 0.35) 50%,
+			transparent 65%
+		);
+	}
+	.github-cta-btn:hover .github-cta-shimmer {
+		opacity: 1;
+		animation: github-cta-shine 0.85s ease-out forwards;
+	}
+	@keyframes github-cta-shine {
+		from {
+			transform: translateX(-120%) skewX(-12deg);
+		}
+		to {
+			transform: translateX(120%) skewX(-12deg);
+		}
+	}
+</style>
