@@ -312,87 +312,87 @@
 				</div>
 			</div>
 		</div>
+	</nav>
 
-		{#if menuAbierto}
-			<button
-				type="button"
-				class="fixed inset-x-0 bottom-0 top-16 z-[55] bg-slate-950/45 md:hidden"
-				aria-label="Cerrar menú"
-				transition:fade={{ duration: mobileMenuMs, easing: mobileMenuEase }}
-				onclick={() => (menuAbierto = false)}
-			></button>
-			<div
-				id="nav-mobile-panel"
-				class="fixed left-0 right-0 top-16 z-[56] max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-gray-200/60 bg-white/95 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.12)] backdrop-blur-md dark:border-gray-800/80 dark:bg-gray-950/95 dark:shadow-black/35 md:hidden"
-				transition:fly={{ y: -12, duration: mobileMenuMs, easing: mobileMenuEase }}
-				role="navigation"
-				aria-label="Móvil"
-			>
-				<div class="max-w-7xl mx-auto px-4 pb-5 pt-2 sm:px-6">
-					<p class="mb-2 px-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
-						Navegación
-					</p>
-					<div class="flex flex-col gap-1.5">
-						<button
-							type="button"
-							class={navMobileClass('/')}
-							aria-current={navActive('/') ? 'page' : undefined}
-							onclick={() => {
-								void goto('/');
-								menuAbierto = false;
-							}}
-						>
-							Inicio
-						</button>
-						<button
-							type="button"
-							class={navMobileClass('/educacion')}
-							aria-current={navActive('/educacion') ? 'page' : undefined}
-							onclick={() => {
-								void goto('/educacion');
-								menuAbierto = false;
-							}}
-						>
-							Educación
-						</button>
-						<button
-							type="button"
-							class={navMobileClass('/experiencia')}
-							aria-current={navActive('/experiencia') ? 'page' : undefined}
-							onclick={() => {
-								void goto('/experiencia');
-								menuAbierto = false;
-							}}
-						>
-							Experiencia
-						</button>
-						<button
-							type="button"
-							class={navMobileClass('/habilidades')}
-							aria-current={navActive('/habilidades') ? 'page' : undefined}
-							onclick={() => {
-								void goto('/habilidades');
-								menuAbierto = false;
-							}}
-						>
-							Habilidades
-						</button>
-						<button
-							type="button"
-							class={navMobileClass('/proyectos')}
-							aria-current={navActive('/proyectos') ? 'page' : undefined}
-							onclick={() => {
-								void goto('/proyectos');
-								menuAbierto = false;
-							}}
-						>
-							Proyectos
-						</button>
-					</div>
+	{#if menuAbierto}
+		<button
+			type="button"
+			class="fixed inset-x-0 bottom-0 top-16 z-[55] bg-slate-950/45 md:hidden"
+			aria-label="Cerrar menú"
+			transition:fade={{ duration: mobileMenuMs, easing: mobileMenuEase }}
+			onclick={() => (menuAbierto = false)}
+		></button>
+		<div
+			id="nav-mobile-panel"
+			class="fixed left-0 right-0 top-16 z-[56] max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-gray-200/60 bg-white/95 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.12)] backdrop-blur-md dark:border-gray-800/80 dark:bg-gray-950/95 dark:shadow-black/35 md:hidden"
+			transition:fly={{ y: -12, duration: mobileMenuMs, easing: mobileMenuEase }}
+			role="navigation"
+			aria-label="Móvil"
+		>
+			<div class="max-w-7xl mx-auto px-4 pb-5 pt-2 sm:px-6">
+				<p class="mb-2 px-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
+					Navegación
+				</p>
+				<div class="flex flex-col gap-1.5">
+					<button
+						type="button"
+						class={navMobileClass('/')}
+						aria-current={navActive('/') ? 'page' : undefined}
+						onclick={() => {
+							void goto('/');
+							menuAbierto = false;
+						}}
+					>
+						Inicio
+					</button>
+					<button
+						type="button"
+						class={navMobileClass('/educacion')}
+						aria-current={navActive('/educacion') ? 'page' : undefined}
+						onclick={() => {
+							void goto('/educacion');
+							menuAbierto = false;
+						}}
+					>
+						Educación
+					</button>
+					<button
+						type="button"
+						class={navMobileClass('/experiencia')}
+						aria-current={navActive('/experiencia') ? 'page' : undefined}
+						onclick={() => {
+							void goto('/experiencia');
+							menuAbierto = false;
+						}}
+					>
+						Experiencia
+					</button>
+					<button
+						type="button"
+						class={navMobileClass('/habilidades')}
+						aria-current={navActive('/habilidades') ? 'page' : undefined}
+						onclick={() => {
+							void goto('/habilidades');
+							menuAbierto = false;
+						}}
+					>
+						Habilidades
+					</button>
+					<button
+						type="button"
+						class={navMobileClass('/proyectos')}
+						aria-current={navActive('/proyectos') ? 'page' : undefined}
+						onclick={() => {
+							void goto('/proyectos');
+							menuAbierto = false;
+						}}
+					>
+						Proyectos
+					</button>
 				</div>
 			</div>
-		{/if}
-	</nav>
+		</div>
+	{/if}
 
 	<!-- Contenido principal -->
 	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 dark:bg-gray-950">
