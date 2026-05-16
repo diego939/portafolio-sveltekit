@@ -68,7 +68,7 @@
 			if (!paginationEl || !prevBtn || !nextBtn) return;
 
 			const initial =
-				certificados.length > 0 ? Math.min(2, Math.max(0, certificados.length - 1)) : 0;
+				certificados.length > 0 ? Math.min(3, Math.max(0, certificados.length - 1)) : 0;
 
 			swiperInstance = new Swiper(swiperContainer, {
 				modules: [EffectCoverflow, Pagination, Navigation],
@@ -80,6 +80,7 @@
 				rewind: true,
 				initialSlide: initial,
 				speed: 550,
+				slideToClickedSlide: true,
 				slidesPerView: 1,
 				spaceBetween: 12,
 				watchSlidesProgress: true,
@@ -88,12 +89,12 @@
 				observeSlideChildren: true,
 				resizeObserver: true,
 				coverflowEffect: {
-					rotate: 8,
-					stretch: 0,
-					depth: 72,
-					scale: 0.94,
+					rotate: 0,
+					stretch: 80,
+					depth: 100,
+					scale: 0.9,
 					modifier: 1,
-					slideShadows: true
+					slideShadows: false
 				},
 				pagination: {
 					el: paginationEl,
@@ -112,8 +113,15 @@
 					},
 					1024: {
 						slidesPerView: 3,
-						spaceBetween: 22,
-						coverflowEffect: { rotate: 14, depth: 130, scale: 0.88 }
+						spaceBetween: 0,
+						coverflowEffect: {
+							rotate: 0,
+							stretch: 120,
+							depth: 120,
+							scale: 0.9,
+							modifier: 1,
+							slideShadows: false
+						}
 					}
 				}
 			});
@@ -288,6 +296,74 @@
 		max-width: 100%;
 		overflow-x: clip;
 		overflow-y: visible;
+		perspective: 1400px;
+	}
+
+	:global(.cert-swiper .swiper-wrapper) {
+		align-items: stretch;
+	}
+
+	:global(.cert-swiper .swiper-slide) {
+		position: relative;
+		z-index: 1;
+		height: auto;
+		pointer-events: auto;
+		transition:
+			transform 0.45s ease,
+			opacity 0.45s ease;
+	}
+
+	:global(.cert-swiper .swiper-slide .cert-card) {
+		position: relative;
+		z-index: 5;
+		transition:
+			transform 0.45s ease,
+			opacity 0.45s ease,
+			filter 0.45s ease,
+			box-shadow 0.45s ease,
+			border-color 0.45s ease;
+	}
+
+	:global(.cert-swiper .swiper-slide-active) {
+		z-index: 30;
+	}
+
+	:global(.cert-swiper .swiper-slide-prev),
+	:global(.cert-swiper .swiper-slide-next) {
+		z-index: 20;
+	}
+
+	/* CARD ACTIVA */
+	:global(.cert-swiper .swiper-slide-active) .cert-card {
+		transform: scale(1);
+		opacity: 1;
+		filter: blur(0);
+		border-color: rgb(147 51 234 / 0.28);
+		box-shadow:
+			0 22px 40px -18px rgb(0 0 0 / 0.28),
+			0 10px 18px -8px rgb(0 0 0 / 0.16);
+	}
+
+	/* CARDS LATERALES */
+	:global(.cert-swiper .swiper-slide-prev) .cert-card,
+	:global(.cert-swiper .swiper-slide-next) .cert-card {
+		transform: scale(0.9);
+		opacity: 0.72;
+		filter: blur(0.5px);
+	}
+
+	/* CARDS LEJANAS */
+	:global(.cert-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next))
+		.cert-card {
+		transform: scale(0.82);
+		opacity: 0.42;
+		filter: blur(1px);
+	}
+
+	/* Evita que sombras invisibles bloqueen clicks */
+	:global(.swiper-slide-shadow-left),
+	:global(.swiper-slide-shadow-right) {
+		pointer-events: none;
 	}
 
 	@media (max-width: 639.98px) {
@@ -322,32 +398,47 @@
 		min-height: 100%;
 		max-width: 100%;
 		overflow-wrap: break-word;
+		position: relative;
+		pointer-events: auto;
+
+		/* NUEVO ESTILO */
+		border-radius: 1.25rem;
+		background: rgb(255 255 255 / 0.92);
+		border: 1px solid rgb(88 28 135 / 0.08);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+		box-shadow:
+			0 8px 20px -10px rgb(0 0 0 / 0.14),
+			0 4px 8px -4px rgb(0 0 0 / 0.08);
+	}
+
+	:global(html.dark .cert-card) {
+		background: rgb(17 24 39 / 0.94);
+		border: 1px solid rgb(168 85 247 / 0.12);
+		box-shadow:
+			0 10px 24px -12px rgb(0 0 0 / 0.45),
+			0 4px 10px -4px rgb(0 0 0 / 0.3);
+	}
+
+	.cert-card:hover {
+		transform: translateY(-4px);
+		box-shadow:
+			0 26px 40px -18px rgb(0 0 0 / 0.22),
+			0 10px 18px -8px rgb(0 0 0 / 0.12);
 	}
 
 	@media (max-width: 639.98px) {
-		.cert-card {
-			transition:
-				filter 0.45s ease,
-				opacity 0.45s ease,
-				transform 0.45s ease,
-				box-shadow 0.45s ease;
+		:global(.cert-swiper .swiper-slide-prev) .cert-card,
+		:global(.cert-swiper .swiper-slide-next) .cert-card {
+			filter: blur(1.5px);
+			opacity: 0.6;
+			transform: scale(0.96);
+			pointer-events: none;
 		}
 
 		:global(.cert-swiper .swiper-slide-active) .cert-card {
-			filter: none;
-			opacity: 1;
 			transform: scale(1);
-			box-shadow:
-				0 10px 15px -3px rgb(0 0 0 / 0.08),
-				0 4px 6px -4px rgb(0 0 0 / 0.06);
-		}
-
-		:global(.cert-swiper .swiper-slide-prev) .cert-card,
-		:global(.cert-swiper .swiper-slide-next) .cert-card {
-			filter: blur(2.5px);
-			opacity: 0.68;
-			transform: scale(0.97);
-			pointer-events: none;
+			opacity: 1;
 		}
 	}
 
@@ -358,7 +449,7 @@
 		width: 100% !important;
 		max-width: 100%;
 		box-sizing: border-box;
-		margin-top: 1.25rem;
+		margin-top: 1.5rem;
 		padding: 0.25rem 0.25rem 0;
 		display: flex !important;
 		flex-wrap: wrap;
@@ -371,27 +462,30 @@
 	:global(.cert-swiper .cert-swiper-pagination .swiper-pagination-bullet) {
 		margin: 0 !important;
 		flex-shrink: 0;
-		width: 0.55rem;
-		height: 0.55rem;
+		width: 0.6rem;
+		height: 0.6rem;
 		background: rgb(88 28 135);
-		opacity: 0.4;
+		opacity: 0.3;
+		transition:
+			transform 0.25s ease,
+			opacity 0.25s ease;
 	}
 
 	@media (min-width: 640px) {
 		:global(.cert-swiper .cert-swiper-pagination .swiper-pagination-bullet) {
-			width: 0.625rem;
-			height: 0.625rem;
+			width: 0.68rem;
+			height: 0.68rem;
 		}
 	}
 
 	:global(.cert-swiper .cert-swiper-pagination .swiper-pagination-bullet-active) {
 		opacity: 1;
-		transform: scale(1.2);
+		transform: scale(1.25);
 	}
 
 	:global(html.dark .cert-swiper .cert-swiper-pagination .swiper-pagination-bullet) {
 		background: rgb(196 181 253);
-		opacity: 0.45;
+		opacity: 0.4;
 	}
 
 	:global(html.dark .cert-swiper .cert-swiper-pagination .swiper-pagination-bullet-active) {
