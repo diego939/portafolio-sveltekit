@@ -249,7 +249,7 @@
 							aria-current={navActive('/') ? 'page' : undefined}
 							onclick={() => void goto('/')}
 						>
-							Inicio
+							<i class="fa-solid fa-house mx-1"></i> Inicio
 						</button>
 						<button
 							type="button"
@@ -257,7 +257,7 @@
 							aria-current={navActive('/educacion') ? 'page' : undefined}
 							onclick={() => void goto('/educacion')}
 						>
-							Educación
+							<i class="fa-solid fa-graduation-cap mx-1"></i> Educación
 						</button>
 						<button
 							type="button"
@@ -265,7 +265,7 @@
 							aria-current={navActive('/experiencia') ? 'page' : undefined}
 							onclick={() => void goto('/experiencia')}
 						>
-							Experiencia
+							<i class="fa-solid fa-briefcase mx-1"></i> Experiencia
 						</button>
 						<button
 							type="button"
@@ -273,7 +273,7 @@
 							aria-current={navActive('/habilidades') ? 'page' : undefined}
 							onclick={() => void goto('/habilidades')}
 						>
-							Tecnologías
+							<i class="fa-solid fa-laptop-code mx-1"></i> Tecnologías
 						</button>
 						<button
 							type="button"
@@ -281,7 +281,7 @@
 							aria-current={navActive('/proyectos') ? 'page' : undefined}
 							onclick={() => void goto('/proyectos')}
 						>
-							Proyectos
+							<i class="fa-solid fa-folder-plus mx-1"></i> Proyectos
 						</button>
 					</div>
 				</div>
@@ -343,7 +343,7 @@
 							menuAbierto = false;
 						}}
 					>
-						Inicio
+						<i class="fa-solid fa-house mx-1"></i> Inicio
 					</button>
 					<button
 						type="button"
@@ -354,7 +354,7 @@
 							menuAbierto = false;
 						}}
 					>
-						Educación
+						<i class="fa-solid fa-graduation-cap mx-1"></i> Educación
 					</button>
 					<button
 						type="button"
@@ -365,7 +365,7 @@
 							menuAbierto = false;
 						}}
 					>
-						Experiencia
+						<i class="fa-solid fa-briefcase mx-1"></i> Experiencia
 					</button>
 					<button
 						type="button"
@@ -376,7 +376,7 @@
 							menuAbierto = false;
 						}}
 					>
-						Tecnologías
+						<i class="fa-solid fa-laptop-code mx-1"></i> Tecnologías
 					</button>
 					<button
 						type="button"
@@ -387,7 +387,7 @@
 							menuAbierto = false;
 						}}
 					>
-						Proyectos
+						<i class="fa-solid fa-folder-plus mx-1"></i> Proyectos
 					</button>
 				</div>
 			</div>

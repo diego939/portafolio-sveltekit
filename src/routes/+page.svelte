@@ -36,30 +36,35 @@
 		descripcion: string;
 		link: string;
 		accent: DestacadoAccent;
+		icon: string;
 	}[] = [
 		{
 			titulo: 'Educación',
 			descripcion: 'Formación académica y certificaciones que respaldan mi experiencia técnica.',
 			link: '/educacion',
-			accent: 'blue'
+			accent: 'blue',
+			icon: 'fa-solid fa-graduation-cap'
 		},
 		{
 			titulo: 'Experiencia',
 			descripcion: 'Trayectoria profesional y proyectos destacados en diferentes empresas.',
 			link: '/experiencia',
-			accent: 'green'
+			accent: 'green',
+			icon: 'fa-solid fa-briefcase'
 		},
 		{
-			titulo: 'Habilidades',
+			titulo: 'Tecnologías',
 			descripcion: 'Tecnologías, herramientas y competencias técnicas que domino.',
 			link: '/habilidades',
-			accent: 'purple'
+			accent: 'purple',
+			icon: 'fa-solid fa-laptop-code'
 		},
 		{
 			titulo: 'Proyectos',
 			descripcion: 'Algunos de los proyectos más relevantes en los que he trabajado como desarrollador.',
 			link: '/proyectos',
-			accent: 'indigo'
+			accent: 'indigo',
+			icon: 'fa-solid fa-folder-plus'
 		}
 	];
 
@@ -319,73 +324,15 @@
 									? 'from-pink-500 via-fuchsia-600 to-violet-700'
 									: 'from-cyan-400 via-sky-500 to-indigo-700'}"
 					></div>
-
 					<div
 						class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ring-1 max-md:shadow-sm md:shadow-inner {accentIconBg(
 							destacado.accent
 						)}"
 					>
-						{#if destacado.accent === 'blue'}
-							<svg
-								class="h-6 w-6 {accentIconClasses(destacado.accent)}"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-								/>
-							</svg>
-						{:else if destacado.accent === 'green'}
-							<svg
-								class="h-6 w-6 {accentIconClasses(destacado.accent)}"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"
-								/>
-							</svg>
-						{:else if destacado.accent === 'purple'}
-							<svg
-								class="h-6 w-6 {accentIconClasses(destacado.accent)}"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-								/>
-							</svg>
-						{:else}
-							<svg
-								class="h-6 w-6 {accentIconClasses(destacado.accent)}"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 4v16m8-8H4"
-								/>
-							</svg>
-						{/if}
+						<i
+							class="{destacado.icon} text-xl {accentIconClasses(destacado.accent)}"
+							aria-hidden="true"
+						></i>
 					</div>
 
 					<h3 class="mb-2 text-lg font-bold text-gray-900 sm:text-xl dark:text-gray-100">{destacado.titulo}</h3>
