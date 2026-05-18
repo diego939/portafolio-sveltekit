@@ -25,6 +25,25 @@
 		}
 	];
 
+	const APP_DE_TAREAS_GALERIA: GallerySlide[] = [
+		{
+			src: '/projects/app-tareas-vue/login.png',
+			alt: 'App de Tareas · Pantalla de inicio de sesión'
+		},
+		{
+			src: '/projects/app-tareas-vue/list.png',
+			alt: 'App de Tareas · Vista de lista de tareas'
+		},
+		{
+			src: '/projects/app-tareas-vue/edit.png',
+			alt: 'App de Tareas · Pantalla de edición de tareas'
+		},
+		{
+			src: '/projects/app-tareas-vue/delete.png',
+			alt: 'App de Tareas · Confirmación de eliminación de tareas'
+		}
+	];
+
 	function badgeCategoria(c: string): string {
 		if (c === 'Full Stack')
 			return 'bg-purple-100 text-purple-900 ring-1 ring-purple-200/80 dark:bg-purple-950/90 dark:text-purple-100 dark:ring-purple-700/50';
@@ -86,6 +105,7 @@
 			tecnologias: ["Vue", "Bootstrap", "JavaScript", "HTML", "CSS"],
 			url: "https://github.com/diego939/tareas-app-vue",
 			demo: "",
+			demoGaleria: APP_DE_TAREAS_GALERIA,
 			destacado: false
 		},
 		{
