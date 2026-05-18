@@ -273,7 +273,7 @@
 							aria-current={navActive('/habilidades') ? 'page' : undefined}
 							onclick={() => void goto('/habilidades')}
 						>
-							Habilidades
+							Tecnologías
 						</button>
 						<button
 							type="button"
@@ -376,7 +376,7 @@
 							menuAbierto = false;
 						}}
 					>
-						Habilidades
+						Tecnologías
 					</button>
 					<button
 						type="button"

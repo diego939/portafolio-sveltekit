@@ -132,7 +132,7 @@
 <div class="space-y-8 sm:space-y-12">
 	<!-- Header -->
 	<div class="text-center px-4">
-		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 dark:text-gray-100">Habilidades y Tecnologías</h1>
+		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 dark:text-gray-100">Tecnologías y Habilidades</h1>
 		<p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
 			Un resumen de las tecnologías, herramientas y competencias que he desarrollado a lo largo de mi carrera.
 		</p>
