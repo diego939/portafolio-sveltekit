@@ -187,6 +187,17 @@
 		},
 		{
 			id: 12,
+			titulo: "Actividades de Verano",
+			descripcion: "Plataforma web desarrollada para la gestión integral de una colonia de vacaciones, permitiendo la inscripción online de participantes y la consulta centralizada de actividades, horarios y ubicaciones. Implementé funcionalidades para la organización de grupos, visualización de sedes mediante integración con mapas interactivos y acceso rápido a información relevante para familias y coordinadores. La interfaz fue diseñada con un enfoque responsive y accesible, optimizando la experiencia de uso desde dispositivos móviles y facilitando la difusión de las actividades estivales.",
+			imagen: "☀️",
+			categoria: "Frontend",
+			tecnologias: ["SweetAlert", "CSS", "JavaScript", "Google Maps"],
+			url: "https://github.com/diego939/actividades-de-verano",
+			demo: "https://actividades-de-verano.vercel.app",
+			destacado: false
+		},
+		{
+			id: 13,
 			titulo: "Job Tracker App",
 			descripcion: "Aplicación Full Stack para la gestión de postulaciones laborales, que permite registrar, organizar y hacer seguimiento de empleos aplicados. Incluye funcionalidades como creación, edición y eliminación de aplicaciones, manejo de estados (aplicado, entrevista, oferta, rechazado) y persistencia de datos en la nube. El frontend fue desarrollado con React y Tailwind CSS, mientras que el backend utiliza Node.js con Prisma ORM conectado a una base de datos PostgreSQL en Superbase.",
 			imagen: "💼",
@@ -209,23 +220,25 @@
 
 	let filtroCategoria = "Todos";
 
+	let cantidadVisible = 3;
+	const incremento = 3;
+
 	const categorias = ["Todos", "Full Stack", "Frontend", "Backend"];
 
 	// Función para filtrar proyectos según categoría
 	$: proyectosFiltrados = proyectos.filter(proyecto => {
-		if (filtroCategoria === "Todos") return true;
-		
-		// Proyectos que aparecen en Full Stack
-		if (filtroCategoria === "Full Stack" && proyecto.categoria === "Full Stack") return true;
-		
-		// Proyectos que aparecen en Backend (mismos que Full Stack)
-		if (filtroCategoria === "Backend" && proyecto.categoria === "Full Stack") return true;
-		
-		// Proyectos que aparecen en Frontend
-		if (filtroCategoria === "Frontend" && proyecto.categoria === "Frontend") return true;
-		
-		return false;
-	});
+	if (filtroCategoria === "Todos") return true;
+
+	if (filtroCategoria === "Full Stack" && proyecto.categoria === "Full Stack") return true;
+
+	if (filtroCategoria === "Backend" && proyecto.categoria === "Full Stack") return true;
+
+	if (filtroCategoria === "Frontend" && proyecto.categoria === "Frontend") return true;
+
+	return false;
+});
+
+$: proyectosVisibles = proyectosFiltrados.slice(0, cantidadVisible);
 
 	const noDisponible = () => {
 		Swal.fire({
@@ -283,7 +296,10 @@
 					categoria
 						? 'bg-purple-900 text-white shadow-md shadow-purple-900/25'
 						: 'bg-gray-50 text-gray-700 hover:bg-purple-50 hover:text-purple-900 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-purple-950 dark:hover:text-purple-200'}"
-					on:click={() => (filtroCategoria = categoria)}
+					on:click={() => {
+						filtroCategoria = categoria;
+						cantidadVisible = 3;
+					}}
 					aria-pressed={filtroCategoria === categoria}
 				>
 					{categoria}
@@ -428,7 +444,7 @@
 			{filtroCategoria === 'Todos' ? 'Todos los proyectos' : `Proyectos · ${filtroCategoria}`}
 		</h2>
 		<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-			{#each proyectosFiltrados as proyecto (proyecto.id)}
+			{#each proyectosVisibles as proyecto (proyecto.id)}
 				<article
 					class="group flex h-full flex-col overflow-hidden rounded-2xl border-2 border-gray-200/80 bg-white shadow-lg transition duration-300 hover:border-gray-300 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-900 dark:hover:border-gray-600"
 				>
@@ -514,6 +530,30 @@
 				</article>
 			{/each}
 		</div>
+		{#if proyectosFiltrados.length > 3}
+			<div class="mt-8 flex justify-center">
+				<button
+					type="button"
+					class="rounded-xl bg-purple-900 px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-purple-800"
+					on:click={() => {
+						if (cantidadVisible >= proyectosFiltrados.length) {
+							cantidadVisible = 3;
+						} else {
+							cantidadVisible = Math.min(
+								cantidadVisible + incremento,
+								proyectosFiltrados.length
+							);
+						}
+					}}
+				>
+					{#if cantidadVisible >= proyectosFiltrados.length}
+						Ver menos
+					{:else}
+						Ver más
+					{/if}
+				</button>
+			</div>
+		{/if}
 	</section>
 
 	<!-- Estadísticas -->
