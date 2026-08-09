@@ -215,6 +215,17 @@
 			url: "https://github.com/diego939/job-tracker-frontend",
 			demo: "https://job-tracker-frontend-vert.vercel.app/",
 			destacado: false
+		},
+		{ 
+			id: 14,
+			titulo: "SPS Telemedicina", 
+			descripcion: "Sistema web 100% frontend desarrollado para simular el flujo de atención de un servicio de telemedicina integrado con un chatbot. El usuario interactúa con el asistente virtual, proporcionando sus datos para validar si es afiliado y, entre las opciones disponibles, puede seleccionar la atención con un médico, accediendo a una interfaz que simula una consulta médica virtual. El proyecto fue desarrollado como complemento de una landing web, con el objetivo de facilitar el acceso rápido al servicio de telemedicina desde el chatbot. Se priorizó una experiencia de usuario intuitiva, responsive y fluida, con una interfaz adaptada a distintos dispositivos.", 
+			imagen: "🩺", 
+			categoria: "Frontend", 
+			tecnologias: ["SvelteKit", "TailwindCSS", "Maquetado"], 
+			url: "https://github.com/diego939/sps-salud", 
+			demo: "https://sps-salud.vercel.app/", 
+			destacado: false 
 		}
 	];
 
