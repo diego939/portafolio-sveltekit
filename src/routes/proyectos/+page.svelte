@@ -558,9 +558,9 @@ $: proyectosVisibles = proyectosFiltrados.slice(0, cantidadVisible);
 					}}
 				>
 					{#if cantidadVisible >= proyectosFiltrados.length}
-						Ver menos
+						<span class="mr-2">Ver menos</span> <i class="fa-solid fa-circle-chevron-up"></i>
 					{:else}
-						Ver más
+						<span class="mr-2">Ver más</span> <i class="fa-solid fa-circle-chevron-down"></i>
 					{/if}
 				</button>
 			</div>
