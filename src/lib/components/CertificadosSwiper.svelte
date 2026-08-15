@@ -21,66 +21,23 @@
 		if (url) window.open(url, '_blank');
 	}
 
-	/**
-	 * Cuando la imagen termina de cargar:
-	 * - mostramos la imagen
-	 * - ocultamos el loader de esa imagen
-	 */
-	function onImgLoad(e: Event) {
-		const img = e.currentTarget as HTMLImageElement;
-
-		if (!img) return;
-
-		img.classList.remove('opacity-0');
-
-		const loader = img.parentElement?.querySelector(
-			'.cert-image-loader'
-		) as HTMLElement | null;
-
-		if (loader) {
-			loader.remove();
-		}
-	}
-
-	/**
-	 * Si una imagen falla:
-	 * - ocultamos la imagen
-	 * - ocultamos el loader
-	 * - mostramos el estado de error
-	 */
-	function onImgError(e: Event) {
-		const target = e.currentTarget as HTMLImageElement;
-
-		if (!target) return;
-
-		target.style.display = 'none';
-
-		const loader = target.parentElement?.querySelector(
-			'.cert-image-loader'
-		) as HTMLElement | null;
-
-		if (loader) {
-			loader.remove();
-		}
-
-		const errorContainer = target.parentElement?.querySelector(
-			'.cert-image-error'
-		) as HTMLElement | null;
-
-		if (errorContainer) {
-			errorContainer.style.display = 'flex';
-		}
-	}
-
 	let swiperContainer: HTMLElement | undefined = undefined;
 	let swiperInstance: SwiperType | undefined;
+
+	/**
+	 * Loader general de la sección.
+	 * Solamente permanece visible durante 2 segundos.
+	 */
+	let isLoading = true;
+
+	let loaderTimeout: ReturnType<typeof setTimeout>;
 
 	function refreshSwiper() {
 		swiperInstance?.update();
 	}
 
 	/**
-	 * Actualizamos Swiper después de navegar
+	 * Actualiza Swiper después de navegar
 	 * entre páginas de SvelteKit.
 	 */
 	afterNavigate(() => {
@@ -89,6 +46,17 @@
 
 	onMount(() => {
 		let cancelled = false;
+
+		/**
+		 * Loader temporal de 2 segundos.
+		 *
+		 * No depende de la carga de imágenes.
+		 */
+		loaderTimeout = setTimeout(() => {
+			if (!cancelled) {
+				isLoading = false;
+			}
+		}, 1000);
 
 		function onVisibilityChange() {
 			if (document.visibilityState === 'visible') {
@@ -105,7 +73,6 @@
 			try {
 				/**
 				 * Carga dinámica de Swiper.
-				 * No bloqueamos las imágenes esperando a Swiper.
 				 */
 				const [
 					{ default: Swiper },
@@ -163,7 +130,6 @@
 
 					centeredSlides: true,
 
-					// Permite volver del último slide al primero.
 					rewind: true,
 
 					initialSlide: initial,
@@ -178,14 +144,12 @@
 
 					watchSlidesProgress: true,
 
-					/**
-					 * Estos observers ayudan a que Swiper
-					 * se actualice cuando cambia el tamaño
-					 * de las imágenes o del contenedor.
-					 */
 					observer: true,
+
 					observeParents: true,
+
 					observeSlideChildren: true,
+
 					resizeObserver: true,
 
 					coverflowEffect: {
@@ -211,6 +175,7 @@
 					breakpoints: {
 						640: {
 							slidesPerView: 'auto',
+
 							spaceBetween: 20,
 
 							coverflowEffect: {
@@ -222,6 +187,7 @@
 
 						1024: {
 							slidesPerView: 3,
+
 							spaceBetween: 0,
 
 							coverflowEffect: {
@@ -236,9 +202,15 @@
 					}
 				});
 
+				/**
+				 * Esperamos al siguiente ciclo del DOM
+				 * y actualizamos Swiper.
+				 */
 				await tick();
 
-				swiperInstance?.update();
+				if (!cancelled) {
+					swiperInstance?.update();
+				}
 			} catch (error) {
 				console.error(
 					'Error al inicializar Swiper:',
@@ -248,12 +220,14 @@
 		})();
 
 		return () => {
+			cancelled = true;
+
+			clearTimeout(loaderTimeout);
+
 			document.removeEventListener(
 				'visibilitychange',
 				onVisibilityChange
 			);
-
-			cancelled = true;
 
 			swiperInstance?.destroy(true, true);
 
@@ -285,8 +259,37 @@
 		</p>
 	</div>
 
-	<!-- Carousel -->
-	<div class="max-w-7xl mx-auto relative z-10 w-full min-w-0">
+	<!-- =========================================
+	     CONTENEDOR DEL CARRUSEL + LOADER
+	     ========================================= -->
+	<div
+		class="relative max-w-7xl mx-auto w-full min-w-0"
+	>
+		<!-- =========================================
+		     LOADER GENERAL
+		     SOLO CUBRE EL CARRUSEL
+		     ========================================= -->
+		{#if isLoading}
+			<div
+				class="absolute h-full inset-0 z-[9999] flex cursor-wait items-center justify-center rounded-2xl bg-white/80 backdrop-blur-sm pointer-events-auto dark:bg-gray-900/80"
+				role="status"
+				aria-label="Cargando certificaciones"
+			>
+				<div class="flex flex-col items-center gap-4">
+					<div class="cert-loader-spinner"></div>
+
+					<span
+						class="text-sm font-medium text-purple-900 dark:text-purple-300"
+					>
+						Cargando certificaciones...
+					</span>
+				</div>
+			</div>
+		{/if}
+
+		<!-- =========================================
+		     CARRUSEL
+		     ========================================= -->
 		<div
 			class="relative w-full max-w-full mx-auto min-w-0 cert-carousel-shell"
 		>
@@ -334,7 +337,9 @@
 				</svg>
 			</button>
 
-			<!-- Swiper -->
+			<!-- =========================================
+			     SWIPER
+			     ========================================= -->
 			<div
 				class="swiper cert-swiper w-full max-w-full min-w-0"
 				bind:this={swiperContainer}
@@ -349,47 +354,15 @@
 								<div
 									class="relative w-full h-32 sm:h-36 mb-3 flex items-center justify-center shrink-0"
 								>
-									<!-- Loader individual -->
-									<div
-										class="cert-image-loader absolute inset-0 flex items-center justify-center rounded bg-gray-200/80 dark:bg-gray-800/80 animate-pulse"
-									>
-										<div
-											class="h-8 w-8 rounded-full border-4 border-purple-200 border-t-purple-700 animate-spin dark:border-purple-900 dark:border-t-purple-400"
-										></div>
-									</div>
-
-									<!-- Imagen -->
 									<img
 										src={cert.imagen}
 										alt={cert.nombre}
-										class="w-full h-full object-contain rounded opacity-0 transition-opacity duration-300 group-hover:scale-105"
+										class="w-full h-full object-contain rounded transition duration-300 group-hover:scale-105"
 										loading="lazy"
 										decoding="async"
 										width="300"
 										height="144"
-										on:load={onImgLoad}
-										on:error={onImgError}
 									/>
-
-									<!-- Error -->
-									<div
-										class="cert-image-error hidden items-center justify-center w-full h-full bg-gray-100/90 rounded text-gray-500 dark:bg-gray-800 dark:text-gray-400"
-									>
-										<svg
-											class="w-12 h-12"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-											aria-hidden="true"
-										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
-												d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-											/>
-										</svg>
-									</div>
 								</div>
 
 								<!-- Nombre -->
@@ -407,11 +380,14 @@
 								</p>
 
 								<!-- Botones -->
-								<div class="flex gap-2 w-full mt-auto pt-1">
+								<div
+									class="flex gap-2 w-full mt-auto pt-1"
+								>
 									{#if cert.pdf}
 										<button
 											type="button"
-											on:click={() => abrirPDF(cert.pdf)}
+											on:click={() =>
+												abrirPDF(cert.pdf)}
 											class="flex-1 bg-red-600 text-white text-xs py-2 px-2 sm:px-3 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-1 font-medium"
 										>
 											<svg
@@ -437,8 +413,9 @@
 										<button
 											type="button"
 											on:click={() =>
-												verificarCredencial(cert.credencial)
-											}
+												verificarCredencial(
+													cert.credencial
+												)}
 											class="flex-1 bg-emerald-600 text-white text-xs py-2 px-2 sm:px-3 rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-1 font-medium"
 										>
 											<svg
@@ -467,7 +444,9 @@
 
 				<!-- Pagination -->
 				<div class="hidden sm:block">
-					<div class="cert-swiper-pagination mb-4"></div>
+					<div
+						class="cert-swiper-pagination mb-4"
+					></div>
 				</div>
 			</div>
 		</div>
@@ -475,6 +454,25 @@
 </section>
 
 <style>
+	/* =========================================
+	   LOADER GENERAL
+	========================================= */
+
+	.cert-loader-spinner {
+		width: 44px;
+		height: 44px;
+		border: 4px solid rgb(196 181 253 / 0.35);
+		border-top-color: rgb(88 28 135);
+		border-radius: 50%;
+		animation: cert-spin 0.8s linear infinite;
+	}
+
+	@keyframes cert-spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
 	/* =========================================
 	   CAROUSEL SHELL
 	========================================= */
@@ -671,18 +669,6 @@
 		box-shadow:
 			0 26px 40px -18px rgb(0 0 0 / 0.22),
 			0 10px 18px -8px rgb(0 0 0 / 0.12);
-	}
-
-	/* =========================================
-	   IMAGE LOADER
-	========================================= */
-
-	.cert-image-loader {
-		z-index: 2;
-	}
-
-	.cert-image-loader div {
-		will-change: transform;
 	}
 
 	/* =========================================
