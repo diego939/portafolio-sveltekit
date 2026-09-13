@@ -211,7 +211,7 @@
 			<div class="w-full flex flex-col items-center">
 				<h1
 					id="hero-heading"
-					class="mb-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl xl:leading-tight dark:text-gray-100"
+					class="mb-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl xl:text-5xl xl:leading-tight dark:text-gray-100"
 				>
 					Hola, soy
 					<span
