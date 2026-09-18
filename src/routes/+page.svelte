@@ -170,7 +170,7 @@
 
 <!-- Hero -->
 <section
-	class="group relative mx-4 overflow-hidden rounded-2xl border-2 border-purple-900/10 bg-white shadow-xl shadow-purple-900/10 transition-[transform,box-shadow] duration-300 sm:mx-6 sm:rounded-3xl md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-purple-900/15 dark:border-purple-500/20 dark:bg-gray-900 dark:shadow-black/30"
+	class="group relative mx-4 overflow-hidden rounded-2xl bg-white shadow-xl shadow-purple-900/10 transition-[transform,box-shadow] duration-300 sm:mx-6 sm:rounded-3xl md:hover:shadow-2xl md:hover:shadow-purple-900/15 dark:border-purple-500/20 dark:bg-gray-900 dark:shadow-black/30"
 	aria-labelledby="hero-heading"
 >
 	<!-- Barra superior de acento -->
@@ -237,7 +237,7 @@
 		<div class="flex w-full flex-col items-center">
 			<h1
 				id="hero-heading"
-				class="mb-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl xl:text-5xl xl:leading-tight dark:text-gray-100"
+				class="mb-3 text-xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-3xl xl:text-4xl xl:leading-tight dark:text-gray-100"
 			>
 				Hola, soy
 				<span
@@ -255,12 +255,12 @@
 
 			<!-- Tecnologías -->
 			<div
-				class="mb-7 flex max-w-4xl flex-wrap justify-center gap-2"
+				class="mb-7 flex max-w-4xl flex-wrap justify-center gap-1.5 sm:gap-2"
 				aria-label="Tecnologías y áreas"
 			>
 				{#each tecnologias as tecnologia}
 					<span
-						class="rounded-full border border-purple-200/80 bg-white/80 px-2.5 py-1 text-xs font-medium text-purple-900 shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:bg-purple-50 hover:shadow-md sm:px-3 sm:text-sm dark:border-purple-600/50 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-500 dark:hover:bg-gray-700"
+						class="rounded-full border border-purple-200/80 bg-white/80 px-1.5 py-0.5 sm:px-2.5 sm:py-1 text-[10px] font-medium text-purple-900 shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:bg-purple-50 hover:shadow-md sm:px-3 sm:text-sm dark:border-purple-600/50 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-500 dark:hover:bg-gray-700"
 					>
 						{tecnologia}
 					</span>
@@ -269,7 +269,7 @@
 
 			<!-- Descripción -->
 			<p
-				class="mx-auto mb-8 max-w-4xl px-2 text-center text-sm leading-relaxed text-gray-600 sm:px-4 sm:text-base dark:text-gray-400"
+				class="mx-auto mb-8 max-w-4xl px-2 text-center text-xs leading-relaxed text-gray-600 sm:px-4 sm:text-base dark:text-gray-400"
 			>
 				{descripcion}
 			</p>
