@@ -341,25 +341,34 @@
 
 	<!-- Explorá el portafolio -->
 	<section class="px-4 sm:px-6" aria-labelledby="explorar-heading">
-		<div class="mx-auto mb-8 max-w-2xl text-center md:mb-10">
-			<h2 id="explorar-heading" class="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-gray-100">
+		<div class="mx-auto mb-7 max-w-2xl text-center sm:mb-8 md:mb-10">
+			<h2
+				id="explorar-heading"
+				class="text-xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-gray-100"
+			>
 				Explorá el portafolio
 			</h2>
-			<p class="mt-2 text-sm text-gray-600 sm:text-base dark:text-gray-400">
+
+			<p
+				class="mt-2 text-xs leading-relaxed text-gray-600 sm:text-base dark:text-gray-400"
+			>
 				Navegá por cada sección para conocer mi formación, experiencia y trabajo.
 			</p>
 		</div>
 
-		<div class="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
+		<div
+			class="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6"
+		>
 			{#each destacados as destacado (destacado.link)}
 				<a
 					href={destacado.link}
-					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-6 shadow-lg transition-shadow duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950 md:backdrop-blur-sm md:transition-[transform,box-shadow] md:duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl {accentCardSurface(
+					class="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 p-4 shadow-lg transition-shadow duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950 sm:p-6 md:backdrop-blur-sm md:transition-[transform,box-shadow] md:duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl {accentCardSurface(
 						destacado.accent
 					)} {accentCardRing(destacado.accent)}"
 				>
+					<!-- Barra superior -->
 					<div
-						class="pointer-events-none absolute inset-x-0 top-0 h-2 bg-gradient-to-r opacity-100 sm:h-1.5 {destacado.accent ===
+						class="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r opacity-100 sm:h-1.5 {destacado.accent ===
 						'blue'
 							? 'from-fuchsia-500 via-violet-600 to-indigo-600'
 							: destacado.accent === 'green'
@@ -368,28 +377,47 @@
 									? 'from-pink-500 via-fuchsia-600 to-violet-700'
 									: 'from-cyan-400 via-sky-500 to-indigo-700'}"
 					></div>
+
+					<!-- Icono -->
 					<div
-						class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ring-1 max-md:shadow-sm md:shadow-inner {accentIconBg(
+						class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ring-1 max-md:shadow-sm sm:mb-4 sm:h-12 sm:w-12 md:shadow-inner {accentIconBg(
 							destacado.accent
 						)}"
 					>
 						<i
-							class="{destacado.icon} text-xl {accentIconClasses(destacado.accent)}"
+							class="{destacado.icon} text-lg sm:text-xl {accentIconClasses(destacado.accent)}"
 							aria-hidden="true"
 						></i>
 					</div>
 
-					<h3 class="mb-2 text-lg font-bold text-gray-900 sm:text-xl dark:text-gray-100">{destacado.titulo}</h3>
-					<p class="mb-5 flex-grow text-sm leading-relaxed text-gray-600 sm:text-base dark:text-gray-400">
+					<!-- Título -->
+					<h3
+						class="mb-1.5 text-base font-bold text-gray-900 sm:mb-2 sm:text-xl dark:text-gray-100"
+					>
+						{destacado.titulo}
+					</h3>
+
+					<!-- Descripción -->
+					<p
+						class="mb-4 flex-grow text-xs leading-relaxed text-gray-600 sm:mb-5 sm:text-base dark:text-gray-400"
+					>
 						{destacado.descripcion}
 					</p>
+
+					<!-- Enlace -->
 					<span
-						class="mt-auto inline-flex items-center gap-2 text-sm font-semibold transition-[gap] duration-150 sm:gap-1 sm:duration-300 sm:group-hover:gap-2 {accentLinkClass(
+						class="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold transition-[gap] duration-150 sm:gap-1 sm:text-sm sm:duration-300 sm:group-hover:gap-2 {accentLinkClass(
 							destacado.accent
 						)}"
 					>
 						Ver más
-						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<svg
+							class="h-3.5 w-3.5 sm:h-4 sm:w-4"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
 							<path
 								stroke-linecap="round"
 								stroke-linejoin="round"
@@ -406,31 +434,39 @@
 	<!-- Contacto -->
 	<section
 		id="contacto"
-		class="relative mx-4 sm:mx-6 overflow-hidden rounded-2xl border border-purple-900/10 px-5 py-10 shadow-xl sm:rounded-3xl sm:px-8 sm:py-12 md:py-14 dark:border-purple-500/20"
+		class="relative mx-4 overflow-hidden rounded-2xl border border-purple-900/10 px-4 py-8 shadow-xl sm:mx-6 sm:rounded-3xl sm:px-8 sm:py-12 md:py-14 dark:border-purple-500/20"
 		aria-labelledby="contacto-heading"
 	>
 		<div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-900 to-indigo-900"></div>
+
 		<div
 			class="pointer-events-none absolute -right-16 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl"
 		></div>
+
 		<div
 			class="pointer-events-none absolute -bottom-20 left-0 h-56 w-56 rounded-full bg-indigo-500/20 blur-3xl"
 		></div>
 
 		<div class="relative z-10 mx-auto max-w-3xl text-center">
+			<!-- Título -->
 			<h2
 				id="contacto-heading"
-				class="mb-3 text-2xl font-bold text-white sm:text-3xl md:text-4xl"
+				class="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-3xl md:text-4xl"
 			>
 				¿Trabajamos juntos?
 			</h2>
-			<p class="mb-8 text-sm leading-relaxed text-purple-100/95 sm:text-base md:text-lg">
-				Estoy en búsqueda activa: freelance, contractor o relación de dependencia. Si algo de mi perfil encaja,
-				escribime.
+
+			<!-- Descripción -->
+			<p
+				class="mb-6 text-xs leading-relaxed text-purple-100/95 sm:mb-8 sm:text-base md:text-lg"
+			>
+				Estoy en búsqueda activa: freelance, contractor o relación de dependencia. Si algo de mi perfil
+				encaja, escribime.
 			</p>
 
+			<!-- Botones -->
 			<div
-				class="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3 md:gap-4"
+				class="flex flex-col items-stretch gap-2.5 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3 md:gap-4"
 			>
 				<a
 					data-tooltip-target="tooltip-linkedin"
@@ -438,73 +474,95 @@
 					href="https://www.linkedin.com/in/diegodavidalmiron"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="contact-btn contact-btn-linkedin inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
+					class="contact-btn contact-btn-linkedin inline-flex h-11 items-center justify-center gap-1.5 rounded-xl px-4 text-xs font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:h-12 sm:min-w-[11rem] sm:gap-2 sm:px-5 sm:text-sm"
 				>
-					<i class="fa-brands fa-linkedin-in fa-lg"></i>
+					<i class="fa-brands fa-linkedin-in text-base sm:fa-lg"></i>
 					LinkedIn
 				</a>
-				<div id="tooltip-linkedin" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+
+				<div
+					id="tooltip-linkedin"
+					role="tooltip"
+					class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+				>
 					Visita mi perfil de LinkedIn
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
+
 				<a
 					data-tooltip-target="tooltip-wa"
 					data-tooltip-placement="bottom"
 					href="https://wa.me/+543795315483?text=Hola Diego, vi tu portafolio y me gustaría conversar sobre una posible vacante..."
 					target="_blank"
 					rel="noopener noreferrer"
-					class="contact-btn contact-btn-wa inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
+					class="contact-btn contact-btn-wa inline-flex h-11 items-center justify-center gap-1.5 rounded-xl px-4 text-xs font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:h-12 sm:min-w-[11rem] sm:gap-2 sm:px-5 sm:text-sm"
 				>
-					<i class="fa-brands fa-whatsapp fa-lg"></i>
+					<i class="fa-brands fa-whatsapp text-base sm:fa-lg"></i>
 					WhatsApp
 				</a>
-				<div id="tooltip-wa" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+
+				<div
+					id="tooltip-wa"
+					role="tooltip"
+					class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+				>
 					Iniciar una conversación por WhatsApp
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
+
 				<button
 					data-tooltip-target="tooltip-contacto-cta-modal"
 					data-tooltip-placement="bottom"
 					type="button"
-					class="contact-btn contact-btn-cta inline-flex h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:min-w-[11rem]"
+					class="contact-btn contact-btn-cta inline-flex h-11 items-center justify-center gap-1.5 rounded-xl px-4 text-xs font-bold text-white shadow-lg transition active:scale-[0.98] focus:outline-none sm:h-12 sm:min-w-[11rem] sm:gap-2 sm:px-5 sm:text-sm"
 					on:click={() => contactModalOpen.set(true)}
 				>
-					<i class="fa-regular fa-envelope fa-lg"></i>
+					<i class="fa-regular fa-envelope text-base sm:fa-lg"></i>
 					Contacto
 				</button>
-				<div id="tooltip-contacto-cta-modal" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip">
+
+				<div
+					id="tooltip-contacto-cta-modal"
+					role="tooltip"
+					class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+				>
 					Abrir el formulario de contacto
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
 			</div>
-			<!-- Correo: desktop (tooltip Flowbite) -->
+
+			<!-- Correo: desktop -->
 			<div class="hidden md:block">
 				<button
 					type="button"
 					data-tooltip-target="tooltip-correo"
 					data-tooltip-placement="bottom"
-					class="mt-6 text-xs sm:text-sm font-mono text-purple-200 transition hover:text-white"
+					class="mt-5 text-xs font-mono text-purple-200 transition hover:text-white sm:mt-6 sm:text-sm"
 					on:click={() => copiarTexto('diegodavidalmiron17@gmail.com')}
 				>
-					diegodavidalmiron17@gmail.com <i class="fa-regular fa-copy" aria-hidden="true"></i>
+					diegodavidalmiron17@gmail.com
+					<i class="fa-regular fa-copy" aria-hidden="true"></i>
 				</button>
+
 				<div
 					id="tooltip-correo"
 					role="tooltip"
-					class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-800 rounded-lg shadow-xs opacity-0 tooltip whitespace-nowrap"
+					class="invisible absolute z-10 inline-block whitespace-nowrap rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
 				>
 					Copiar al portapapeles
 					<div class="tooltip-arrow" data-popper-arrow></div>
 				</div>
 			</div>
-			<!-- Correo: móvil (sin tooltip) -->
+
+			<!-- Correo: móvil -->
 			<div class="md:hidden">
 				<button
 					type="button"
-					class="mt-6 text-xs sm:text-sm font-mono text-purple-200 transition hover:text-white"
+					class="mt-5 text-[10px] font-mono text-purple-200 transition hover:text-white sm:mt-6 sm:text-sm"
 					on:click={() => copiarTexto('diegodavidalmiron17@gmail.com')}
 				>
-					diegodavidalmiron17@gmail.com <i class="fa-regular fa-copy" aria-hidden="true"></i>
+					diegodavidalmiron17@gmail.com
+					<i class="fa-regular fa-copy" aria-hidden="true"></i>
 				</button>
 			</div>
 		</div>
