@@ -168,191 +168,176 @@
 
 <div class="space-y-10 sm:space-y-14 md:space-y-20 pb-4">
 
-<!-- Hero -->
-<section
-	class="group relative mx-4 overflow-hidden rounded-2xl bg-white shadow-xl shadow-purple-900/10 transition-[transform,box-shadow] duration-300 sm:mx-6 sm:rounded-3xl md:hover:shadow-2xl md:hover:shadow-purple-900/15 dark:border-purple-500/20 dark:bg-gray-900 dark:shadow-black/30"
-	aria-labelledby="hero-heading"
->
-	<!-- Barra superior de acento -->
-	<div
-		class="pointer-events-none absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-fuchsia-500 via-violet-600 to-indigo-600 sm:h-1.5"
-	></div>
+	<!-- Hero -->
+	<section class="group relative mx-4 overflow-hidden rounded-2xl bg-white shadow-xl shadow-purple-900/10 transition-[transform,box-shadow] duration-300 sm:mx-6 sm:rounded-3xl md:hover:shadow-2xl md:hover:shadow-purple-900/15 dark:border-purple-500/20 dark:bg-gray-900 dark:shadow-black/30" aria-labelledby="hero-heading">
+		<!-- Barra superior de acento -->
+		<div class="pointer-events-none absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-fuchsia-500 via-violet-600 to-indigo-600 sm:h-1.5"></div>
 
-	<!-- Fondo principal -->
-	<div
-		class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-100/90 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950/90"
-	></div>
+		<!-- Fondo principal -->
+		<div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-100/90 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950/90"></div>
 
-	<!-- Brillos decorativos -->
-	<div
-		class="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full bg-purple-400/25 blur-3xl transition duration-500 group-hover:bg-purple-400/30"
-	></div>
+		<!-- Brillos decorativos -->
+		<div class="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full bg-purple-400/25 blur-3xl transition duration-500 group-hover:bg-purple-400/30"></div>
 
-	<div
-		class="pointer-events-none absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-indigo-400/20 blur-3xl"
-	></div>
+		<div class="pointer-events-none absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-indigo-400/20 blur-3xl"></div>
 
-	<div
-		class="pointer-events-none absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-fuchsia-400/10 blur-3xl"
-	></div>
+		<div class="pointer-events-none absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-fuchsia-400/10 blur-3xl"></div>
 
-	<!-- Contenido -->
-	<div
-		class="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-8 px-5 py-12 text-center sm:px-8 sm:py-14 md:gap-10 md:px-10 md:py-16"
-	>
-		<!-- Foto -->
-		<div class="relative flex w-full justify-center">
-			<!-- Halo exterior -->
-			<div
-				class="pointer-events-none absolute top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-gradient-to-br from-purple-500/30 via-violet-500/20 to-indigo-500/30 blur-2xl transition duration-500 group-hover:scale-110 group-hover:opacity-100"
-			></div>
+		<!-- Contenido -->
+		<div class="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-8 px-5 py-12 text-center sm:px-8 sm:py-14 md:gap-10 md:px-10 md:py-16">
+			<!-- Foto -->
+			<div class="relative flex w-full justify-center">
+				<!-- Halo exterior -->
+				<div
+					class="pointer-events-none absolute top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-gradient-to-br from-purple-500/30 via-violet-500/20 to-indigo-500/30 blur-2xl transition duration-500 group-hover:scale-110 group-hover:opacity-100"
+				></div>
 
-			<button
-				type="button"
-				class="group/photo relative rounded-full focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
-				on:click={() => (imageModalOpen = true)}
-				aria-label="Ampliar foto de perfil"
-			>
-				<!-- Anillo degradado -->
-				<span
-					class="absolute -inset-1 rounded-full bg-gradient-to-br from-fuchsia-500 via-violet-600 to-indigo-600 opacity-80 shadow-xl shadow-purple-900/25 transition duration-300 group-hover/photo:scale-105 group-hover/photo:opacity-100"
-				></span>
-
-				<!-- Foto -->
-				<span
-					class="relative block overflow-hidden rounded-full border-4 border-white bg-white shadow-2xl ring-1 ring-purple-900/10 transition duration-300 group-hover/photo:scale-[1.03] group-active/photo:scale-[0.98] dark:border-gray-800 dark:bg-gray-800 dark:ring-purple-500/30"
+				<button
+					type="button"
+					class="group/photo relative rounded-full focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
+					on:click={() => (imageModalOpen = true)}
+					aria-label="Ampliar foto de perfil"
 				>
-					<img
-						src="/images/profile.png"
-						alt=""
-						class="h-28 w-28 object-cover sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40"
-						width="160"
-						height="160"
-					/>
-				</span>
-			</button>
-		</div>
-
-		<!-- Presentación -->
-		<div class="flex w-full flex-col items-center">
-			<h1
-				id="hero-heading"
-				class="mb-3 text-xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-3xl xl:text-4xl xl:leading-tight dark:text-gray-100"
-			>
-				Hola, soy
-				<span
-					class="bg-gradient-to-r from-purple-900 via-violet-800 to-indigo-700 bg-clip-text text-transparent dark:from-purple-300 dark:via-violet-300 dark:to-indigo-300"
-				>
-					{nombre}
-				</span>
-			</h1>
-
-			<p
-				class="mb-6 max-w-3xl text-base font-semibold text-gray-700 sm:text-lg md:text-xl md:leading-snug dark:text-gray-300"
-			>
-				{titulo}
-			</p>
-
-			<!-- Tecnologías -->
-			<div
-				class="mb-7 flex max-w-4xl flex-wrap justify-center gap-1.5 sm:gap-2"
-				aria-label="Tecnologías y áreas"
-			>
-				{#each tecnologias as tecnologia}
+					<!-- Anillo degradado -->
 					<span
-						class="rounded-full border border-purple-200/80 bg-white/80 px-1.5 py-0.5 sm:px-2.5 sm:py-1 text-[10px] font-medium text-purple-900 shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:bg-purple-50 hover:shadow-md sm:px-3 sm:text-sm dark:border-purple-600/50 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-500 dark:hover:bg-gray-700"
+						class="absolute -inset-1 rounded-full bg-gradient-to-br from-fuchsia-500 via-violet-600 to-indigo-600 opacity-80 shadow-xl shadow-purple-900/25 transition duration-300 group-hover/photo:scale-105 group-hover/photo:opacity-100"
+					></span>
+
+					<!-- Foto -->
+					<span
+						class="relative block overflow-hidden rounded-full border-4 border-white bg-white shadow-2xl ring-1 ring-purple-900/10 transition duration-300 group-hover/photo:scale-[1.03] group-active/photo:scale-[0.98] dark:border-gray-800 dark:bg-gray-800 dark:ring-purple-500/30"
 					>
-						{tecnologia}
+						<img
+							src="/images/profile.png"
+							alt=""
+							class="h-28 w-28 object-cover sm:h-32 sm:w-32 md:h-36 md:w-36 lg:h-40 lg:w-40"
+							width="160"
+							height="160"
+						/>
 					</span>
-				{/each}
+				</button>
 			</div>
 
-			<!-- Descripción -->
-			<p
-				class="mx-auto mb-8 max-w-4xl px-2 text-center text-xs leading-relaxed text-gray-600 sm:px-4 sm:text-base dark:text-gray-400"
-			>
-				{descripcion}
-			</p>
-
-			<!-- CTAs -->
-			<div
-				class="flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:max-w-none sm:flex-row sm:justify-center"
-			>
-
-				<button
-					data-tooltip-target="tooltip-proyectos"
-					data-tooltip-placement="bottom"
-					type="button"
-					on:click={() => goto('/proyectos')}
-					class="group/btn inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900/20 bg-gradient-to-r from-purple-900 via-violet-800 to-indigo-800 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/25 transition-[transform,box-shadow,filter] duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-900/30 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-purple-400/20 dark:focus-visible:ring-offset-gray-900 sm:px-6"
+			<!-- Presentación -->
+			<div class="flex w-full flex-col items-center">
+				<h1
+					id="hero-heading"
+					class="mb-3 text-xl font-bold tracking-tight text-gray-900 sm:text-2xl md:text-3xl xl:text-4xl xl:leading-tight dark:text-gray-100"
 				>
-					<span class="sm:hidden">Ver proyectos</span>
-					<span class="hidden sm:inline">Explorar proyectos</span>
-
-					<svg
-						class="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						aria-hidden="true"
+					Hola, soy
+					<span
+						class="bg-gradient-to-r from-purple-900 via-violet-800 to-indigo-700 bg-clip-text text-transparent dark:from-purple-300 dark:via-violet-300 dark:to-indigo-300"
 					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M17 8l4 4m0 0l-4 4m4-4H3"
-						/>
-					</svg>
-				</button>
+						{nombre}
+					</span>
+				</h1>
 
-
-				<div
-					id="tooltip-proyectos"
-					role="tooltip"
-					class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+				<p
+					class="mb-6 max-w-3xl text-base font-semibold text-gray-700 sm:text-lg md:text-xl md:leading-snug dark:text-gray-300"
 				>
-					Explorá algunos de mis proyectos destacados
-					<div class="tooltip-arrow" data-popper-arrow></div>
+					{titulo}
+				</p>
+
+				<!-- Tecnologías -->
+				<div
+					class="mb-7 flex max-w-4xl flex-wrap justify-center gap-1.5 sm:gap-2"
+					aria-label="Tecnologías y áreas"
+				>
+					{#each tecnologias as tecnologia}
+						<span
+							class="rounded-full border border-purple-200/80 bg-white/80 px-1.5 py-0.5 sm:px-2.5 sm:py-1 text-[10px] font-medium text-purple-900 shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:bg-purple-50 hover:shadow-md sm:px-3 sm:text-sm dark:border-purple-600/50 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-500 dark:hover:bg-gray-700"
+						>
+							{tecnologia}
+						</span>
+					{/each}
 				</div>
 
-				<button
-					data-tooltip-target="tooltip-contacto-cta"
-					data-tooltip-placement="bottom"
-					type="button"
-					class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900 bg-white/80 px-5 py-3 text-sm font-semibold text-purple-900 shadow-sm backdrop-blur-sm transition-[transform,box-shadow,background-color] duration-200 hover:-translate-y-0.5 hover:border-purple-900 hover:bg-white hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:border-purple-400/40 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-300 dark:hover:bg-gray-700 sm:px-6 dark:focus-visible:ring-offset-gray-900"
-					on:click={() => contactModalOpen.set(true)}
+				<!-- Descripción -->
+				<p
+					class="mx-auto mb-8 max-w-4xl px-2 text-center text-xs leading-relaxed text-gray-600 sm:px-4 sm:text-base dark:text-gray-400"
 				>
-					<svg
-						class="h-4 w-4"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						aria-hidden="true"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-						/>
-					</svg>
+					{descripcion}
+				</p>
 
-					<span class="sm:hidden">Contacto</span> 
-					<span class="hidden sm:inline">Formulario de contacto</span>
-				</button>
-
+				<!-- CTAs -->
 				<div
-					id="tooltip-contacto-cta"
-					role="tooltip"
-					class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+					class="flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:max-w-none sm:flex-row sm:justify-center"
 				>
-					Abrí el formulario de contacto
-					<div class="tooltip-arrow" data-popper-arrow></div>
+
+					<button
+						data-tooltip-target="tooltip-proyectos"
+						data-tooltip-placement="bottom"
+						type="button"
+						on:click={() => goto('/proyectos')}
+						class="group/btn inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900/20 bg-gradient-to-r from-purple-900 via-violet-800 to-indigo-800 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/25 transition-[transform,box-shadow,filter] duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-900/30 hover:brightness-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-purple-400/20 dark:focus-visible:ring-offset-gray-900 sm:px-6"
+					>
+						<span class="sm:hidden">Ver proyectos</span>
+						<span class="hidden sm:inline">Explorar proyectos</span>
+
+						<svg
+							class="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M17 8l4 4m0 0l-4 4m4-4H3"
+							/>
+						</svg>
+					</button>
+
+
+					<div
+						id="tooltip-proyectos"
+						role="tooltip"
+						class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+					>
+						Explorá algunos de mis proyectos destacados
+						<div class="tooltip-arrow" data-popper-arrow></div>
+					</div>
+
+					<button
+						data-tooltip-target="tooltip-contacto-cta"
+						data-tooltip-placement="bottom"
+						type="button"
+						class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-purple-900 bg-white/80 px-5 py-3 text-sm font-semibold text-purple-900 shadow-sm backdrop-blur-sm transition-[transform,box-shadow,background-color] duration-200 hover:-translate-y-0.5 hover:border-purple-900 hover:bg-white hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 dark:border-purple-400/40 dark:bg-gray-800/90 dark:text-purple-200 dark:hover:border-purple-300 dark:hover:bg-gray-700 sm:px-6 dark:focus-visible:ring-offset-gray-900"
+						on:click={() => contactModalOpen.set(true)}
+					>
+						<svg
+							class="h-4 w-4"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+							/>
+						</svg>
+
+						<span class="sm:hidden">Contacto</span> 
+						<span class="hidden sm:inline">Formulario de contacto</span>
+					</button>
+
+					<div
+						id="tooltip-contacto-cta"
+						role="tooltip"
+						class="invisible absolute z-10 inline-block rounded-lg bg-gray-800 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-xs tooltip"
+					>
+						Abrí el formulario de contacto
+						<div class="tooltip-arrow" data-popper-arrow></div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 	<!-- Explorá el portafolio -->
 	<section class="px-4 sm:px-6" aria-labelledby="explorar-heading">
