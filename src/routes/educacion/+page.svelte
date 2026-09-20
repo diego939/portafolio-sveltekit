@@ -228,9 +228,16 @@
 
 <div class="space-y-12">
 	<!-- Header -->
-	<div class="text-center px-4">
-		<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 dark:text-gray-100">Educación</h1>
-		<p class="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
+	<div class="px-4 text-center">
+		<h1
+			class="mb-2 text-xl font-bold text-gray-900 sm:mb-3 sm:text-3xl md:text-4xl dark:text-gray-100"
+		>
+			Educación
+		</h1>
+
+		<p
+			class="mx-auto max-w-2xl text-xs leading-relaxed text-gray-600 sm:text-base md:text-lg dark:text-gray-400"
+		>
 			Mi formación académica y certificaciones que respaldan mi experiencia técnica y profesional.
 		</p>
 	</div>
