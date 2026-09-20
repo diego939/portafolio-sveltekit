@@ -245,18 +245,13 @@
 	></div>
 
 	<!-- Header -->
-	<div class="text-center mb-8 sm:mb-10 relative z-10">
-		<h2
-			class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 dark:text-gray-100"
-		>
-			Certificaciones
-		</h2>
-
-		<p
-			class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base dark:text-gray-400"
-		>
-			Credenciales verificables y material descargable de mi formación continua.
-		</p>
+	<div class="relative z-10 mb-7 text-center sm:mb-10"> 
+		<h2 class="mb-2 text-xl font-bold text-gray-800 sm:mb-3 sm:text-3xl md:text-4xl dark:text-gray-100" > 
+			Certificaciones 
+		</h2> 
+		<p class="mx-auto max-w-2xl text-xs leading-relaxed text-gray-600 sm:text-base dark:text-gray-400" > 
+			Credenciales verificables y material descargable de mi formación continua. 
+		</p> 
 	</div>
 
 	<!-- =========================================
@@ -367,14 +362,14 @@
 
 								<!-- Nombre -->
 								<h3
-									class="text-base sm:text-lg font-bold text-gray-800 mb-1 line-clamp-2 text-center dark:text-gray-100"
+									class="text-xs sm:text-lg font-bold text-gray-800 mb-1 line-clamp-2 text-center dark:text-gray-100"
 								>
 									{cert.nombre}
 								</h3>
 
 								<!-- Duración -->
 								<p
-									class="text-xs sm:text-sm text-purple-900 font-semibold mb-3 text-center dark:text-purple-300"
+									class="text-[0.625rem] sm:text-sm text-purple-900 font-semibold mb-3 text-center dark:text-purple-300"
 								>
 									Duración: {cert.duracion}
 								</p>
