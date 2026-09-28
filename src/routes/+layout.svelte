@@ -93,20 +93,6 @@
 			style.overflow = previousOverflow;
 		};
 	});
-
-	function toastThemeChanged() {
-		toggleDarkMode();
-		const isDark = get(darkMode);
-		Swal.fire({
-			toast: true,
-			position: 'top',
-			icon: 'success',
-			text: isDark ? 'Modo oscuro activado' : 'Modo claro activado',
-			timer: 2000,
-			showConfirmButton: false,
-			theme: isDark ? 'dark' : 'light'
-		});
-	}
 	
 	const pageInfo = $derived.by(() => {
 		switch (pathname) {
@@ -201,6 +187,36 @@
 			window.removeEventListener('resize', onScroll);
 		};
 	});
+
+let themeLoading = $state(false);
+let pendingTheme = $state<'dark' | 'light'>('dark');
+
+function toastThemeChanged() {
+  const nextIsDark = !get(darkMode);
+
+  pendingTheme = nextIsDark ? 'dark' : 'light';
+  themeLoading = true;
+
+  setTimeout(() => {
+    toggleDarkMode();
+  }, 900);
+
+  setTimeout(() => {
+    themeLoading = false;
+
+    Swal.fire({
+      toast: true,
+      position: 'top',
+      icon: 'success',
+      text: pendingTheme === 'dark'
+        ? 'Tema oscuro aplicado'
+        : 'Tema claro aplicado',
+      timer: 1400,
+      showConfirmButton: false,
+      theme: pendingTheme === 'dark' ? 'dark' : 'light'
+    });
+  }, 1050);
+}
 </script>
 
 <svelte:head>
@@ -211,7 +227,31 @@
 	<meta name="twitter:title" content={pageInfo.title} />
 	<meta name="twitter:description" content={pageInfo.description} />
 </svelte:head>
+{#if themeLoading}
+  <div
+    class:theme-loader-dark={pendingTheme === 'dark'}
+    class:theme-loader-light={pendingTheme === 'light'}
+    class="theme-loader-overlay"
+  >
+    <div class="theme-loader-card">
 
+      <div class="theme-loader-spinner"></div>
+
+      <p class="theme-loader-label">
+        Aplicando tema
+      </p>
+
+      <p class="theme-loader-theme">
+        {pendingTheme === 'dark' ? 'Oscuro' : 'Claro'}
+      </p>
+
+      <div class="theme-loader-progress">
+        <div class="theme-loader-progress-bar"></div>
+      </div>
+
+    </div>
+  </div>
+{/if}
 <div class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
 	<!-- Navegación: cabecera tipo cristal + dock en escritorio + panel móvil con overlay -->
 	<nav
