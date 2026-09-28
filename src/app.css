@@ -7,6 +7,153 @@ body {
 html.dark body {
   @apply bg-gray-950 text-gray-100;
 }
+
+.theme-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(10px);
+
+  animation: theme-overlay-in 180ms ease-out;
+}
+
+/* Loader que prepara el cambio hacia DARK */
+.theme-loader-dark {
+  background: rgba(249, 250, 251, 0.72);
+}
+
+.theme-loader-dark .theme-loader-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(124, 58, 237, 0.25);
+  color: #111827;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 0 40px rgba(124, 58, 237, 0.12);
+}
+
+/* Loader que prepara el cambio hacia LIGHT */
+.theme-loader-light {
+  background: rgba(3, 7, 18, 0.72);
+}
+
+.theme-loader-light .theme-loader-card {
+  background: rgba(17, 24, 39, 0.96);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #f9fafb;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(124, 58, 237, 0.18);
+}
+
+.theme-loader-card {
+  width: min(90%, 320px);
+  padding: 28px 24px;
+
+  border: 1px solid;
+  border-radius: 20px;
+
+  text-align: center;
+
+  animation: theme-card-in 250ms ease-out;
+}
+
+.theme-loader-spinner {
+  width: 42px;
+  height: 42px;
+
+  margin: 0 auto 18px;
+
+  border: 3px solid rgba(124, 58, 237, 0.18);
+  border-top-color: #8b5cf6;
+  border-right-color: #a855f7;
+
+  border-radius: 50%;
+
+  animation: theme-spin 700ms linear infinite;
+}
+
+.theme-loader-label {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.theme-loader-theme {
+  margin: 4px 0 18px;
+
+  color: #8b5cf6;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.theme-loader-progress {
+  width: 100%;
+  height: 4px;
+
+  overflow: hidden;
+  border-radius: 999px;
+
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.theme-loader-progress-bar {
+  width: 0%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #6d28d9,
+    #8b5cf6,
+    #a855f7
+  );
+
+  animation: theme-progress 900ms ease-out forwards;
+}
+
+@keyframes theme-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes theme-progress {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes theme-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes theme-card-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
